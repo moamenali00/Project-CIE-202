@@ -12,7 +12,7 @@ public:
 	Tri(Point, Point,Point, GfxInfo shapeGfxInfo);
 	virtual ~Tri();
 	virtual void Draw(GUI* pUI) const;
-	virtual bool CheckSelect(int, int) const { return 0; }
+	virtual bool CheckSelect(int, int) const;
 
 };
 

@@ -365,12 +365,12 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const
 	else
 		style = FRAME;
 	int rad;
-	rad = sqrt(((P1.x - P2.x) * (P1.x - P2.x)) + ((P1.y - P2.y) * (P1.y - P2.y)))/2;
-	double x,y;
+	rad = sqrt(((P1.x - P2.x) * (P1.x - P2.x)) + ((P1.y - P2.y) * (P1.y - P2.y)));
+	/*double x, y;
 	x = (P1.x + P2.x) / 2;
 	y = (P1.y + P2.y) / 2;
 	P1.x = x;
-	P1.y = y;
+	P1.y = y;*/
 	pWind->DrawCircle(P1.x, P1.y, rad, style);
 }
 
