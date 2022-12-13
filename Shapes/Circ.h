@@ -11,6 +11,8 @@ public:
 	Circ(Point, Point, GfxInfo shapeGfxInfo);
 	virtual ~Circ();
 	virtual void Draw(GUI* pUI) const;
+	virtual bool CheckSelect(int, int) const;
+
 };
 
 

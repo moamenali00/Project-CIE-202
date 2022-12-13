@@ -10,4 +10,6 @@ public:
 	Square(Point, Point, GfxInfo shapeGfxInfo);
 	virtual ~Square();
 	virtual void Draw(GUI* pUI) const;
+	virtual bool CheckSelect(int, int) const;
+
 };
