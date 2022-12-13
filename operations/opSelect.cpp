@@ -12,13 +12,13 @@ opSelect::~opSelect()
 
 void opSelect::Execute()
 {
-	Point P;
+	Point C;
 	GUI* pUI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
 	pGr->deSelect();
-	pUI->GetPointClicked(P.x, P.y);
-	if (pGr->Getshape(P.x, P.y) != nullptr) {
-		pGr->Getshape(P.x, P.y)->SetSelected(true);
+	C=pControl->P;
+	if (pGr->Getshape(C.x, C.y) != nullptr) {
+		pGr->Getshape(C.x, C.y)->SetSelected(true);
 	}
 
 

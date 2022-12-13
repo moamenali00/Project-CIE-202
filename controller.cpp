@@ -4,6 +4,7 @@
 #include "operations\opAddLine.h"
 #include "operations\opAddCirc.h"
 #include "operations\opAddTri.h"
+#include "operations\opSelect.h"
 
 
 
@@ -48,8 +49,9 @@ operation* controller::createOperation(operationType OpType)
 		case DRAW_CIRC:
 			pOp = new opAddCirc(this);
 			break;
+		case DRAWING_AREA:
+			pOp = new opSelect(this);
 
-			///create AddLineoperation here
 
 			break;
 
@@ -68,7 +70,7 @@ operation* controller::createOperation(operationType OpType)
 		case TO_DRAW:
 			pGUI->CreateDrawToolBar();
 			break;
-
+	
 	}
 
 	return pOp;
