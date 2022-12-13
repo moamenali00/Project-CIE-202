@@ -25,13 +25,22 @@ void Graph::Addshape(shape* pShp)
 void Graph::Draw(GUI* pUI) const
 {
 	pUI->ClearDrawArea();
-	for (auto shapePointer : shapesList)
-		shapePointer->Draw(pUI);
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsHidden())
+			shapePointer->Draw(pUI);
+	}
 }
 
 void Graph::deSelect() {
 	for (auto shapePointer : shapesList) {
 		shapePointer->SetSelected(false);
+	}
+}
+void Graph::Hide() {
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsSelected()) {
+			shapePointer->SetHidden(false);
+		}
 	}
 }
 
@@ -40,7 +49,7 @@ shape* Graph::Getshape(int x, int y) const
 {
 	{
 		for (auto shapePointer : shapesList) {
-			if (shapePointer != nullptr)
+			if (shapePointer != nullptr&&shapePointer->IsHidden())
 				if (shapePointer->CheckSelect(x, y)) {
 					return shapePointer;
 				}

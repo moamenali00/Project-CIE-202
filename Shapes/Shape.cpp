@@ -4,7 +4,12 @@ shape::shape(GfxInfo shapeGfxInfo)
 { 
 	ShpGfxInfo = shapeGfxInfo;	//Default status is non-filled.
 }
- 
+void shape::SetHidden(bool s) {
+	ShpGfxInfo.hidden = s;
+ }
+bool shape::IsHidden()const {
+	return ShpGfxInfo.hidden;
+}
 void shape::SetSelected(bool s)
 {	ShpGfxInfo.isSelected = s; }
 

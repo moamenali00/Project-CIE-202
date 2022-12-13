@@ -23,7 +23,6 @@ enum operationType //The operations supported (you can add more if needed)
 	SAVE,			//Save the whole graph to a file
 	LOAD,			//Load a graph from a file
 	EXIT,			//Exit the application
-
 	START,
 	HIDE,
 	UNHIDE,

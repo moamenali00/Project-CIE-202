@@ -16,8 +16,9 @@ public:
 	shape(GfxInfo shapeGfxInfo);
 	virtual ~shape() {}
 	void SetSelected(bool s);	//select/unselect the shape
+	void SetHidden(bool);
 	bool IsSelected() const;	//check whether fig is selected
-
+	bool IsHidden()const;
 	virtual void Draw(GUI* pUI) const  = 0 ;		//Draw the shape
 	
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color

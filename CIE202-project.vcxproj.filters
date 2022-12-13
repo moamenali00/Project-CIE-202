@@ -147,8 +147,10 @@
     <ClCompile Include="Shapes\Line.cpp">
       <Filter>Shapes&amp;Graph</Filter>
     </ClCompile>
-    <ClCompile Include="opSelect.cpp" />
     <ClCompile Include="operations\opSelect.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opDelete.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
   </ItemGroup>
@@ -260,6 +262,9 @@
     </ClInclude>
     <ClInclude Include="opSelect.h" />
     <ClInclude Include="operations\opSelect.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opDelete.h">
       <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>
