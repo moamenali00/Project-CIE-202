@@ -16,7 +16,7 @@ void opSelect::Execute()
 	GUI* pUI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
 	pGr->deSelect();
-	C=pControl->P;
+	C = pUI->ReturnP();
 	if (pGr->Getshape(C.x, C.y) != nullptr) {
 		pGr->Getshape(C.x, C.y)->SetSelected(true);
 	}
