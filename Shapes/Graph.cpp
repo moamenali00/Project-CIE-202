@@ -29,14 +29,24 @@ void Graph::Draw(GUI* pUI) const
 		shapePointer->Draw(pUI);
 }
 
+void Graph::deSelect() {
+	for (auto shapePointer : shapesList) {
+		shapePointer->SetSelected(false);
+	}
+}
+
 
 shape* Graph::Getshape(int x, int y) const
 {
-	//If a shape is found return a pointer to it.
-	//if this point (x,y) does not belong to any shape return NULL
+	{
+		for (auto shapePointer : shapesList) {
+			if (shapePointer != nullptr)
+				if (shapePointer->CheckSelect(x, y)) {
+					return shapePointer;
+				}
 
 
-	///Add your code here to search for a shape given a point x,y	
 
+		}
 	return nullptr;
 }
