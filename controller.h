@@ -14,7 +14,8 @@ class controller
 	GUI* pGUI;		//Pointer to UI class
 	
 
-public:	
+public:
+	Point P;
 	controller(); 
 	~controller();
 	

@@ -27,6 +27,7 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 
 class GUI
 {
+	Point ReturnP();
 	enum GUI_MODE	//Graphical user interface mode
 	{
 		MODE_DRAW,	//Drawing mode (startup mode)
@@ -100,13 +101,13 @@ class GUI
 	window* pWind;
 
 public:
-
+	Point P;
 	GUI();
 
 	// Input Functions  ---------------------------
 	void GetPointClicked(int& x, int& y) const;//Get coordinate where user clicks
 	string GetSrting() const;	 //Returns a string entered by the user
-	operationType GetUseroperation() const; //Read the user click and map to an operation
+	operationType GetUseroperation() ; //Read the user click and map to an operation
 
 	// Output Functions  ---------------------------
 	window* CreateWind(int, int, int, int) const; //creates the application window
