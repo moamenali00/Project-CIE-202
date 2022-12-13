@@ -17,11 +17,10 @@ void Tri::Draw(GUI* pUI) const
 }
 
 bool Tri::CheckSelect(int x, int y) const {
-	double slope_1 = (Corner1.x - Corner2.x) / (Corner1.y - Corner2.y);
-	double slope_2 = (Corner2.x - Corner3.x) / (Corner2.y - Corner3.y);
-	double slope_3 = (Corner3.x - Corner1.x) / (Corner3.y - Corner1.y);
-	double slope_4 = (Corner1.x - x) / (Corner1.y - y);
-	double slope_5 = (Corner2.x - x) / (Corner2.y - y);
-	if (slope_4 > slope_1) return true;
+	double area = 0.5 * abs((Corner1.x * (Corner2.y - Corner3.y)) + (Corner2.x * (Corner3.y - Corner1.y)) + (Corner3.x * (Corner1.y - Corner2.y)));
+	double area_2 = 0.5 * abs((x * (Corner2.y - Corner3.y)) + (Corner2.x * (Corner3.y - y)) + (Corner3.x * (y - Corner2.y)));
+	double area_3 = 0.5 * abs((Corner1.x * (y - Corner3.y)) + (x * (Corner3.y - Corner1.y)) + (Corner3.x * (Corner1.y -y)));
+	double area_4 = 0.5 * abs((Corner1.x * (Corner2.y - y)) + (Corner2.x * (y - Corner1.y)) + (x * (Corner1.y - Corner2.y)));
+	if (area == (area_2 + area_3 + area_4)) return true;
 	else return false;
 }
