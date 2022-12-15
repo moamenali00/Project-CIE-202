@@ -1,6 +1,6 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
-
+#include<fstream>
 Graph::Graph()
 {
 	selectedShape = nullptr;
@@ -36,6 +36,7 @@ void Graph::deSelect() {
 		shapePointer->SetSelected(false);
 	}
 }
+
 void Graph::Hide() {
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsSelected()) {
@@ -43,7 +44,21 @@ void Graph::Hide() {
 		}
 	}
 }
+void Graph::Save(ofstream& outfile){
+	int size = shapesList.size();
+	int id = 0;
+	for (int z = 0;z < size;z++) {
+		if (shapesList[z]->IsHidden()) {
+			shape* shape = shapesList[id];
+			shape->Save(outfile, ++id);
+			outfile << endl;
+		}
+		
 
+
+	}
+
+}
 
 shape* Graph::Getshape(int x, int y) const
 {

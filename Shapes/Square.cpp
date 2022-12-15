@@ -1,5 +1,7 @@
 #include "Shape.h"
 #include "Square.h"
+#include<fstream>
+#define getName(var)  #var
 
 Square::Square(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
@@ -23,4 +25,16 @@ bool Square::CheckSelect(int x, int y) const
 	else
 		return false;
 
+}
+void Square::Save(ofstream& OutFile,int c) {
+	OutFile << "Square ";
+	OutFile << " " << c<<"  ";
+	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
+	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue;	
+	if (ShpGfxInfo.isFilled) {
+		OutFile << "  Fill  ";
+	}
+	else
+		OutFile << "  No_fill  ";
+	OutFile << ShpGfxInfo.BorderWdth;
 }

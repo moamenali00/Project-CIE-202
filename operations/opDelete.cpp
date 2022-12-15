@@ -11,7 +11,6 @@ opDelete::~opDelete()
 {}
 
 void opDelete::Execute(){
-	GUI* pUI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
 	pGr->Hide();
 

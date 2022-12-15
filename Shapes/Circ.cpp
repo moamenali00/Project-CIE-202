@@ -1,5 +1,6 @@
 #include "Circ.h"
-
+#include<fstream>
+#define getName(var)  #var
 Circ::Circ(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
 	Corner1 = P1;
@@ -20,4 +21,16 @@ bool Circ::CheckSelect(int x, int y) const {
 	double rad_2 = sqrt(((Corner1.x - x) * (Corner1.x - x)) + ((Corner1.y - y) * (Corner1.y - y)));
 	if (rad_2 < rad) return true;
 	else return false;
+}
+void Circ::Save(ofstream& OutFile,int c) {
+	OutFile << "Circ ";
+	OutFile << " " << c<<"  ";
+	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
+	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue;
+	if (ShpGfxInfo.isFilled) {
+		OutFile << " Fill  ";
+	}
+	else
+		OutFile << "  No_fill  ";
+	OutFile << ShpGfxInfo.BorderWdth;
 }

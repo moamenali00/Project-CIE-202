@@ -1,5 +1,6 @@
 #include "Rect.h"
-
+#include<fstream>
+#define getName(var)  #var
 Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 {
 	Corner1 = P1;
@@ -22,4 +23,16 @@ bool Rect::CheckSelect(int x, int y) const
 	else
 		return false;
 
+}
+void Rect::Save(ofstream& OutFile,int c) {
+	OutFile << "Rect ";
+	OutFile << " " << c<<"  ";
+	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
+	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed<< " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue;
+	if (ShpGfxInfo.isFilled) {
+		OutFile << "  Fill  ";
+	}
+	else
+		OutFile << "  No_fill  ";
+	OutFile << ShpGfxInfo.BorderWdth;
 }

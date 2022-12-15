@@ -6,6 +6,7 @@
 #include "operations\opAddTri.h"
 #include "operations\opSelect.h"
 #include"operations\opDelete.h"
+#include"operations\opSave.h"
 
 
 //Constructor
@@ -44,10 +45,10 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddLine(this);
 			break;
 		case DRAW_TRI:
-			pOp = new opDelete(this);
+			pOp = new opSave(this);
 			break;
 		case DRAW_CIRC:
-			pOp = new opAddCirc(this);
+			pOp = new opDelete(this);
 			break;
 		case DRAWING_AREA:
 			pOp = new opSelect(this);
