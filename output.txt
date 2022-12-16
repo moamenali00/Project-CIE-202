@@ -1,2 +1,4 @@
-Rect  1  264 309 516 533  0 0 255  No_fill  3
-Rect  2  609 215 903 499  0 0 255  No_fill  3
+Rect  1  91 216 418 308  0 0 255  No_fill  3
+Rect  2  89 327 459 415  0 0 255  No_fill  3
+Line  3  117 465 401 566  0 0 255  No_fill  3
+Line  4  113 529 311 618  0 0 255  No_fill  3
