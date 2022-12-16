@@ -196,12 +196,14 @@ color GUI::CreateColorPallete()
 	pWind->DrawImage("images\\Undo.jpg", 0, 0, 70, 70);
 	pWind->SetBuffering(0);
 	GetPointClicked(P.x, P.y);
-	color clr = pWind->GetColor(P.x, P.y);
-	ClearToolBar();
-	CreateDrawToolBar();
-
-	return clr;
-
+	if (P.x < 70) CreateDrawToolBar();
+	else
+	{
+		color clr = pWind->GetColor(P.x, P.y);
+		ClearToolBar();
+		CreateDrawToolBar();
+		return clr;
+	};
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
