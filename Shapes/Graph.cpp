@@ -51,8 +51,8 @@ void Graph::Save(ofstream& outfile){
 	int id = 0;
 	for (int z = 0;z < size;z++) {
 		if (shapesList[z]->IsHidden()) {
-			shape* shape = shapesList[++id];
-			shape->Save(outfile, id);	
+			shape* shape = shapesList[z];
+			shape->Save(outfile, ++id);	
 			outfile << endl;
 		}
 		
