@@ -45,7 +45,8 @@ class GUI
 		ICON_CIRC,		//Circle icon in menu
 		ICON_TRIANGLE,
 		ICON_SQUARE,
-		ICON_POLY,		//Circle icon in menu
+		ICON_POLY,	
+		ICON_IPOLY,//Circle icon in menu
 		ICON_SAVE,
 		ICON_DELETE,
 		ICON_LOAD,

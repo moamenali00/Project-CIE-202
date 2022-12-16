@@ -11,6 +11,7 @@
 #include"operations\opFill.h"
 #include "operations\opPen.h"
 #include"operations\opLoad.h"
+#include"operations/opAddRPoly.h"
 
 //Constructor
 controller::controller()
@@ -54,6 +55,9 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddCirc(this);
 			break;
 		case DRAW_POLY:
+			pOp = new opAddRPoly(this);
+			break;
+		case DRAW_IPOLY:
 			pOp = new opAddPoly(this);
 			break;
 		case SAVE:
