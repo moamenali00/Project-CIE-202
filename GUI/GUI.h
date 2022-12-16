@@ -15,6 +15,7 @@ struct Point	//To be used for shapes points
 
 struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 {
+	
 	color DrawClr;	//Draw color of the shape
 	color FillClr;	//Fill color of the shape
 	bool isFilled;	//shape Filled or not
@@ -92,6 +93,7 @@ class GUI
 		MenuIconWidth;		//Width of each icon in toolbar menu
 
 	bool FillStatus;
+	color Default_Drawcolor;
 	color DrawColor;		//Drawing color
 	color FillColor;		//Filling color
 	color HighlightColor;	//Highlighting color

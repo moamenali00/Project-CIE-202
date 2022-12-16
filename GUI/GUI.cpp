@@ -18,6 +18,7 @@ GUI::GUI()
 	MenuIconWidth = 70;
 
 	FillStatus = false;
+	Default_Drawcolor = BLUE;
 	DrawColor = BLUE;	//default Drawing color
 	FillColor = GREEN;	//default Filling color
 	MsgColor = BLACK;		//Messages color
@@ -192,21 +193,15 @@ void GUI::ClearStatusBar() const
 
 color GUI::CreateColorPallete()
 {
-	pWind->DrawImage("images\\Color_Palette.jpg", 70, 0, 1230, 70);
+	pWind->DrawImage("images\\Color_Palette.jpg", 140, 0, 1160, 70);
 	pWind->DrawImage("images\\Undo.jpg", 0, 0, 70, 70);
+	pWind->DrawImage("images\\Default.jpg", 70, 0, 70, 70);
 	pWind->SetBuffering(0);
 	GetPointClicked(P.x, P.y);
-	if (P.x < 70) {
-		ClearToolBar();
-		CreateDrawToolBar();
-	}
-	else
-	{
-		color clr = pWind->GetColor(P.x, P.y);
-		ClearToolBar();
-		CreateDrawToolBar();
-		return clr;
-	};
+	color clr = pWind->GetColor(P.x, P.y);
+	ClearToolBar();
+	CreateDrawToolBar();
+	return clr;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
