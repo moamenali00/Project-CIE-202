@@ -11,34 +11,35 @@ opLoad::~opLoad()
 {}
 
 void opLoad::Execute() {
-	Point P1;Point P2;
+	Point P1;Point P2;Point P3;
 	ifstream inFile;
 	string line;
-	string words[11][11];
+	string fline;
 	Graph* pGr = pControl->getGraph();
 	GUI* UI = pControl->GetUI();
 	inFile.open("output.txt");
+	getline(inFile, fline);
+	int size=stoi(fline);
 	if (!inFile) {
 		UI->PrintMessage("File operation faliure");
 		return;
 	}
-	int j = 0;
-	int size=0;
+	string** words = new string * [size+1];
+	for (int i = 0;i < size+1;i++) {
+		words[i] = new string[11];
+	}
+	int j = 1;
 	while (getline(inFile, line)) {
 		stringstream ss(line);
 		string word;
-		int i = 0;
-		while (ss >> word) {
-			cout << i;
-			words[j][i++] = word;
+		for (int i = 0;i < 11 && j < size+1;i++) {
+			ss >> word;
+			words[j][i] = word;
 		}
 		j++;
 	}
-	size = stoi(words[0][0]);
 	for (int j = 1;j < size+1;j++) {
-		cout << words[j][0];
 		if (words[j][0] == "Rect") {
-			cout << "Rect";
 			GfxInfo RectGfxInfo;
 			P1.x = stoi(words[j][2]);
 			P1.y = stoi(words[j][3]);
