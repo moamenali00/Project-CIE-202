@@ -1,6 +1,8 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
 #include<fstream>
+#include<iostream>
+#include<typeinfo>
 Graph::Graph()
 {
 	selectedShape = nullptr;
@@ -49,8 +51,8 @@ void Graph::Save(ofstream& outfile){
 	int id = 0;
 	for (int z = 0;z < size;z++) {
 		if (shapesList[z]->IsHidden()) {
-			shape* shape = shapesList[id];
-			shape->Save(outfile, ++id);
+			shape* shape = shapesList[++id];
+			shape->Save(outfile, id);	
 			outfile << endl;
 		}
 		
