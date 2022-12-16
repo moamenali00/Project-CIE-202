@@ -51,12 +51,12 @@ void opAddPoly::Execute()
 
 
 	//Create a rectangle with the above parameters
-	Poly* R = new Poly(x, y, vertices, PolyGfxInfo);
+	//Poly* R = new Poly(x, y, vertices, PolyGfxInfo);
 
 	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();
 
 	//Add the rectangle to the list of shapes
-	pGr->Addshape(R);
+	//pGr->Addshape(R);
 
 }
