@@ -8,6 +8,7 @@
 #include"operations\opDelete.h"
 #include"operations\opSave.h"
 #include"operations\opFill.h"
+#include "operations\opPen.h"
 
 
 //Constructor
@@ -58,8 +59,10 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opDelete(this);
 			break;
 		case CHNG_FILL_CLR:
-			//pGUI->CreateColorPallete();
 			pOp = new opFill(this);
+			break;
+		case CHNG_DRAW_CLR:
+			pOp = new opPen(this);
 			break;
 		case DRAWING_AREA:
 			pOp = new opSelect(this);

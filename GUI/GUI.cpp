@@ -17,6 +17,7 @@ GUI::GUI()
 	ToolBarHeight = 70;
 	MenuIconWidth = 70;
 
+	FillStatus = false;
 	DrawColor = BLUE;	//default Drawing color
 	FillColor = GREEN;	//default Filling color
 	MsgColor = BLACK;		//Messages color
@@ -176,8 +177,8 @@ void GUI::CreateStatusBar() const
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::ClearToolBar() const
 {
-	pWind->SetPen(White, 1);
-	pWind->SetBrush(White);
+	pWind->SetPen(BkGrndColor, 1);
+	pWind->SetBrush(BkGrndColor);
 	pWind->DrawRectangle(0, 0, width, 70);
 }
 
@@ -198,7 +199,7 @@ color GUI::CreateColorPallete()
 	color clr = pWind->GetColor(P.x, P.y);
 	ClearToolBar();
 	CreateDrawToolBar();
-	setCrntFillColor(clr);
+
 	return clr;
 
 }
@@ -309,6 +310,20 @@ int GUI::getCrntPenWidth() const		//get current pen width
 
 void GUI::setCrntFillColor(color clr) {
 	FillColor = clr;
+}
+
+void GUI::setFilledStatus(bool y)
+{
+	FillStatus = y;
+}
+
+void GUI::setCrntPenColor(color clr) {
+	DrawColor = clr;
+}
+
+bool GUI::getFilledStatus() const
+{
+	return FillStatus;
 }
 
 
