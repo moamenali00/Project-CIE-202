@@ -4,6 +4,7 @@
 #include "..\shapes\Rect.h"
 #include "..\shapes\Square.h"
 #include"..\Shapes\Line.h"
+#include<iostream>
 opLoad::opLoad(controller* pCont) : operation(pCont)
 {}
 opLoad::~opLoad()
@@ -13,34 +14,39 @@ void opLoad::Execute() {
 	Point P1;Point P2;
 	ifstream inFile;
 	string line;
-	string words[10][10];
+	string words[11][11];
 	Graph* pGr = pControl->getGraph();
 	GUI* UI = pControl->GetUI();
 	inFile.open("output.txt");
-	int i = 0;int j = 0;
 	if (!inFile) {
 		UI->PrintMessage("File operation faliure");
 		return;
 	}
-
+	int j = 0;
+	int size=0;
 	while (getline(inFile, line)) {
 		stringstream ss(line);
 		string word;
+		int i = 0;
 		while (ss >> word) {
-			words[j++][i++] = word;
+			cout << i;
+			words[j][i++] = word;
 		}
+		j++;
 	}
-
-	for (int j = 1;j < 10;j++) {
+	size = stoi(words[0][0]);
+	for (int j = 1;j < size+1;j++) {
+		cout << words[j][0];
 		if (words[j][0] == "Rect") {
+			cout << "Rect";
 			GfxInfo RectGfxInfo;
 			P1.x = stoi(words[j][2]);
 			P1.y = stoi(words[j][3]);
 			P2.x = stoi(words[j][4]);
 			P2.y = stoi(words[j][5]);
-			RectGfxInfo.DrawClr.ucRed = stoi(words[j][6]);
-			RectGfxInfo.DrawClr.ucGreen = stoi(words[j][7]);
-			RectGfxInfo.DrawClr.ucBlue = stoi(words[j][8]);
+			RectGfxInfo.DrawClr.ucRed = (unsigned char)atol(words[j][6].c_str());
+			RectGfxInfo.DrawClr.ucGreen = (unsigned char)atol(words[j][7].c_str());
+			RectGfxInfo.DrawClr.ucBlue = (unsigned char)atol(words[j][8].c_str());
 			RectGfxInfo.BorderWdth = stoi(words[j][10]);
 			if (words[j][9] == "Fill")
 				RectGfxInfo.isFilled = true;
@@ -53,9 +59,9 @@ void opLoad::Execute() {
 				P1.y = stoi(words[j][3]);
 				P2.x = stoi(words[j][4]);
 				P2.y = stoi(words[j][5]);
-				SquareGfxInfo.DrawClr.ucRed = stoi(words[j][6]);
-				SquareGfxInfo.DrawClr.ucGreen = stoi(words[j][7]);
-				SquareGfxInfo.DrawClr.ucBlue = stoi(words[j][8]);
+				SquareGfxInfo.DrawClr.ucRed = (unsigned char)atol(words[j][6].c_str());
+				SquareGfxInfo.DrawClr.ucGreen = (unsigned char)atol(words[j][7].c_str());
+				SquareGfxInfo.DrawClr.ucBlue = (unsigned char)atol(words[j][8].c_str());
 				SquareGfxInfo.BorderWdth = stoi(words[j][10]);
 				if (words[j][9] == "Fill")
 					SquareGfxInfo.isFilled = true;
@@ -68,9 +74,9 @@ void opLoad::Execute() {
 			P1.y = stoi(words[j][3]);
 			P2.x = stoi(words[j][4]);
 			P2.y = stoi(words[j][5]);
-			LineGfxInfo.DrawClr.ucRed = stoi(words[j][6]);
-			LineGfxInfo.DrawClr.ucGreen = stoi(words[j][7]);
-			LineGfxInfo.DrawClr.ucBlue = stoi(words[j][8]);
+			LineGfxInfo.DrawClr.ucRed = (unsigned char)atol(words[j][6].c_str());
+			LineGfxInfo.DrawClr.ucGreen = (unsigned char)atol(words[j][7].c_str());
+			LineGfxInfo.DrawClr.ucBlue = (unsigned char)atol(words[j][8].c_str());
 			LineGfxInfo.BorderWdth = stoi(words[j][10]);
 			if (words[j][9] == "Fill")
 				LineGfxInfo.isFilled = true;
