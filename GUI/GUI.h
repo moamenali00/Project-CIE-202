@@ -91,7 +91,7 @@ class GUI
 		ToolBarHeight,		//Tool Bar Height (distance from top of window to bottom line of toolbar)
 		MenuIconWidth;		//Width of each icon in toolbar menu
 
-
+	bool FillStatus;
 	color DrawColor;		//Drawing color
 	color FillColor;		//Filling color
 	color HighlightColor;	//Highlighting color
@@ -139,9 +139,11 @@ public:
 	color getCrntDrawColor() const;	//get current drwawing color
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
+	bool getFilledStatus() const;
 
+	void setCrntPenColor(color);
 	void setCrntFillColor(color clr);
-	color getClickedColor(Point p1);
+	void setFilledStatus(bool);
 
 	~GUI();
 };
