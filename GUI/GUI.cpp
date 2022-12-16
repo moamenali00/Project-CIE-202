@@ -326,6 +326,10 @@ bool GUI::getFilledStatus() const
 	return FillStatus;
 }
 
+color GUI::getDefaultDrawColor() const
+{
+	return Default_Drawcolor;
+}
 
 //======================================================================================//
 //								shapes Drawing Functions								//

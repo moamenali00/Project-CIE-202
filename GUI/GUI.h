@@ -142,6 +142,7 @@ public:
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
 	bool getFilledStatus() const;
+	color getDefaultDrawColor() const;
 
 	void setCrntPenColor(color);
 	void setCrntFillColor(color clr);
