@@ -4,6 +4,7 @@
 #include "operations\opAddLine.h"
 #include "operations\opAddCirc.h"
 #include "operations\opAddTri.h"
+#include "operations\opAddPoly.h"
 #include "operations\opSelect.h"
 #include"operations\opDelete.h"
 #include"operations\opSave.h"
@@ -51,6 +52,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case DRAW_CIRC:
 			pOp = new opAddCirc(this);
+			break;
+		case DRAW_POLY:
+			pOp = new opAddPoly(this);
 			break;
 		case SAVE:
 			pOp = new opSave(this);
