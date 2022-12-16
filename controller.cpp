@@ -67,7 +67,7 @@ operation* controller::createOperation(operationType OpType)
 		case DRAWING_AREA:
 			pOp = new opSelect(this);
 			break;
-
+		
 		case EXIT:
 			///create Exitoperation here
 			
