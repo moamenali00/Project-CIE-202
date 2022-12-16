@@ -53,7 +53,7 @@ void Graph::Hide() {
 void Graph::Save(ofstream& outfile){
 	int size = shapesList.size();
 	int id = 0;
-	outfile << size << endl;
+	outfile << size<<endl;
 	for (int z = 0;z < size;z++) {
 		if (shapesList[z]->IsHidden()) {
 			shape* shape = shapesList[z];
