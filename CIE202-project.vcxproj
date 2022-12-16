@@ -167,6 +167,7 @@
     <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="operations\opAddCirc.cpp" />
+    <ClCompile Include="operations\opAddPoly.cpp" />
     <ClCompile Include="operations\opAddTri.cpp" />
     <ClCompile Include="operations\opAddLine.cpp" />
     <ClCompile Include="operations\opAddRect.cpp" />
@@ -179,6 +180,7 @@
     <ClCompile Include="operations\opSelect.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Line.cpp" />
+    <ClCompile Include="Shapes\Poly.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
     <ClCompile Include="Shapes\Rect.cpp" />
     <ClCompile Include="Shapes\Circ.cpp" />
@@ -211,6 +213,7 @@
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="operations\opAddCirc.h" />
     <ClInclude Include="operations\opAddLine.h" />
+    <ClInclude Include="operations\opAddPoly.h" />
     <ClInclude Include="operations\opAddRect.h" />
     <ClInclude Include="operations\opAddSquare.h" />
     <ClInclude Include="operations\opDelete.h" />
@@ -226,6 +229,7 @@
     <ClInclude Include="Shapes\Circ.h" />
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\Line.h" />
+    <ClInclude Include="Shapes\Poly.h" />
     <ClInclude Include="Shapes\Shape.h" />
     <ClInclude Include="Shapes\Rect.h" />
     <ClInclude Include="Shapes\Square.h" />

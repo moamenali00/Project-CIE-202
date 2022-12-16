@@ -18,6 +18,7 @@ GUI::GUI()
 	MenuIconWidth = 70;
 
 	FillStatus = false;
+	Default_Drawcolor = BLUE;
 	DrawColor = BLUE;	//default Drawing color
 	FillColor = GREEN;	//default Filling color
 	MsgColor = BLACK;		//Messages color
@@ -192,21 +193,15 @@ void GUI::ClearStatusBar() const
 
 color GUI::CreateColorPallete()
 {
-	pWind->DrawImage("images\\Color_Palette.jpg", 70, 0, 1230, 70);
+	pWind->DrawImage("images\\Color_Palette.jpg", 140, 0, 1160, 70);
 	pWind->DrawImage("images\\Undo.jpg", 0, 0, 70, 70);
+	pWind->DrawImage("images\\Default.jpg", 70, 0, 70, 70);
 	pWind->SetBuffering(0);
 	GetPointClicked(P.x, P.y);
-	if (P.x < 70) {
-		ClearToolBar();
-		CreateDrawToolBar();
-	}
-	else
-	{
-		color clr = pWind->GetColor(P.x, P.y);
-		ClearToolBar();
-		CreateDrawToolBar();
-		return clr;
-	};
+	color clr = pWind->GetColor(P.x, P.y);
+	ClearToolBar();
+	CreateDrawToolBar();
+	return clr;
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -331,6 +326,10 @@ bool GUI::getFilledStatus() const
 	return FillStatus;
 }
 
+color GUI::getDefaultDrawColor() const
+{
+	return Default_Drawcolor;
+}
 
 //======================================================================================//
 //								shapes Drawing Functions								//
@@ -431,12 +430,26 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const
 	pWind->DrawCircle(P1.x, P1.y, rad, style);
 }
 
-void GUI::DrawIrregularPoly(Point P1, Point P2, Point P3, Point P4, Point P5, GfxInfo LineGFxInfo) const {
-	DrawLine(P1, P2, LineGFxInfo);
-	DrawLine(P2, P3, LineGFxInfo); 
-	DrawLine(P3, P4, LineGFxInfo);
-	DrawLine(P4, P5, LineGFxInfo);
-	DrawLine(P5, P1, LineGFxInfo);
+void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
+{
+	color DrawingClr;
+	if (PolyGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = PolyGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, PolyGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (PolyGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(PolyGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawPolygon(X, Y, iVertices, style);
 }
 
 

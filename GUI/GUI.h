@@ -15,6 +15,7 @@ struct Point	//To be used for shapes points
 
 struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 {
+	
 	color DrawClr;	//Draw color of the shape
 	color FillClr;	//Fill color of the shape
 	bool isFilled;	//shape Filled or not
@@ -92,6 +93,7 @@ class GUI
 		MenuIconWidth;		//Width of each icon in toolbar menu
 
 	bool FillStatus;
+	color Default_Drawcolor;
 	color DrawColor;		//Drawing color
 	color FillColor;		//Filling color
 	color HighlightColor;	//Highlighting color
@@ -131,7 +133,7 @@ public:
 	void DrawLine(Point P1, Point P2, GfxInfo LineGFxInfo) const;
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGFxInfo) const;
 	void DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const;
-	void DrawIrregularPoly(Point P1, Point P2, Point P3, Point P4, Point P5, GfxInfo LineGFxInfo) const;
+	void DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const;
 	///Make similar functions for drawing all other shapes.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar
@@ -140,6 +142,7 @@ public:
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
 	bool getFilledStatus() const;
+	color getDefaultDrawColor() const;
 
 	void setCrntPenColor(color);
 	void setCrntFillColor(color clr);
