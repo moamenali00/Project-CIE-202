@@ -133,7 +133,7 @@ public:
 	void DrawLine(Point P1, Point P2, GfxInfo LineGFxInfo) const;
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGFxInfo) const;
 	void DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const;
-	void DrawIrregularPoly(Point P1, Point P2, Point P3, Point P4, Point P5, GfxInfo LineGFxInfo) const;
+	void DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const;
 	///Make similar functions for drawing all other shapes.
 
 	void PrintMessage(string msg) const;	//Print a message on Status bar

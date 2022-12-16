@@ -430,12 +430,26 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const
 	pWind->DrawCircle(P1.x, P1.y, rad, style);
 }
 
-void GUI::DrawIrregularPoly(Point P1, Point P2, Point P3, Point P4, Point P5, GfxInfo LineGFxInfo) const {
-	DrawLine(P1, P2, LineGFxInfo);
-	DrawLine(P2, P3, LineGFxInfo); 
-	DrawLine(P3, P4, LineGFxInfo);
-	DrawLine(P4, P5, LineGFxInfo);
-	DrawLine(P5, P1, LineGFxInfo);
+void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
+{
+	color DrawingClr;
+	if (PolyGfxInfo.isSelected)	//shape is selected
+		DrawingClr = HighlightColor; //shape should be drawn highlighted
+	else
+		DrawingClr = PolyGfxInfo.DrawClr;
+
+	pWind->SetPen(DrawingClr, PolyGfxInfo.BorderWdth);	//Set Drawing color & width
+
+	drawstyle style;
+	if (PolyGfxInfo.isFilled)
+	{
+		style = FILLED;
+		pWind->SetBrush(PolyGfxInfo.FillClr);
+	}
+	else
+		style = FRAME;
+
+	pWind->DrawPolygon(X, Y, iVertices, style);
 }
 
 
