@@ -1,3 +1,5 @@
-Rect  1  161 102 283 330  0 0 255  No_fill  3
-Square  2  561 106 710 255  0 0 255  No_fill  3
-Line  3  186 383 305 594  0 0 255  No_fill  3
+Rect  1  115 134 269 245  0 0 255  No_fill  3
+Circ  2  365 464 450 502  0 0 255  No_fill  3
+Tri  3 699 343 812 428 628 459 0 0 255  No_fill  3
+Square  4  884 167 998 281  0 0 255  No_fill  3
+Line  5  908 372 981 443  0 0 255  No_fill  3

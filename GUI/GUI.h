@@ -47,6 +47,9 @@ class GUI
 		ICON_POLY,		//Circle icon in menu
 		ICON_SAVE,
 		ICON_DELETE,
+		ICON_LOAD,
+		ICON_FILL,
+		ICON_PEN,
 		/*ICON_COLOR,
 		ICON_LOAD,*/
 
