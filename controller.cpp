@@ -45,9 +45,15 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddLine(this);
 			break;
 		case DRAW_TRI:
-			pOp = new opSave(this);
+			pOp = new opAddTri(this);
 			break;
 		case DRAW_CIRC:
+			pOp = new opAddCirc(this);
+			break;
+		case SAVE:
+			pOp = new opSave(this);
+			break;
+		case DEL:
 			pOp = new opDelete(this);
 			break;
 		case DRAWING_AREA:
