@@ -1,9 +1,6 @@
 #include "opAddRect.h"
 #include "..\shapes\Rect.h"
 
-#include "..\controller.h"
-
-#include "..\GUI\GUI.h"
 
 opAddRect::opAddRect(controller * pCont):operation(pCont)
 {}

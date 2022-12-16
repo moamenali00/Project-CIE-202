@@ -1,6 +1,7 @@
 #pragma once
 #include "..\defs.h"
 #include "..\GUI\GUI.h"
+#include<fstream>
 
 //Base class for all shapes
 class shape

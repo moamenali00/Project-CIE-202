@@ -1,9 +1,4 @@
 #include "opDelete.h"
-#include "..\shapes\Rect.h"
-#include<iostream>
-#include "..\controller.h"
-
-#include "..\GUI\GUI.h"
 
 opDelete::opDelete(controller* pCont) : operation(pCont)
 {}

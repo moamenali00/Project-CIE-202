@@ -1,6 +1,4 @@
 #include "Line.h"
-#include<fstream>
-#define getName(var)  #var
 
 Line::Line(Point P1, Point P2, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {

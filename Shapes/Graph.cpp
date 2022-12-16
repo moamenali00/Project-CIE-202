@@ -1,8 +1,6 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
 #include<fstream>
-#include<iostream>
-#include<typeinfo>
 Graph::Graph()
 {
 	selectedShape = nullptr;

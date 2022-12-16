@@ -1,6 +1,4 @@
 #include "Rect.h"
-#include<fstream>
-#define getName(var)  #var
 Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 {
 	Corner1 = P1;

@@ -1,7 +1,4 @@
 #include"opSave.h"
-#include"operation.h"
-#include "..\controller.h"
-#include "..\GUI\GUI.h"
 #include"fstream"
 opSave::opSave(controller* pCont) : operation(pCont)
 {}
