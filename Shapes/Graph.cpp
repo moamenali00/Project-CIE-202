@@ -39,6 +39,13 @@ void Graph::deSelect() {
 	}
 }
 
+void Graph::setColor(shape* pShp) 
+{
+	GUI* pGUI;
+	color clr = pGUI->getCrntFillColor();
+	pShp->ChngFillClr(clr);
+}
+
 void Graph::Hide() {
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsSelected()) {

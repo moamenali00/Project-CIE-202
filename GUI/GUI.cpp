@@ -174,6 +174,13 @@ void GUI::CreateStatusBar() const
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+void GUI::ClearToolBar() const
+{
+	pWind->SetPen(White, 1);
+	pWind->SetBrush(White);
+	pWind->DrawRectangle(0, 0, width, 70);
+}
+
 void GUI::ClearStatusBar() const
 {
 	//Clear Status bar by drawing a filled white rectangle
@@ -181,6 +188,21 @@ void GUI::ClearStatusBar() const
 	pWind->SetBrush(StatusBarColor);
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
 }
+
+color GUI::CreateColorPallete()
+{
+	pWind->DrawImage("images\\Color_Palette.jpg", 70, 0, 1230, 70);
+	pWind->DrawImage("images\\Undo.jpg", 0, 0, 70, 70);
+	pWind->SetBuffering(0);
+	GetPointClicked(P.x, P.y);
+	color clr = pWind->GetColor(P.x, P.y);
+	ClearToolBar();
+	CreateDrawToolBar();
+	setCrntFillColor(clr);
+	return clr;
+
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::CreateDrawToolBar() 
 {
@@ -284,6 +306,11 @@ int GUI::getCrntPenWidth() const		//get current pen width
 {
 	return PenWidth;
 }
+
+void GUI::setCrntFillColor(color clr) {
+	FillColor = clr;
+}
+
 
 //======================================================================================//
 //								shapes Drawing Functions								//

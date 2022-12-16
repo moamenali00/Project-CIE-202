@@ -3,6 +3,8 @@
 #include "..\controller.h"
 #include "..\GUI\GUI.h"
 #include"fstream"
+
+
 opSave::opSave(controller* pCont) : operation(pCont)
 {}
 opSave::~opSave()
