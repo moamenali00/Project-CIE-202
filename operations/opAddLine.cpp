@@ -1,10 +1,5 @@
 #include "opAddLine.h"
 #include "..\shapes\Line.h"
-
-#include "..\controller.h"
-
-#include "..\GUI\GUI.h"
-
 opAddLine::opAddLine(controller* pCont) :operation(pCont)
 {}
 opAddLine::~opAddLine()

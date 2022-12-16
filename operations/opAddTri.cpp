@@ -1,10 +1,6 @@
 #include "opAddTri.h"
 #include "..\shapes\Tri.h"
 
-#include "..\controller.h"
-
-#include "..\GUI\GUI.h"
-
 opAddTri::opAddTri(controller* pCont) :operation(pCont)
 {}
 opAddTri::~opAddTri()

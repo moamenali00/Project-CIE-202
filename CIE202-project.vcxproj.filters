@@ -156,7 +156,7 @@
     <ClCompile Include="operations\opSave.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
-    <ClCompile Include="operations\opFill.cpp">
+    <ClCompile Include="operations\opLoad.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
     <ClCompile Include="operations\opPen.cpp">
@@ -279,7 +279,7 @@
     <ClInclude Include="operations\opSave.h">
       <Filter>Operations</Filter>
     </ClInclude>
-    <ClInclude Include="operations\opFill.h">
+    <ClInclude Include="operations\opLoad.h">
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opPen.h">

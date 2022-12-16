@@ -14,8 +14,8 @@ GUI::GUI()
 
 
 	StatusBarHeight = 50;
-	ToolBarHeight = 70;
-	MenuIconWidth = 70;
+	ToolBarHeight = 50;
+	MenuIconWidth = 80;
 
 	FillStatus = false;
 	DrawColor = BLUE;	//default Drawing color
@@ -98,11 +98,6 @@ operationType GUI::GetUseroperation()
 			case ICON_TRIANGLE: return DRAW_TRI;
 			case ICON_SQUARE: return DRAW_SQUARE;
 			case ICON_POLY: return DRAW_POLY;
-			case ICON_SAVE: return SAVE;
-			case ICON_DELETE : return DEL;
-			case ICON_LOAD: return LOAD;
-			case ICON_FILL: return CHNG_FILL_CLR;
-			case ICON_PEN: return CHNG_DRAW_CLR;
 			case ICON_EXIT: return EXIT;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -228,11 +223,6 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_TRIANGLE] = "images\\MenuIcons\\Menu_Triangle.jpg";
 	MenuIconImages[ICON_SQUARE] = "images\\MenuIcons\\Menu_Square.jpg";
 	MenuIconImages[ICON_POLY] = "images\\MenuIcons\\Menu_Poly.jpg";
-	MenuIconImages[ICON_SAVE] = "images\\MenuIcons\\Menu_Save.jpg";
-	MenuIconImages[ICON_DELETE] = "images\\MenuIcons\\Menu_Del.jpg";
-	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
-	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
-	MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
 
 	//TODO: Prepare images for each menu icon and add it to the list

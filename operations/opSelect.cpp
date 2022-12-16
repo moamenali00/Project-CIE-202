@@ -1,9 +1,4 @@
 #include "opSelect.h"
-#include "..\shapes\Rect.h"
-#include<iostream>
-#include "..\controller.h"
-
-#include "..\GUI\GUI.h"
 
 opSelect::opSelect(controller* pCont) : operation(pCont)
 {}

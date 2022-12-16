@@ -1,8 +1,6 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
 #include<fstream>
-#include<iostream>
-#include<typeinfo>
 Graph::Graph()
 {
 	selectedShape = nullptr;
@@ -19,7 +17,6 @@ Graph::~Graph()
 //Add a shape to the list of shapes
 void Graph::Addshape(shape* pShp)
 {
-	//Add a new shape to the shapes vector
 	shapesList.push_back(pShp);	
 }
 ////////////////////////////////////////////////////////////////////////////////////
@@ -56,6 +53,7 @@ void Graph::Hide() {
 void Graph::Save(ofstream& outfile){
 	int size = shapesList.size();
 	int id = 0;
+	outfile << size << endl;
 	for (int z = 0;z < size;z++) {
 		if (shapesList[z]->IsHidden()) {
 			shape* shape = shapesList[z];

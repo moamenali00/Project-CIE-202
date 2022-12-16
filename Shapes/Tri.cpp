@@ -1,6 +1,4 @@
 #include "Tri.h"
-#include<fstream>
-#define getName(var)  #var
 Tri::Tri(Point P1, Point P2, Point P3, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
 	Corner1 = P1;
