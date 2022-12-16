@@ -1,4 +1,2 @@
-3
-Rect  1  208 170 437 383  0 0 255  No_fill  3
-Rect  2  562 202 707 430  0 0 255  No_fill  3
-Square  3  775 154 991 370  0 0 255  No_fill  3
+2
+Square  1  317 158 551 392  0 0 255  No_fill  3
