@@ -45,7 +45,10 @@ class GUI
 		ICON_TRIANGLE,
 		ICON_SQUARE,
 		ICON_POLY,		//Circle icon in menu
-
+		ICON_SAVE,
+		ICON_DELETE,
+		/*ICON_COLOR,
+		ICON_LOAD,*/
 
 
 		//TODO: Add more icons names here
