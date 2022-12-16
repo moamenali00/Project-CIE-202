@@ -156,10 +156,13 @@
     <ClCompile Include="operations\opSave.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
-    <ClCompile Include="operations\opLoad.cpp">
+    <ClCompile Include="operations\opFill.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
     <ClCompile Include="operations\opPen.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opLoad.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
   </ItemGroup>
@@ -279,10 +282,13 @@
     <ClInclude Include="operations\opSave.h">
       <Filter>Operations</Filter>
     </ClInclude>
-    <ClInclude Include="operations\opLoad.h">
+    <ClInclude Include="operations\opFill.h">
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opPen.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opLoad.h">
       <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>

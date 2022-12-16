@@ -9,7 +9,7 @@
 #include"operations\opSave.h"
 #include"operations\opFill.h"
 #include "operations\opPen.h"
-
+#include"operations\opLoad.h"
 
 //Constructor
 controller::controller()
@@ -67,7 +67,9 @@ operation* controller::createOperation(operationType OpType)
 		case DRAWING_AREA:
 			pOp = new opSelect(this);
 			break;
-		
+		case LOAD:
+			pOp = new opLoad(this);
+			break;
 		case EXIT:
 			///create Exitoperation here
 			
