@@ -49,6 +49,12 @@ void Graph::Hide() {
 		}
 	}
 }
+void Graph::Clear() {
+	for (auto shapePointer : shapesList) {
+		delete shapePointer;
+		shapePointer=nullptr;
+	}
+}
 void Graph::Save(ofstream& outfile){
 	int size = shapesList.size();
 	int id = 0;
@@ -69,15 +75,15 @@ void Graph::Save(ofstream& outfile){
 shape* Graph::Getshape(int x, int y) const
 {
 	{
-		for (auto shapePointer : shapesList) {
-			if (shapePointer != nullptr&&shapePointer->IsVisible())
-				if (shapePointer->CheckSelect(x, y)) {
-					return shapePointer;
+		for (int i = shapesList.size()-1;i>=0;i--) {
+			if (shapesList[i] != nullptr && shapesList[i]->IsVisible())
+				if (shapesList[i]->CheckSelect(x, y)) {
+					return shapesList[i];
 				}
-
+		}
+		
 
 
 		}
 		return nullptr;
 	}
-}
