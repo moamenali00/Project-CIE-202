@@ -22,12 +22,13 @@ void opLoad::Execute() {
 	GUI* UI = pControl->GetUI();
 	UI->PrintMessage("Enter the file name(relative address)");
 	inFile.open(UI->GetSrting());
-	getline(inFile, fline);
-	int size = stoi(fline);
-	if (!inFile) {
+	if (inFile.fail()) {
 		UI->PrintMessage("File operation faliure");
 		return;
 	}
+	UI->ClearStatusBar();
+	getline(inFile, fline);
+	int size = stoi(fline);
 	string** words = new string * [size + 1];
 	for (int i = 0;i < size + 1;i++) {
 		words[i] = new string[300];
@@ -55,16 +56,19 @@ void opLoad::Execute() {
 			unsigned Green = (unsigned char)atol(words[j][i++].c_str());
 			unsigned Blue = (unsigned char)atol(words[j][i++].c_str());
 			RectGfxInfo.DrawClr=color(Red, Green, Blue);
-			if (words[j][i] == "fill") {
-				unsigned char Red = (unsigned char)atol(words[j][++i].c_str());
-				unsigned char Green = (unsigned char)atol(words[j][++i].c_str());
-				unsigned char Blue = (unsigned char)atol(words[j][++i].c_str());
-				RectGfxInfo.FillClr = color(Red, Green, Blue);
+			if (words[j][i] == "No_fill") {
+				RectGfxInfo.isFilled = false;
+				RectGfxInfo.BorderWdth = stoi(words[j][++i]);
 			}
 			else {
-				RectGfxInfo.isFilled = false;
+				RectGfxInfo.isFilled = true;
+				unsigned char Red = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Green = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Blue = (unsigned char)atol(words[j][i++].c_str());
+				RectGfxInfo.BorderWdth = stoi(words[j][i]);
+				RectGfxInfo.FillClr = color(Red, Green, Blue);
+				
 			}
-			RectGfxInfo.BorderWdth = stoi(words[j][++i]);
 			Rect* R = new Rect(P1, P2, RectGfxInfo);
 
 			R->SetSelected(false);
@@ -76,15 +80,22 @@ void opLoad::Execute() {
 			P1.y = stoi(words[j][i++]);
 			P2.x = stoi(words[j][i++]);
 			P2.y = stoi(words[j][i++]);
-			SquareGfxInfo.DrawClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-			SquareGfxInfo.DrawClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-			SquareGfxInfo.DrawClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
-			if (words[j][i] == "fill") {
-				SquareGfxInfo.FillClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-				SquareGfxInfo.FillClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-				SquareGfxInfo.FillClr.ucBlue = (unsigned char)atol(words[j][i].c_str());
+			unsigned Red = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Green = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Blue = (unsigned char)atol(words[j][i++].c_str());
+			SquareGfxInfo.DrawClr = color(Red, Green, Blue);
+			if (words[j][i] == "No_fill") {
+				SquareGfxInfo.isFilled = false;
+				SquareGfxInfo.BorderWdth = stoi(words[j][++i]);
 			}
-			SquareGfxInfo.BorderWdth = stoi(words[j][++i]);
+			else {
+				SquareGfxInfo.isFilled = true;
+				unsigned char Red = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Green = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Blue = (unsigned char)atol(words[j][i++].c_str());
+				SquareGfxInfo.BorderWdth = stoi(words[j][i]);
+				SquareGfxInfo.FillClr = color(Red, Green, Blue);
+			}
 			Square* R = new Square(P1, P2, SquareGfxInfo);
 			R->SetSelected(false);
 			pGr->Addshape(R);
@@ -95,10 +106,12 @@ void opLoad::Execute() {
 			P1.y = stoi(words[j][i++]);
 			P2.x = stoi(words[j][i++]);
 			P2.y = stoi(words[j][i++]);
-			LineGfxInfo.DrawClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-			LineGfxInfo.DrawClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-			LineGfxInfo.DrawClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
-			LineGfxInfo.BorderWdth = stoi(words[j][i++]);
+			unsigned Red = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Green = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Blue = (unsigned char)atol(words[j][i++].c_str());
+			LineGfxInfo.DrawClr = color(Red, Green, Blue);
+			LineGfxInfo.BorderWdth = stoi(words[j][++i]);
+			LineGfxInfo.isFilled = false;
 			Line* R = new Line(P1, P2, LineGfxInfo);
 			R->SetSelected(false);
 			pGr->Addshape(R);
@@ -109,15 +122,22 @@ void opLoad::Execute() {
 			P1.y = stoi(words[j][i++]);
 			P2.x = stoi(words[j][i++]);
 			P2.y = stoi(words[j][i++]);
-			CircGfxInfo.DrawClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-			CircGfxInfo.DrawClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-			CircGfxInfo.DrawClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
-			if (words[j][i++] == "fill") {
-				CircGfxInfo.FillClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-				CircGfxInfo.FillClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-				CircGfxInfo.FillClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Red = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Green = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Blue = (unsigned char)atol(words[j][i++].c_str());
+			CircGfxInfo.DrawClr = color(Red, Green, Blue);
+			if (words[j][i] == "No_fill") {
+				CircGfxInfo.isFilled = false;
+				CircGfxInfo.BorderWdth = stoi(words[j][++i]);
 			}
-			CircGfxInfo.BorderWdth = stoi(words[j][i++]);
+			else {
+				CircGfxInfo.isFilled = true;
+				unsigned char Red = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Green = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Blue = (unsigned char)atol(words[j][i++].c_str());
+				CircGfxInfo.BorderWdth = stoi(words[j][i]);
+				CircGfxInfo.FillClr = color(Red, Green, Blue);
+			}
 			Circ* R = new Circ(P1, P2, CircGfxInfo);
 			R->SetSelected(false);
 			pGr->Addshape(R);
@@ -131,16 +151,24 @@ void opLoad::Execute() {
 			P2.y = stoi(words[j][i++]);
 			P3.x = stoi(words[j][i++]);
 			P3.y = stoi(words[j][i++]);
-			TriGfxInfo.DrawClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-			TriGfxInfo.DrawClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-			TriGfxInfo.DrawClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
-			if (words[j][i++] == "fill") {
-				TriGfxInfo.FillClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-				TriGfxInfo.FillClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-				TriGfxInfo.FillClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Red = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Green = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Blue = (unsigned char)atol(words[j][i++].c_str());
+			TriGfxInfo.DrawClr = color(Red, Green, Blue);
+			if (words[j][i] == "No_fill") {
+				TriGfxInfo.isFilled = false;
+				TriGfxInfo.BorderWdth = stoi(words[j][++i]);
 			}
-			TriGfxInfo.BorderWdth = stoi(words[j][i++]);
-			Tri* R = new Tri(P1, P2, P3, TriGfxInfo);
+			else {
+				TriGfxInfo.isFilled = true;
+				unsigned char Red = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Green = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Blue = (unsigned char)atol(words[j][i++].c_str());
+				TriGfxInfo.BorderWdth = stoi(words[j][i]);
+				TriGfxInfo.FillClr = color(Red, Green, Blue);
+
+			}
+			Tri* R = new Tri(P1, P2, P3,TriGfxInfo);
 			R->SetSelected(false);
 			pGr->Addshape(R);
 		}
@@ -155,15 +183,22 @@ void opLoad::Execute() {
 				Y[c] = stoi(words[j][4+2*(d)]);
 			}
 			int i = 3 + 2 * vertices;
-			PolyGfxInfo.DrawClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-			PolyGfxInfo.DrawClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-			PolyGfxInfo.DrawClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
-			if (words[j][i++] == "fill") {
-				PolyGfxInfo.FillClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-				PolyGfxInfo.FillClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-				PolyGfxInfo.FillClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Red = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Green = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Blue = (unsigned char)atol(words[j][i++].c_str());
+			PolyGfxInfo.DrawClr = color(Red, Green, Blue);
+			if (words[j][i] == "No_fill") {
+				PolyGfxInfo.isFilled = false;
+				PolyGfxInfo.BorderWdth = stoi(words[j][++i]);
 			}
-			PolyGfxInfo.BorderWdth = stoi(words[j][i++]);
+			else {
+				PolyGfxInfo.isFilled = true;
+				unsigned char Red = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Green = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Blue = (unsigned char)atol(words[j][i++].c_str());
+				PolyGfxInfo.BorderWdth = stoi(words[j][i]);
+				PolyGfxInfo.FillClr = color(Red, Green, Blue);
+			}
 			Poly* R = new Poly(X,Y,vertices, PolyGfxInfo);
 			R->SetSelected(false);
 			pGr->Addshape(R);
@@ -175,16 +210,23 @@ void opLoad::Execute() {
 			P1.y = stoi(words[j][i++]);
 			P2.x = stoi(words[j][i++]);
 			P2.y = stoi(words[j][i++]);
-			RPolyGfxInfo.DrawClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-			RPolyGfxInfo.DrawClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-			RPolyGfxInfo.DrawClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
-			if (words[j][i++] == "fill") {
-				RPolyGfxInfo.FillClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-				RPolyGfxInfo.FillClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-				RPolyGfxInfo.FillClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Red = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Green = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Blue = (unsigned char)atol(words[j][i++].c_str());
+			RPolyGfxInfo.DrawClr = color(Red, Green, Blue);
+			if (words[j][i] == "No_fill") {
+				RPolyGfxInfo.isFilled = false;
+				RPolyGfxInfo.BorderWdth = stoi(words[j][++i]);
 			}
-			RPolyGfxInfo.BorderWdth = stoi(words[j][i]);
-			Rpoly* R = new Rpoly(P1, P2, vertices, RPolyGfxInfo);
+			else {
+				RPolyGfxInfo.isFilled = true;
+				unsigned char Red = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Green = (unsigned char)atol(words[j][i++].c_str());
+				unsigned char Blue = (unsigned char)atol(words[j][i++].c_str());
+				RPolyGfxInfo.BorderWdth = stoi(words[j][i]);
+				RPolyGfxInfo.FillClr = color(Red, Green, Blue);
+			}
+			Rpoly* R = new Rpoly(P1, P2,vertices, RPolyGfxInfo);
 			R->SetSelected(false);
 			pGr->Addshape(R);
 		}

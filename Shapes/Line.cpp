@@ -27,12 +27,8 @@ void Line::Save(ofstream& OutFile,int c) {
 	OutFile << "Line ";
 	OutFile << " "<<c<<"  ";
 	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
-	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue;	
-	if (ShpGfxInfo.isFilled) {
-		OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue;
-	}
-	else
-		OutFile << "  No_fill  ";
+	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue<<" ";
+	OutFile << "  No_fill  ";
 	OutFile << ShpGfxInfo.BorderWdth << " ";
 
 }

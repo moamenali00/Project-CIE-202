@@ -1,7 +1,5 @@
 #include"opSave.h"
 #include"fstream"
-
-
 opSave::opSave(controller* pCont) : operation(pCont)
 {}
 opSave::~opSave()
@@ -13,6 +11,7 @@ void opSave::Execute()
 	UI->PrintMessage("Enter the file name(relative address)");
 	ofstream output;
 	output.open(UI->GetSrting());
+	UI->ClearStatusBar();
 	Graph* pGr = pControl->getGraph();
 	pGr->Save(output);
 	output.close();

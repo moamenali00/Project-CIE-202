@@ -80,10 +80,10 @@ bool Rpoly::CheckSelect(int x0, int y0) const {
 void Rpoly::Save(ofstream& OutFile, int c) {
     OutFile << "RPoly ";
     OutFile << " " << c << "  ";
-    OutFile << vertcies << " "<<center.x<<" "<<center.y<<" "<<vertex.x<<" "<<vertex.y;
-    OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue;
+    OutFile << vertcies << " "<<center.x<<" "<<center.y<<" "<<vertex.x<<" "<<vertex.y<<" ";
+    OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue<<" ";
     if (ShpGfxInfo.isFilled) {
-        OutFile << " Fill  ";
+        OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue << " ";
     }
     else
         OutFile << "  No_fill  ";
