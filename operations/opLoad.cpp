@@ -8,7 +8,6 @@
 #include"..\Shapes\Circ.h"
 #include"..\Shapes\Poly.h"
 #include"..\Shapes\Rpoly.h"
-#include <iostream>
 opLoad::opLoad(controller* pCont) : operation(pCont)
 {}
 opLoad::~opLoad()
@@ -23,12 +22,13 @@ void opLoad::Execute() {
 	GUI* UI = pControl->GetUI();
 	UI->PrintMessage("Enter the file name(relative address)");
 	inFile.open(UI->GetSrting());
-	getline(inFile, fline);
-	int size = stoi(fline);
-	if (!inFile) {
+	if (inFile.fail()) {
 		UI->PrintMessage("File operation faliure");
 		return;
 	}
+	UI->ClearStatusBar();
+	getline(inFile, fline);
+	int size = stoi(fline);
 	string** words = new string * [size + 1];
 	for (int i = 0;i < size + 1;i++) {
 		words[i] = new string[300];
@@ -93,7 +93,6 @@ void opLoad::Execute() {
 				unsigned char Red = (unsigned char)atol(words[j][i++].c_str());
 				unsigned char Green = (unsigned char)atol(words[j][i++].c_str());
 				unsigned char Blue = (unsigned char)atol(words[j][i++].c_str());
-				cout << (int)Blue;
 				SquareGfxInfo.BorderWdth = stoi(words[j][i]);
 				SquareGfxInfo.FillClr = color(Red, Green, Blue);
 			}
@@ -107,10 +106,12 @@ void opLoad::Execute() {
 			P1.y = stoi(words[j][i++]);
 			P2.x = stoi(words[j][i++]);
 			P2.y = stoi(words[j][i++]);
-			LineGfxInfo.DrawClr.ucRed = (unsigned char)atol(words[j][i++].c_str());
-			LineGfxInfo.DrawClr.ucGreen = (unsigned char)atol(words[j][i++].c_str());
-			LineGfxInfo.DrawClr.ucBlue = (unsigned char)atol(words[j][i++].c_str());
-			LineGfxInfo.BorderWdth = stoi(words[j][i++]);
+			unsigned Red = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Green = (unsigned char)atol(words[j][i++].c_str());
+			unsigned Blue = (unsigned char)atol(words[j][i++].c_str());
+			LineGfxInfo.DrawClr = color(Red, Green, Blue);
+			LineGfxInfo.BorderWdth = stoi(words[j][++i]);
+			LineGfxInfo.isFilled = false;
 			Line* R = new Line(P1, P2, LineGfxInfo);
 			R->SetSelected(false);
 			pGr->Addshape(R);
