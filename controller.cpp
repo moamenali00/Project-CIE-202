@@ -13,6 +13,7 @@
 #include"operations\opLoad.h"
 #include"operations\opAddRPoly.h"
 #include"operations\opExit.h"
+#include"operations\opAddStick.h"
 
 //Constructor
 controller::controller()
@@ -40,6 +41,9 @@ operation* controller::createOperation(operationType OpType)
 	{
 		case DRAW_RECT:
 			pOp = new opAddRect(this);
+			break;
+		case STICKIMAGE:
+			pOp = new opAddStick(this);
 			break;
 
 		case DRAW_SQUARE:

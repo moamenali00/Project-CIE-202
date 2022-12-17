@@ -2,7 +2,10 @@
 
 shape::shape(GfxInfo shapeGfxInfo)
 { 
-	ShpGfxInfo = shapeGfxInfo;	//Default status is non-filled.
+
+	ShpGfxInfo = shapeGfxInfo;
+	ShpGfxInfo.isstick = false;
+	//Default status is non-filled.
 }
 void shape::SetVisible(bool s) {
 	ShpGfxInfo.isVisible = s;
@@ -15,6 +18,12 @@ void shape::SetSelected(bool s)
 
 bool shape::IsSelected() const
 {	return ShpGfxInfo.isSelected; }
+
+void shape::stickimages()
+{
+	ShpGfxInfo.isstick=true;
+
+}
 
 void shape::ChngDrawClr(color Dclr)
 {	ShpGfxInfo.DrawClr = Dclr; }

@@ -169,6 +169,7 @@
     <ClCompile Include="operations\opAddCirc.cpp" />
     <ClCompile Include="operations\opAddPoly.cpp" />
     <ClCompile Include="operations\opAddRPoly.cpp" />
+    <ClCompile Include="operations\opAddStick.cpp" />
     <ClCompile Include="operations\opAddTri.cpp" />
     <ClCompile Include="operations\opAddLine.cpp" />
     <ClCompile Include="operations\opAddRect.cpp" />
@@ -220,6 +221,7 @@
     <ClInclude Include="operations\opAddRect.h" />
     <ClInclude Include="operations\opAddRPoly.h" />
     <ClInclude Include="operations\opAddSquare.h" />
+    <ClInclude Include="operations\opAddStick.h" />
     <ClInclude Include="operations\opDelete.h" />
     <ClInclude Include="operations\operation.h" />
     <ClInclude Include="operations\opAddTri.h" />
