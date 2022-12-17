@@ -13,7 +13,7 @@ public:
 	virtual void Draw(GUI* pUI) const;
 	virtual bool CheckSelect(int, int) const;
 	virtual void Save(ofstream& OutFile,int);
-
+	virtual void PrintInfo(GUI*);
 };
 
 

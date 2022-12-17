@@ -15,6 +15,7 @@ public:
 	virtual bool CheckSelect(int, int) const;
 	virtual void Save(ofstream& OutFile, int);
 	double polygonArea(int X[], int Y[], int n) const;
+	virtual void PrintInfo(GUI*);
 };
 
 

@@ -49,9 +49,7 @@ void Rpoly::Draw(GUI* pUI) const
 
 double Rpoly::RpolygonArea(int X[], int Y[], int n) const
 {
-    // Initialize area
     double area = 0.0;
-
     // Calculate value of shoelace formula
     int j = n - 1;
     for (int i = 0; i < n; i++)
@@ -65,8 +63,8 @@ double Rpoly::RpolygonArea(int X[], int Y[], int n) const
 }
 
 bool Rpoly::CheckSelect(int x0, int y0) const {
-    double area = 0;
     int j = vertcies - 1;
+    double area = 0.0;
     for (int i = 0; i < vertcies; i++)
     {
         area = area + abs(0.5 * ((x0 * y[i]) - (x[i] * y0) + (x[i] * y[j]) - (x[j] * y[i]) + (x[j] * y0) - (x0 * y[j])));
@@ -75,8 +73,18 @@ bool Rpoly::CheckSelect(int x0, int y0) const {
     double area2 = RpolygonArea(x, y, vertcies);
     if (area2 == area) return true;
     else return false;
-
 }
+void Rpoly::PrintInfo(GUI* out) {
+    out->ClearStatusBar();
+    string msg;
+    msg = "The number of vertices:";
+    msg += to_string(vertcies);msg += " , ";
+    msg += "The Area:";
+    msg += to_string((int)RpolygonArea(x,y,vertcies));
+    out->PrintMessage(msg);
+}
+    
+
 void Rpoly::Save(ofstream& OutFile, int c) {
     OutFile << "RPoly ";
     OutFile << " " << c << "  ";

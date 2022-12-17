@@ -33,6 +33,15 @@ double Poly::polygonArea(int X[], int Y[], int n) const
     // Return absolute value
     return abs(area / 2.0);
 }
+void Poly::PrintInfo(GUI* out) {
+    out->ClearStatusBar();
+    string msg;
+    msg = "The number of vertices:";
+    msg += to_string(vertcies);msg += " , ";
+    msg += "The Area:";
+    msg += to_string((int)polygonArea(x, y, vertcies));
+    out->PrintMessage(msg);
+}
 
 bool Poly::CheckSelect(int x0, int y0) const {
     double area = 0;

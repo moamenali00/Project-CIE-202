@@ -1,5 +1,4 @@
 #include "opSelect.h"
-
 opSelect::opSelect(controller* pCont) : operation(pCont)
 {}
 opSelect::~opSelect()
@@ -14,6 +13,7 @@ void opSelect::Execute()
 	pGr->deSelect();
 	if (pGr->Getshape(C.x, C.y) != nullptr ) {
 		pGr->Getshape(C.x, C.y)->SetSelected(true);
+		pGr->Getshape(C.x, C.y)->PrintInfo(pUI);
 	}
 
 

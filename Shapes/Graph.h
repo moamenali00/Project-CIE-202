@@ -23,6 +23,6 @@ public:
 	void deSelect();
 	void Hide();
 	void Save(ofstream& outfile);	//Save all shapes to a file
-	void load(ifstream& inputfile);	//Load all shapes from a file
 	void setColor(shape*);
+	void Clear();
 };

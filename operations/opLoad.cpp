@@ -230,6 +230,7 @@ void opLoad::Execute() {
 			R->SetSelected(false);
 			pGr->Addshape(R);
 		}
+		
 
 	}
 }
