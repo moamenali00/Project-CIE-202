@@ -45,7 +45,7 @@ void opAddRPoly::Execute()
 
 	//Create a rectangle with the above parameters
 	Rpoly* R = new Rpoly(center, vertex, vertices, PolyGfxInfo);
-	R->set_x_y();
+	//R->set_x_y();
 
 
 	//Get a pointer to the graph

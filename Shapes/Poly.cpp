@@ -50,6 +50,7 @@ bool Poly::CheckSelect(int x0, int y0) const {
 void Poly::Save(ofstream& OutFile, int c) {
     OutFile << "Poly ";
     OutFile << " " << c << "  ";
+    OutFile << " " << vertcies << " ";
     for (int i = 0; i < vertcies; i++)
     {
         OutFile << x[i] << " " << y[i] << " ";

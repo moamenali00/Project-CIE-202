@@ -7,6 +7,7 @@ Rpoly::Rpoly(Point Icenter, Point Ivertex, int Ivertices, GfxInfo shapeGfxInfo) 
     vertcies = Ivertices;
     x = new int[vertcies];
     y = new int[vertcies];
+    this->set_x_y();
 }
 
 Rpoly::~Rpoly()
@@ -77,12 +78,9 @@ bool Rpoly::CheckSelect(int x0, int y0) const {
 
 }
 void Rpoly::Save(ofstream& OutFile, int c) {
-    OutFile << "Poly ";
+    OutFile << "RPoly ";
     OutFile << " " << c << "  ";
-    for (int i = 0; i < vertcies; i++)
-    {
-        OutFile << x[i] << " " << y[i] << " ";
-    }
+    OutFile << vertcies << " "<<center.x<<" "<<center.y<<" "<<vertex.x<<" "<<vertex.y;
     OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue;
     if (ShpGfxInfo.isFilled) {
         OutFile << " Fill  ";
