@@ -20,6 +20,17 @@ bool Circ::CheckSelect(int x, int y) const {
 	if (rad_2 < rad) return true;
 	else return false;
 }
+void Circ::PrintInfo(GUI* out) {
+	out->ClearStatusBar();
+	string msg;
+	msg += "Center (";
+	msg += to_string(Corner1.x);
+	msg += ",";msg += to_string(Corner1.y);
+	msg += ") , ";msg += "radius:";
+	msg += to_string(sqrt((Corner2.x-Corner1.x) * (Corner2.x-Corner1.x) + (Corner2.y-Corner1.y) * (Corner2.y-Corner1.y)));
+	out->PrintMessage(msg);
+}
+
 void Circ::Save(ofstream& OutFile,int c) {
 	OutFile << "Circ ";
 	OutFile << " " << c<<"  ";

@@ -37,6 +37,6 @@ public:
 	virtual void Save(ofstream &OutFile,int c) = 0;	//Save the shape parameters to the file
 	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
 
-	//virtual void PrintInfo(Output* pOut) = 0;	//print all shape info on the status bar
+	virtual void PrintInfo(GUI*) = 0;	//print all shape info on the status bar
 };
 

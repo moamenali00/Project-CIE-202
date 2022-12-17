@@ -22,6 +22,25 @@ bool Rect::CheckSelect(int x, int y) const
 		return false;
 
 }
+void Rect::PrintInfo(GUI* out) {
+	out->ClearStatusBar();
+	string msg;
+	Point p1, p2, p3, p4;
+	p1.x = Corner1.x;p1.y = Corner1.y;
+	p2.x = Corner1.x;p2.y = Corner2.y;
+	p3.x = Corner2.x;p3.y = Corner1.y;
+	p4.x = Corner2.x;p4.y = Corner2.y;
+	msg = "The Vertices:(";
+	msg += to_string(p1.x);msg += ",";
+	msg += to_string(p1.y);msg += ") , (";
+	msg += to_string(p2.x);msg += ",";
+	msg += to_string(p2.y);msg += ") , (";
+	msg += to_string(p3.x);msg += ",";
+	msg += to_string(p3.y);msg += ") , (";
+	msg += to_string(p4.x);msg += ",";
+	msg += to_string(p4.y);msg += ")";
+	out->PrintMessage(msg);
+}
 void Rect::Save(ofstream& OutFile,int c) {
 	OutFile << "Rect ";
 	OutFile << " " << c<<"  ";
