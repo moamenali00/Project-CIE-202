@@ -22,6 +22,7 @@ public:
 	shape* Getshape(int x, int y) const; //Search for a shape given a point inside the shape
 	void deSelect();
 	void Hide();
+	void StickI();
 	void Save(ofstream& outfile);	//Save all shapes to a file
 	void setColor(shape*);
 	void Clear();

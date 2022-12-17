@@ -49,6 +49,14 @@ void Graph::Hide() {
 		}
 	}
 }
+void Graph::StickI()
+{
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsSelected()) {
+			shapePointer->stickimages();
+		}
+	}
+}
 void Graph::Clear() {
 	for (auto shapePointer : shapesList) {
 		delete shapePointer;

@@ -18,6 +18,7 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	
 	color DrawClr;	//Draw color of the shape
 	color FillClr;	//Fill color of the shape
+	bool isstick;
 	bool isFilled;	//shape Filled or not
 	int BorderWdth;	//Width of shape borders
 	bool isSelected;	//true if the shape is selected.
@@ -40,6 +41,7 @@ class GUI
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
 		ICON_PLAY,
+		ICON_STICK,
 		ICON_LINE,
 		ICON_RECT,		//Recangle icon in menu
 		ICON_CIRC,		//Circle icon in menu

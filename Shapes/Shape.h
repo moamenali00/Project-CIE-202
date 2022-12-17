@@ -20,7 +20,7 @@ public:
 	bool IsSelected() const;	//check whether fig is selected
 	bool IsVisible()const;
 	virtual void Draw(GUI* pUI) const  = 0 ;		//Draw the shape
-	
+	void stickimages();
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color
 	void ChngFillClr(color Fclr);	//changes the shape's filling color
 	virtual bool CheckSelect(int, int)const = 0;
