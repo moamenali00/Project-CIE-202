@@ -23,16 +23,32 @@ bool Tri::CheckSelect(int x, int y) const {
 	if (area == (area_2 + area_3 + area_4)) return true;
 	else return false;
 }
-
+void Tri::PrintInfo(GUI* out) {
+	out->ClearStatusBar();
+	string msg;
+	Point p1, p2, p3;
+	p1.x = Corner1.x;p1.y = Corner1.y;
+	p2.x = Corner2.x;p2.y = Corner2.y;
+	p3.x = Corner3.x;p3.y = Corner3.y;
+	msg = "The Vertices:(";
+	msg += to_string(p1.x);msg += ",";
+	msg += to_string(p1.y);msg += ") , (";
+	msg += to_string(p2.x);msg += ")";
+	msg += to_string(p2.y);msg += ") , (";
+	msg += to_string(p3.x);msg += ",";
+	msg += to_string(p3.y);msg += ")";
+	out->PrintMessage(msg);
+}
 void Tri::Save(ofstream& OutFile,int c) {
 	OutFile << "Tri ";
 	OutFile << " " << c<<" ";
-	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " " << Corner3.x << " " << Corner3.y;
-	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue;
+	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " " << Corner3.x << " " << Corner3.y<<" ";
+	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue<<" ";
 	if (ShpGfxInfo.isFilled) {
-		OutFile << "  Fill  ";
+		OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue<<" ";
 	}
 	else
 		OutFile << "  No_fill  ";
-	OutFile << ShpGfxInfo.BorderWdth;
+	OutFile << ShpGfxInfo.BorderWdth << " ";
+	
 }

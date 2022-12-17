@@ -21,7 +21,7 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	bool isFilled;	//shape Filled or not
 	int BorderWdth;	//Width of shape borders
 	bool isSelected;	//true if the shape is selected.
-	bool hidden=true;
+	bool isVisible=true;
 };
 
 
@@ -45,7 +45,8 @@ class GUI
 		ICON_CIRC,		//Circle icon in menu
 		ICON_TRIANGLE,
 		ICON_SQUARE,
-		ICON_POLY,		//Circle icon in menu
+		ICON_POLY,	
+		ICON_IPOLY,//Circle icon in menu
 		ICON_SAVE,
 		ICON_DELETE,
 		ICON_LOAD,
@@ -142,6 +143,7 @@ public:
 	color getCrntFillColor() const;	//get current filling color
 	int getCrntPenWidth() const;		//get current pen width
 	bool getFilledStatus() const;
+	color getDefaultDrawColor() const;
 
 	void setCrntPenColor(color);
 	void setCrntFillColor(color clr);

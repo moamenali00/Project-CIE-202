@@ -168,11 +168,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="operations\opAddCirc.cpp" />
     <ClCompile Include="operations\opAddPoly.cpp" />
+    <ClCompile Include="operations\opAddRPoly.cpp" />
     <ClCompile Include="operations\opAddTri.cpp" />
     <ClCompile Include="operations\opAddLine.cpp" />
     <ClCompile Include="operations\opAddRect.cpp" />
     <ClCompile Include="operations\opAddSquare.cpp" />
     <ClCompile Include="operations\opDelete.cpp" />
+    <ClCompile Include="operations\opExit.cpp" />
     <ClCompile Include="operations\opFill.cpp" />
     <ClCompile Include="operations\opLoad.cpp" />
     <ClCompile Include="operations\opPen.cpp" />
@@ -181,6 +183,7 @@
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Line.cpp" />
     <ClCompile Include="Shapes\Poly.cpp" />
+    <ClCompile Include="Shapes\Rpoly.cpp" />
     <ClCompile Include="Shapes\Shape.cpp" />
     <ClCompile Include="Shapes\Rect.cpp" />
     <ClCompile Include="Shapes\Circ.cpp" />
@@ -215,10 +218,12 @@
     <ClInclude Include="operations\opAddLine.h" />
     <ClInclude Include="operations\opAddPoly.h" />
     <ClInclude Include="operations\opAddRect.h" />
+    <ClInclude Include="operations\opAddRPoly.h" />
     <ClInclude Include="operations\opAddSquare.h" />
     <ClInclude Include="operations\opDelete.h" />
     <ClInclude Include="operations\operation.h" />
     <ClInclude Include="operations\opAddTri.h" />
+    <ClInclude Include="operations\opExit.h" />
     <ClInclude Include="operations\opFill.h" />
     <ClInclude Include="operations\opLoad.h" />
     <ClInclude Include="operations\opPen.h" />
@@ -230,6 +235,7 @@
     <ClInclude Include="Shapes\Graph.h" />
     <ClInclude Include="Shapes\Line.h" />
     <ClInclude Include="Shapes\Poly.h" />
+    <ClInclude Include="Shapes\Rpoly.h" />
     <ClInclude Include="Shapes\Shape.h" />
     <ClInclude Include="Shapes\Rect.h" />
     <ClInclude Include="Shapes\Square.h" />

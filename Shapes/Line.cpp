@@ -23,15 +23,23 @@ bool Line::CheckSelect(int x, int y) const {
 	if (dis > dis_2 && slope == slope_2) return true;
 	else return false;
 }
+void Line::PrintInfo(GUI* out) {
+	out->ClearStatusBar();
+	string msg;
+	msg = "The First Point:(";
+	msg += to_string(Corner1.x);msg += ",";
+	msg += to_string(Corner1.y);msg += ")  ,  ";
+	msg += "The Second Point:(";
+	msg += to_string(Corner2.x);msg += ",";
+	msg += to_string(Corner2.y);msg += ")";
+	out->PrintMessage(msg);
+}
 void Line::Save(ofstream& OutFile,int c) {
 	OutFile << "Line ";
 	OutFile << " "<<c<<"  ";
 	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " ";
-	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue;	
-	if (ShpGfxInfo.isFilled) {
-		OutFile << "  Fill  ";
-	}
-	else
-		OutFile << "  No_fill  ";
-	OutFile << ShpGfxInfo.BorderWdth;
+	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue<<" ";
+	OutFile << "  No_fill  ";
+	OutFile << ShpGfxInfo.BorderWdth << " ";
+
 }

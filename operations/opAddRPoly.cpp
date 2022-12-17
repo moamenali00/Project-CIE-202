@@ -1,15 +1,15 @@
-#include "opAddPoly.h"
-#include "..\shapes\Poly.h"
+#include "opAddRPoly.h"
+#include "..\shapes\Rpoly.h"
 #include "..\controller.h"
 #include "..\GUI\GUI.h"
 
-opAddPoly::opAddPoly(controller* pCont) :operation(pCont)
+opAddRPoly::opAddRPoly(controller* pCont) :operation(pCont)
 {}
-opAddPoly::~opAddPoly()
+opAddRPoly::~opAddRPoly()
 {}
 
 //Execute the operation
-void opAddPoly::Execute()
+void opAddRPoly::Execute()
 {
 	int vertices;
 
@@ -21,21 +21,14 @@ void opAddPoly::Execute()
 	//Read 1st corner and store in point P1
 	string s = pUI->GetSrting();
 	vertices = stoi(s);
-	int* x = new int[vertices];
-	int* y = new int[vertices];
-	string msg = " click points of polygon as needed";
-
-	pUI->PrintMessage(msg);
-	for (int i = 0; i < vertices; i++) {
-		pUI->GetPointClicked(x[i], y[i]);
-	}
-
-
-
-
-
 	pUI->ClearStatusBar();
-
+	Point center, vertex;
+	pUI->PrintMessage("New polygone: enter the center");
+	pUI->GetPointClicked(center.x, center.y);
+	pUI->ClearStatusBar();
+	pUI->PrintMessage("enter the vertex");
+	pUI->GetPointClicked(vertex.x, vertex.y);
+	pUI->ClearStatusBar();
 
 	//Preapre all rectangle parameters
 	GfxInfo PolyGfxInfo;
@@ -51,12 +44,14 @@ void opAddPoly::Execute()
 
 
 	//Create a rectangle with the above parameters
-	//Poly* R = new Poly(x, y, vertices, PolyGfxInfo);
+	Rpoly* R = new Rpoly(center, vertex, vertices, PolyGfxInfo);
+	//R->set_x_y();
+
 
 	//Get a pointer to the graph
 	Graph* pGr = pControl->getGraph();
 
 	//Add the rectangle to the list of shapes
-	//pGr->Addshape(R);
+	pGr->Addshape(R);
 
 }

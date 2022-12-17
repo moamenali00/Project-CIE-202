@@ -11,6 +11,8 @@
 #include"operations\opFill.h"
 #include "operations\opPen.h"
 #include"operations\opLoad.h"
+#include"operations\opAddRPoly.h"
+#include"operations\opExit.h"
 
 //Constructor
 controller::controller()
@@ -54,6 +56,9 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddCirc(this);
 			break;
 		case DRAW_POLY:
+			pOp = new opAddRPoly(this);
+			break;
+		case DRAW_IPOLY:
 			pOp = new opAddPoly(this);
 			break;
 		case SAVE:
@@ -75,8 +80,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opLoad(this);
 			break;
 		case EXIT:
-			///create Exitoperation here
-			
+			pOp = new opExit(this);
 			break;
 		
 		case STATUS:	//a click on the status bar ==> no operation
