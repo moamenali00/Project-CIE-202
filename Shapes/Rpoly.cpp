@@ -128,6 +128,4 @@ void Rpoly::Load(string line) {
         x = new int[vertcies];
         y = new int[vertcies];
         this->set_x_y();
-        
-    
     }
