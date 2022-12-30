@@ -1,5 +1,5 @@
 #include "Poly.h"
-
+#include<iostream>
 Poly::Poly(int* Ix, int* Iy, int Ivertices, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
 	x = Ix;
@@ -7,6 +7,7 @@ Poly::Poly(int* Ix, int* Iy, int Ivertices, GfxInfo shapeGfxInfo) :shape(shapeGf
 	vertcies = Ivertices;
 
 }
+Poly::Poly(){}
 
 Poly::~Poly()
 {}
@@ -57,19 +58,54 @@ bool Poly::CheckSelect(int x0, int y0) const {
 
 }
 void Poly::Save(ofstream& OutFile, int c) {
-    OutFile << "Poly ";
-    OutFile << " " << c << "  ";
+    OutFile << "Poly";
+    OutFile << " " << c;
     OutFile << " " << vertcies << " ";
     for (int i = 0; i < vertcies; i++)
     {
         OutFile << x[i] << " " << y[i] << " ";
     }
-    OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue<<" ";
+    OutFile << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue<<" ";
     if (ShpGfxInfo.isFilled) {
-        OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue << " ";
+        OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue;
 
     }
     else
-        OutFile << "  No_fill  ";
-    OutFile << ShpGfxInfo.BorderWdth;
+        OutFile <<"No_fill";
+    OutFile <<" "<< ShpGfxInfo.BorderWdth;
+}
+void Poly::Load(string line) {
+    stringstream ss(line);
+    string word;
+    int i = 0;
+    int size = 2*(int)line[7] + 10;
+    string* words = new string[size];
+    while (getline(ss, word, ' ') && i < size) { words[i++] = word; }
+    vertcies = stoi(words[2]);
+    x = new int[vertcies];
+    y = new int[vertcies];
+    int d = 0;
+    for (int c = 0;c < vertcies;c++, ++d) {
+        x[c] = stoi(words[3 + 2 * d]);
+        y[c] = stoi(words[4 + 2 * (d)]);
+    }
+    i = 3 + 2 * vertcies;
+    unsigned Red = (unsigned char)atol(words[i++].c_str());
+    unsigned Green = (unsigned char)atol(words[i++].c_str());
+    unsigned Blue = (unsigned char)atol(words[i++].c_str());
+    ShpGfxInfo.DrawClr = color(Red, Green, Blue);
+    if (words[i] == "No_fill") {
+        ShpGfxInfo.isFilled = false;
+        ShpGfxInfo.BorderWdth = stoi(words[++i]);
+    }
+    else {
+        ShpGfxInfo.isFilled = true;
+        unsigned char Red = (unsigned char)atol(words[i++].c_str());
+        unsigned char Green = (unsigned char)atol(words[i++].c_str());
+        unsigned char Blue = (unsigned char)atol(words[i++].c_str());
+        ShpGfxInfo.BorderWdth = stoi(words[i]);
+        ShpGfxInfo.FillClr = color(Red, Green, Blue);
+    }
+    delete[]words;
+
 }

@@ -13,6 +13,7 @@ private:
 	double area=0;
 public:
 	Rpoly(Point Icenter, Point Ivertex, int Ivertices, GfxInfo shapeGfxInfo);
+	Rpoly();
 	virtual ~Rpoly();
 	Point rotate_point(double cx, double cy, double angle, Point p);
 	void set_x_y();
@@ -21,6 +22,7 @@ public:
 	virtual void Save(ofstream& OutFile, int);
 	double RpolygonArea(int X[], int Y[], int n)const;
 	virtual void PrintInfo(GUI*) ;
+	virtual void Load(string);
 
 };
 
