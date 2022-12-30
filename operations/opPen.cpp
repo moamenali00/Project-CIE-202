@@ -1,7 +1,6 @@
 #include "opPen.h"
 #include"operation.h"
-#include "..\controller.h"
-#include "..\GUI\GUI.h"
+
 
 
 opPen::opPen(controller* pCont) : operation(pCont)

@@ -7,13 +7,28 @@ opExit::~opExit()
 
 void opExit::Execute()
 {
-	ofstream output;
-	output.open("output.txt");
-	GUI* pUI = pControl->GetUI();
+	GUI* UI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
-	pGr->Save(output);
-	output.close();
+	ofstream output;
+	UI->PrintMessage("Do you want to save?(Y/N):");
+	if (tolower(UI->GetSrting()[0]) == 'y') {
+		output << (int)UI->getCrntDrawColor().ucRed << " " << (int)UI->getCrntDrawColor().ucGreen << " " << (int)UI->getCrntDrawColor().ucBlue << " ";
+		if (UI->getFilledStatus()) {
+			output << "fill";
+			output << " " << (int)UI->getCrntFillColor().ucRed << " " << (int)UI->getCrntFillColor().ucGreen << " " << (int)UI->getCrntFillColor().ucBlue;;
+		}
+		else output << "nofill";
+		output << " " << UI->getCrntPenWidth() << endl;
+		Graph* pGr = pControl->getGraph();
+		pGr->Save(output);
+		output.close();
+		output.open("output.txt");
+		pGr->Save(output);
+		output.close();
+	}
 
+	else
+		return;
 
 
 

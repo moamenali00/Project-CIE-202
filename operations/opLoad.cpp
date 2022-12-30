@@ -1,5 +1,4 @@
 #include"opLoad.h"
-#include<iostream>
 #include<fstream>
 #include<sstream>
 #include "..\shapes\Rect.h"
@@ -28,8 +27,25 @@ void opLoad::Execute() {
 	}
 	UI->ClearStatusBar();
 	getline(inFile, line);
-	int size = stoi(line);
+	stringstream ss(line);
+	string words[10];
+	int i = 0;
+	while (getline(ss, word, ' ') && i < 13) { words[i++] = word; }
+	i = 0;
+	unsigned Red = (unsigned char)atol(words[i++].c_str());
+	unsigned Green = (unsigned char)atol(words[i++].c_str());
+	unsigned Blue = (unsigned char)atol(words[i++].c_str());
+	UI->setCrntPenColor(color(Red, Green, Blue));
+	if (words[i++] == "fill") {
+		UI->setFilledStatus(true);
+		unsigned Red = (unsigned char)atol(words[i++].c_str());
+		unsigned Green = (unsigned char)atol(words[i++].c_str());
+		unsigned Blue = (unsigned char)atol(words[i++].c_str());
+		UI->setCrntFillColor(color(Red, Green, Blue));
+	}
+	else UI->setFilledStatus(false);
 	shape* R;
+	getline(inFile, line);
 	while (getline(inFile, line)) {
 		stringstream ss(line);
 		ss >> word;
@@ -46,36 +62,4 @@ void opLoad::Execute() {
 
 	}
 	inFile.close();
-}/*
-		}
-		else if (words[j][0] == "RPoly") {
-			GfxInfo RPolyGfxInfo;
-			int vertices = stoi(words[j][i++]);
-			P1.x = stoi(words[j][i++]);
-			P1.y = stoi(words[j][i++]);
-			P2.x = stoi(words[j][i++]);
-			P2.y = stoi(words[j][i++]);
-			unsigned Red = (unsigned char)atol(words[j][i++].c_str());
-			unsigned Green = (unsigned char)atol(words[j][i++].c_str());
-			unsigned Blue = (unsigned char)atol(words[j][i++].c_str());
-			RPolyGfxInfo.DrawClr = color(Red, Green, Blue);
-			if (words[j][i] == "No_fill") {
-				RPolyGfxInfo.isFilled = false;
-				RPolyGfxInfo.BorderWdth = stoi(words[j][++i]);
-			}
-			else {
-				RPolyGfxInfo.isFilled = true;
-				unsigned char Red = (unsigned char)atol(words[j][i++].c_str());
-				unsigned char Green = (unsigned char)atol(words[j][i++].c_str());
-				unsigned char Blue = (unsigned char)atol(words[j][i++].c_str());
-				RPolyGfxInfo.BorderWdth = stoi(words[j][i]);
-				RPolyGfxInfo.FillClr = color(Red, Green, Blue);
-			}
-			Rpoly* R = new Rpoly(P1, P2,vertices, RPolyGfxInfo);
-			R->SetSelected(false);
-			pGr->Addshape(R);
-		}
-		
-
-	}
-}*/
+}
