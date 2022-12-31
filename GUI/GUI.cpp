@@ -1,7 +1,5 @@
 #include "GUI.h"
-Point GUI::ReturnP() {
-	return P;
-}
+
 GUI::GUI()
 {
 	//Initialize user interface parameters
@@ -46,6 +44,9 @@ GUI::GUI()
 void GUI::GetPointClicked(int& x, int& y) const
 {
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
+}
+Point GUI::ReturnP() {
+	return P;
 }
 
 string GUI::GetSrting() const

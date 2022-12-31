@@ -559,7 +559,7 @@ clicktype window::WaitMouseClick(int &iX, int &iY) {
 	}
 }
 
-keytype window::WaitKeyPress(char &cKey) {
+ keytype window::WaitKeyPress(char &cKey) {
 
 	kqueuenode* kqueTmp;
     keytype ktTmp;

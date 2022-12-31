@@ -119,7 +119,6 @@ public:
 	void GetPointClicked(int& x, int& y) const;//Get coordinate where user clicks
 	string GetSrting() const;	 //Returns a string entered by the user
 	operationType GetUseroperation() ; //Read the user click and map to an operation
-
 	// Output Functions  ---------------------------
 	window* CreateWind(int, int, int, int) const; //creates the application window
 	color CreateColorPallete();
