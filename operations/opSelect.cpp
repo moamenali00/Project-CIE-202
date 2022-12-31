@@ -17,7 +17,7 @@ void opSelect::Execute()
 			pGr->Getshape(C.x, C.y)->SetSelected(true);
 			pGr->Getshape(C.x, C.y)->PrintInfo(pUI);
 		}
-
+		else { pUI->ClearStatusBar(); }
 	}
 	else {
 		pGr->deSelect();
@@ -25,6 +25,7 @@ void opSelect::Execute()
 			pGr->Getshape(C.x, C.y)->SetSelected(true);
 			pGr->Getshape(C.x, C.y)->PrintInfo(pUI);
 		}
+		else { pUI->ClearStatusBar(); }
 	}
 
 
