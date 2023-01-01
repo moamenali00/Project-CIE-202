@@ -21,12 +21,15 @@ void Graph::Addshape(shape* pShp)
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Draw all shapes on the user interface
-void Graph::Draw(GUI* pUI) const
+void Graph::Draw(GUI* pUI) 
 {
+	size = 0;
 	pUI->ClearDrawArea();
 	for (auto shapePointer : shapesList) {
-		if (shapePointer->IsVisible())
+		if (shapePointer->IsVisible()) {
 			shapePointer->Draw(pUI);
+			size++;
+		}
 	}
 }
 void Graph::deSelect() {
@@ -64,10 +67,9 @@ void Graph::Clear() {
 	}
 }
 void Graph::Save(ofstream& outfile){
-	int size = shapesList.size();
 	int id = 0;
 	outfile << size<<endl;
-	for (int z = 0;z < size;z++) {
+	for (int z = 0;z < shapesList.size();z++) {
 		if (shapesList[z]->IsVisible()) {
 			shape* shape = shapesList[z];
 			shape->Save(outfile, ++id);	

@@ -9,11 +9,13 @@ private:
 	Point Corner2;
 public:
 	Circ(Point, Point, GfxInfo shapeGfxInfo);
+	Circ();
 	virtual ~Circ();
 	virtual void Draw(GUI* pUI) const;
 	virtual bool CheckSelect(int, int) const;
 	virtual void Save(ofstream& OutFile,int);
 	virtual void PrintInfo(GUI*);
+	virtual void Load(string);
 };
 
 

@@ -5,7 +5,7 @@ Tri::Tri(Point P1, Point P2, Point P3, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo
 	Corner2 = P2;
 	Corner3 = P3;
 }
-
+Tri::Tri(){}
 Tri::~Tri()
 {}
 
@@ -33,22 +33,54 @@ void Tri::PrintInfo(GUI* out) {
 	msg = "The Vertices:(";
 	msg += to_string(p1.x);msg += ",";
 	msg += to_string(p1.y);msg += ") , (";
-	msg += to_string(p2.x);msg += ")";
+	msg += to_string(p2.x);msg += ",";
 	msg += to_string(p2.y);msg += ") , (";
 	msg += to_string(p3.x);msg += ",";
 	msg += to_string(p3.y);msg += ")";
 	out->PrintMessage(msg);
 }
 void Tri::Save(ofstream& OutFile,int c) {
-	OutFile << "Tri ";
+	OutFile << "Tri";
 	OutFile << " " << c<<" ";
-	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " " << Corner3.x << " " << Corner3.y<<" ";
-	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue<<" ";
+	OutFile << Corner1.x << " " << Corner1.y << " " << Corner2.x << " " << Corner2.y << " " << Corner3.x << " " << Corner3.y;
+	OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue;
 	if (ShpGfxInfo.isFilled) {
-		OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue<<" ";
+		OutFile <<" " << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue;
 	}
 	else
-		OutFile << "  No_fill  ";
-	OutFile << ShpGfxInfo.BorderWdth << " ";
+		OutFile <<" "<<"No_fill";
+	OutFile <<" " << ShpGfxInfo.BorderWdth << " ";
 	
+}
+void Tri::Load(string line) {
+	stringstream ss(line);
+	string words[17];
+	string word;
+	int i = 0;
+	while (getline(ss, word, ' ') && i < 17) {
+		words[i++] = word;
+	}
+	i = 2;
+	Corner1.x = stoi(words[i++]);
+	Corner1.y = stoi(words[i++]);
+	Corner2.x = stoi(words[i++]);
+	Corner2.y = stoi(words[i++]);
+	Corner3.x = stoi(words[i++]);
+	Corner3.y = stoi(words[i++]);
+	unsigned Red = (unsigned char)atol(words[i++].c_str());
+	unsigned Green = (unsigned char)atol(words[i++].c_str());
+	unsigned Blue = (unsigned char)atol(words[i++].c_str());
+	ShpGfxInfo.DrawClr = color(Red, Green, Blue);
+	if (words[i] == "No_fill") {
+		ShpGfxInfo.isFilled = false;
+		ShpGfxInfo.BorderWdth = stoi(words[++i]);
+	}
+	else {
+		ShpGfxInfo.isFilled = true;
+		unsigned char Red = (unsigned char)atol(words[i++].c_str());
+		unsigned char Green = (unsigned char)atol(words[i++].c_str());
+		unsigned char Blue = (unsigned char)atol(words[i++].c_str());
+		ShpGfxInfo.BorderWdth = stoi(words[i]);
+		ShpGfxInfo.FillClr = color(Red, Green, Blue);
+	}
 }

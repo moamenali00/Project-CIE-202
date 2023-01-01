@@ -1,7 +1,6 @@
 #include "opAddPoly.h"
 #include "..\shapes\Poly.h"
-#include "..\controller.h"
-#include "..\GUI\GUI.h"
+
 
 opAddPoly::opAddPoly(controller* pCont) :operation(pCont)
 {}

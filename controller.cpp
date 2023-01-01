@@ -18,7 +18,7 @@
 //Constructor
 controller::controller()
 {
-	pGraph = new Graph;
+	pGraph = new Graph;                      
 	pGUI = new GUI;	//Create GUI object
 }
 
@@ -156,7 +156,6 @@ void controller::Run()
 			delete pOpr;	//operation is not needed any more ==> delete it
 			pOpr = nullptr;
 		}
-
 		//Update the interface
 		UpdateInterface();
 

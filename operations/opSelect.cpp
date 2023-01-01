@@ -9,13 +9,22 @@ void opSelect::Execute()
 	Point C;
 	GUI* pUI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
-	C = pUI->ReturnP();
-	pGr->deSelect();
-	if (pGr->Getshape(C.x, C.y) != nullptr ) {
-		pGr->Getshape(C.x, C.y)->SetSelected(true);
-		pGr->Getshape(C.x, C.y)->PrintInfo(pUI);
+	C = pUI->ReturnPointClicked();
+	if (GetAsyncKeyState(VK_CONTROL) & 0x8000) {
+		if (pGr->Getshape(C.x, C.y) != nullptr) {
+			pGr->Getshape(C.x, C.y)->SetSelected(true);
+			pGr->Getshape(C.x, C.y)->PrintInfo(pUI);
+		}
+		else { pUI->ClearStatusBar(); }
 	}
-
+	else {
+		pGr->deSelect();
+		if (pGr->Getshape(C.x, C.y) != nullptr) {
+			pGr->Getshape(C.x, C.y)->SetSelected(true);
+			pGr->Getshape(C.x, C.y)->PrintInfo(pUI);
+		}
+		else { pUI->ClearStatusBar(); }
+	}
 
 
 
