@@ -14,13 +14,17 @@
 #include"operations\opAddRPoly.h"
 #include"operations\opExit.h"
 #include"operations\opAddStick.h"
+<<<<<<< HEAD
 #include"operations\opAddcopy.h"
 #include"operations\opAddpaste.h"
 
+=======
+#include"operations/opRot.h"
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 //Constructor
 controller::controller()
 {
-	pGraph = new Graph;
+	pGraph = new Graph;                      
 	pGUI = new GUI;	//Create GUI object
 }
 
@@ -90,6 +94,9 @@ operation* controller::createOperation(operationType OpType)
 		case LOAD:
 			pOp = new opLoad(this);
 			break;
+		case ROTATE:
+			pOp = new opRot(this);
+			break;
 		case EXIT:
 			pOp = new opExit(this);
 			break;
@@ -156,7 +163,6 @@ void controller::Run()
 
 		//2. Create an operation coresspondingly
 		operation* pOpr = createOperation(OpType);
-		 
 		//3. Execute the created operation
 		if (pOpr)
 		{
@@ -164,7 +170,6 @@ void controller::Run()
 			delete pOpr;	//operation is not needed any more ==> delete it
 			pOpr = nullptr;
 		}
-
 		//Update the interface
 		UpdateInterface();
 

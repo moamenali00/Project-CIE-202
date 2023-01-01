@@ -2,6 +2,7 @@
 #include "..\defs.h"
 #include "..\GUI\GUI.h"
 #include<fstream>
+#include<sstream>
 
 //Base class for all shapes
 class shape
@@ -14,6 +15,7 @@ protected:
 
 public:
 	shape(GfxInfo shapeGfxInfo);
+	shape();
 	virtual ~shape() {}
 	void SetSelected(bool s);	//select/unselect the shape
 	void SetVisible(bool);
@@ -31,12 +33,12 @@ public:
 	///Decide the parameters that you should pass to each function	
 
 
-	//virtual void Rotate() = 0;	//Rotate the shape
+	virtual void RotateShape() = 0;	//Rotate the shape
 	//virtual void Resize() = 0;	//Resize the shape
 	//virtual void Move() = 0;		//Move the shape
 
 	virtual void Save(ofstream &OutFile,int c) = 0;	//Save the shape parameters to the file
-	//virtual void Load(ifstream &Infile) = 0;	//Load the shape parameters to the file
+	virtual void Load(string) = 0;	//Load the shape parameters to the file
 
 	virtual void PrintInfo(GUI*) = 0;	//print all shape info on the status bar
 	virtual shape* copy() = 0;

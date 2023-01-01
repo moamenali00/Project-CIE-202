@@ -1,7 +1,6 @@
 #include "opFill.h"
 #include"operation.h"
-#include "..\controller.h"
-#include "..\GUI\GUI.h"
+
 
 
 opFill::opFill(controller* pCont) : operation(pCont)
@@ -15,7 +14,7 @@ void opFill::Execute() {
 	GUI* pGUI = pControl->GetUI();
 	//pGUI->GetPointClicked(P.x, P.y);
 	color clr= pGUI->CreateColorPallete();
-	P = pGUI->ReturnP();
+	P = pGUI->ReturnPointClicked();
 	if (P.x < 70) {
 		pGUI->ClearToolBar();
 		pGUI->CreateDrawToolBar();

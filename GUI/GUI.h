@@ -18,6 +18,10 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	
 	color DrawClr;	//Draw color of the shape
 	color FillClr;	//Fill color of the shape
+<<<<<<< HEAD
+=======
+	bool isstick = false;
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 	bool isFilled;	//shape Filled or not
 	int BorderWdth;	//Width of shape borders
 	bool isSelected;	//true if the shape is selected.
@@ -56,6 +60,7 @@ class GUI
 		ICON_LOAD,
 		ICON_FILL,
 		ICON_PEN,
+		ICON_ROT,
 		/*ICON_COLOR,
 		ICON_LOAD,*/
 
@@ -116,12 +121,11 @@ class GUI
 public:
 	Point P;
 	GUI();
-	Point ReturnP();
+	Point ReturnPointClicked();
 	// Input Functions  ---------------------------
 	void GetPointClicked(int& x, int& y) const;//Get coordinate where user clicks
 	string GetSrting() const;	 //Returns a string entered by the user
 	operationType GetUseroperation() ; //Read the user click and map to an operation
-
 	// Output Functions  ---------------------------
 	window* CreateWind(int, int, int, int) const; //creates the application window
 	color CreateColorPallete();

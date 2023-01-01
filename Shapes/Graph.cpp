@@ -22,10 +22,12 @@ void Graph::Addshape(shape* pShp)
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Draw all shapes on the user interface
-void Graph::Draw(GUI* pUI) const
+void Graph::Draw(GUI* pUI) 
 {
+	size = 0;
 	pUI->ClearDrawArea();
 	for (auto shapePointer : shapesList) {
+<<<<<<< HEAD
 		if (shapePointer->IsVisible())
 		{
 			shapePointer->Draw(pUI);
@@ -33,6 +35,11 @@ void Graph::Draw(GUI* pUI) const
 			{
 				shapePointer->stickimages(pUI);
 			}
+=======
+		if (shapePointer->IsVisible()) {
+			shapePointer->Draw(pUI);
+			size++;
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 		}
 	}
 }
@@ -64,6 +71,7 @@ void Graph::StickI(GUI*G)
 		}
 	}
 }
+<<<<<<< HEAD
 void Graph::copy()
 {
 	for (auto shapePointer : shapesList) {
@@ -80,6 +88,16 @@ void Graph::paste(GUI* G)
 	copied->paste(x, y);
 	shapesList.push_back(copied);
 }
+=======
+void Graph::Rotate() {
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsSelected()) {
+			shapePointer->RotateShape();
+		}
+	}
+ }
+
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 void Graph::Clear() {
 	for (auto shapePointer : shapesList) {
 		delete shapePointer;
@@ -87,10 +105,9 @@ void Graph::Clear() {
 	}
 }
 void Graph::Save(ofstream& outfile){
-	int size = shapesList.size();
 	int id = 0;
 	outfile << size<<endl;
-	for (int z = 0;z < size;z++) {
+	for (int z = 0;z < shapesList.size();z++) {
 		if (shapesList[z]->IsVisible()) {
 			shape* shape = shapesList[z];
 			shape->Save(outfile, ++id);	

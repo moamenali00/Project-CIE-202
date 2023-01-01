@@ -7,6 +7,7 @@ shape::shape(GfxInfo shapeGfxInfo)
 	ShpGfxInfo.isSelected = false;
 	//Default status is non-filled.
 }
+shape::shape(){}
 void shape::SetVisible(bool s) {
 	ShpGfxInfo.isVisible = s;
  }
