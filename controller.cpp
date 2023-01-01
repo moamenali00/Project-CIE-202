@@ -15,7 +15,6 @@
 #include"operations\opExit.h"
 #include"operations\opAddStick.h"
 #include"operations/opRot.h"
-
 //Constructor
 controller::controller()
 {
@@ -152,7 +151,6 @@ void controller::Run()
 
 		//2. Create an operation coresspondingly
 		operation* pOpr = createOperation(OpType);
-		 
 		//3. Execute the created operation
 		if (pOpr)
 		{

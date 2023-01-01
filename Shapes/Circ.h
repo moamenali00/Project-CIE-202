@@ -17,7 +17,6 @@ public:
 	virtual void PrintInfo(GUI*);
 	virtual void Load(string);
 	void RotateShape();
-
 };
 
 
