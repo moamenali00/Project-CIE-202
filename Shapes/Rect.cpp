@@ -1,5 +1,4 @@
 #include "Rect.h"
-#include<iostream>
 Rect::Rect(Point P1, Point P2, GfxInfo shapeGfxInfo):shape(shapeGfxInfo)
 {
 	Corner1 = P1;
@@ -58,7 +57,6 @@ void Rect::Save(ofstream& OutFile,int c) {
 }
 void Rect::Load(string line) {
 	stringstream ss(line);
-	cout << ss.tellp();
 	string words[13];
 	string word;
 	int i = 0;

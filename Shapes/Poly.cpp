@@ -1,5 +1,4 @@
 #include "Poly.h"
-#include<iostream>
 Poly::Poly(int* Ix, int* Iy, int Ivertices, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
 	x = Ix;
@@ -7,7 +6,10 @@ Poly::Poly(int* Ix, int* Iy, int Ivertices, GfxInfo shapeGfxInfo) :shape(shapeGf
 	vertcies = Ivertices;
 
 }
-Poly::Poly(){}
+Poly::Poly(){
+    delete x;delete y;
+    x = nullptr;y = nullptr;
+}
 
 Poly::~Poly()
 {}

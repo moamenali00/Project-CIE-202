@@ -1,5 +1,4 @@
 #include "Rpoly.h"
-
 Rpoly::Rpoly(Point Icenter, Point Ivertex, int Ivertices, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
     center = Icenter;
@@ -9,7 +8,10 @@ Rpoly::Rpoly(Point Icenter, Point Ivertex, int Ivertices, GfxInfo shapeGfxInfo) 
     y = new int[vertcies];
     this->set_x_y();
 }
-Rpoly::Rpoly(){}
+Rpoly::Rpoly() {
+    delete x;delete y;
+    x = nullptr;y = nullptr;
+}
 Rpoly::~Rpoly()
 {}
 

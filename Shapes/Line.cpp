@@ -26,10 +26,10 @@ bool Line::CheckSelect(int x, int y) const {
 void Line::PrintInfo(GUI* out) {
 	out->ClearStatusBar();
 	string msg;
-	msg = "The First Point:(";
+	msg = "The Initial Point:(";
 	msg += to_string(Corner1.x);msg += ",";
-	msg += to_string(Corner1.y);msg += ")  ,  ";
-	msg += "The Second Point:(";
+	msg += to_string(Corner1.y);msg += ") , ";
+	msg += "The Final Point:(";
 	msg += to_string(Corner2.x);msg += ",";
 	msg += to_string(Corner2.y);msg += ")";
 	out->PrintMessage(msg);

@@ -33,7 +33,7 @@ void Tri::PrintInfo(GUI* out) {
 	msg = "The Vertices:(";
 	msg += to_string(p1.x);msg += ",";
 	msg += to_string(p1.y);msg += ") , (";
-	msg += to_string(p2.x);msg += ")";
+	msg += to_string(p2.x);msg += ",";
 	msg += to_string(p2.y);msg += ") , (";
 	msg += to_string(p3.x);msg += ",";
 	msg += to_string(p3.y);msg += ")";
