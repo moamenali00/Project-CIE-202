@@ -98,8 +98,8 @@ Point Rect::rotate_point(double cx, double cy, double angle, Point p) {
 	float ynew = p.x * s + p.y * c;
 
 	// translate point back:
-	p.x = int(xnew + cx);
-	p.y = int(ynew + cy);
+	p.x = double(xnew + cx);
+	p.y = double(ynew + cy);
 	return p;
 }
 
