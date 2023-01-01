@@ -47,12 +47,14 @@ void Graph::setColor(shape* pShp)
 	color clr = pGUI->getCrntFillColor();
 	pShp->ChngFillClr(clr);
 }
+void Graph::Redo(char c) {
 
+}
 void Graph::Hide() {
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsSelected()) {
 			shapePointer->SetVisible(false);
-			cout << shapePointer->getId();
+			redo.push(shapePointer);
 		}
 	}
 }
