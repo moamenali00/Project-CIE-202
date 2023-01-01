@@ -13,6 +13,12 @@ void shape::SetVisible(bool s) {
 bool shape::IsVisible()const {
 	return ShpGfxInfo.isVisible;
 }
+void shape::setId(int x) {
+	ID = x;
+}
+int shape::getId()const {
+	return ID;
+}
 void shape::SetSelected(bool s)
 {	ShpGfxInfo.isSelected = s; }
 
