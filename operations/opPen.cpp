@@ -14,7 +14,7 @@ void opPen::Execute() {
 	Point P;
 	GUI* pGUI = pControl->GetUI();
 	color clr = pGUI->CreateColorPallete();
-	P = pGUI->ReturnP();
+	P = pGUI->ReturnPointClicked();
 	if (P.x < 70) {
 		pGUI->ClearToolBar();
 		pGUI->CreateDrawToolBar();

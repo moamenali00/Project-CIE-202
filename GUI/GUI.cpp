@@ -45,7 +45,7 @@ void GUI::GetPointClicked(int& x, int& y) const
 {
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
 }
-Point GUI::ReturnP() {
+Point GUI::ReturnPointClicked() {
 	return P;
 }
 

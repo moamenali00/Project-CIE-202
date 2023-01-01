@@ -114,7 +114,7 @@ class GUI
 public:
 	Point P;
 	GUI();
-	Point ReturnP();
+	Point ReturnPointClicked();
 	// Input Functions  ---------------------------
 	void GetPointClicked(int& x, int& y) const;//Get coordinate where user clicks
 	string GetSrting() const;	 //Returns a string entered by the user

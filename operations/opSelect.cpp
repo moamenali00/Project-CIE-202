@@ -1,6 +1,4 @@
 #include "opSelect.h"
-#include<iostream>
-#include<Windows.h>
 opSelect::opSelect(controller* pCont) : operation(pCont)
 {}
 opSelect::~opSelect()
@@ -11,7 +9,7 @@ void opSelect::Execute()
 	Point C;
 	GUI* pUI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
-	C = pUI->ReturnP();
+	C = pUI->ReturnPointClicked();
 	if (GetAsyncKeyState(VK_CONTROL) & 0x8000) {
 		if (pGr->Getshape(C.x, C.y) != nullptr) {
 			pGr->Getshape(C.x, C.y)->SetSelected(true);
