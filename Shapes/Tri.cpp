@@ -84,3 +84,5 @@ void Tri::Load(string line) {
 		ShpGfxInfo.FillClr = color(Red, Green, Blue);
 	}
 }
+
+void Tri::RotateShape(){}

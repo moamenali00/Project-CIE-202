@@ -14,6 +14,7 @@
 #include"operations\opAddRPoly.h"
 #include"operations\opExit.h"
 #include"operations\opAddStick.h"
+#include"operations/opRot.h"
 
 //Constructor
 controller::controller()
@@ -82,6 +83,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case LOAD:
 			pOp = new opLoad(this);
+			break;
+		case ROTATE:
+			pOp = new opRot(this);
 			break;
 		case EXIT:
 			pOp = new opExit(this);

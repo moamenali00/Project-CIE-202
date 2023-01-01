@@ -83,3 +83,7 @@ void Square::Load(string line) {
 		ShpGfxInfo.FillClr = color(Red, Green, Blue);
 	}
 }
+
+void Square::RotateShape() {
+
+}

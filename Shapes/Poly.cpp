@@ -111,3 +111,5 @@ void Poly::Load(string line) {
     delete[]words;
 
 }
+
+void Poly::RotateShape(){}

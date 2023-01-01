@@ -24,6 +24,7 @@ public:
 	void deSelect();
 	void Hide();
 	void StickI();
+	void Rotate();
 	void Save(ofstream& outfile);	//Save all shapes to a file
 	void setColor(shape*);
 	void Clear();

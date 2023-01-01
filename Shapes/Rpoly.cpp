@@ -131,3 +131,5 @@ void Rpoly::Load(string line) {
         y = new int[vertcies];
         this->set_x_y();
     }
+
+void Rpoly::RotateShape(){}

@@ -54,6 +54,7 @@ class GUI
 		ICON_LOAD,
 		ICON_FILL,
 		ICON_PEN,
+		ICON_ROT,
 		/*ICON_COLOR,
 		ICON_LOAD,*/
 
