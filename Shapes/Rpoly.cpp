@@ -9,11 +9,12 @@ Rpoly::Rpoly(Point Icenter, Point Ivertex, int Ivertices, GfxInfo shapeGfxInfo) 
     this->set_x_y();
 }
 Rpoly::Rpoly() {
-    delete x;delete y;
-    x = nullptr;y = nullptr;
+    
 }
 Rpoly::~Rpoly()
-{}
+{    delete[] x;delete[] y;
+    x = nullptr;y = nullptr;
+}
 
 Point Rpoly::rotate_point(double cx, double cy, double angle, Point p)
 {

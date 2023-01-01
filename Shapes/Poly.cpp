@@ -7,12 +7,14 @@ Poly::Poly(int* Ix, int* Iy, int Ivertices, GfxInfo shapeGfxInfo) :shape(shapeGf
 
 }
 Poly::Poly(){
-    delete x;delete y;
-    x = nullptr;y = nullptr;
+   
 }
 
 Poly::~Poly()
-{}
+{
+    delete[] x;delete[] y;
+    x = nullptr;y = nullptr;
+}
 
 void Poly::Draw(GUI* pUI) const
 {
@@ -109,6 +111,7 @@ void Poly::Load(string line) {
         ShpGfxInfo.FillClr = color(Red, Green, Blue);
     }
     delete[]words;
+    words = nullptr;
 
 }
 
