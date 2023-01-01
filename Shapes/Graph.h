@@ -12,10 +12,11 @@ class Graph
 {
 private:
 	int size = 0;
+	int id = 0;
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	//pointer to the currently selected shape
 	
-public:										
+public:			
 	Graph();
 	~Graph();
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList

@@ -1,6 +1,7 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
 #include<fstream>
+#include<iostream>
 Graph::Graph()
 {
 	selectedShape = nullptr;
@@ -17,6 +18,7 @@ Graph::~Graph()
 //Add a shape to the list of shapes
 void Graph::Addshape(shape* pShp)
 {
+	pShp->setId(id++);
 	shapesList.push_back(pShp);	
 }
 ////////////////////////////////////////////////////////////////////////////////////
@@ -49,6 +51,7 @@ void Graph::Hide() {
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsSelected()) {
 			shapePointer->SetVisible(false);
+			cout << shapePointer->getId();
 		}
 	}
 }
