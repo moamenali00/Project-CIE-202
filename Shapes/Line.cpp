@@ -34,6 +34,10 @@ void Line::PrintInfo(GUI* out) {
 	msg += to_string(Corner2.y);msg += ")";
 	out->PrintMessage(msg);
 }
+void Line::stickimages(GUI* u)
+{
+
+}
 void Line::Save(ofstream& OutFile,int c) {
 	OutFile << "Line ";
 	OutFile << " "<<c<<"  ";
@@ -42,4 +46,16 @@ void Line::Save(ofstream& OutFile,int c) {
 	OutFile << "  No_fill  ";
 	OutFile << ShpGfxInfo.BorderWdth << " ";
 
+}
+shape* Line::copy()
+{
+	return new Line(Corner1, Corner2, ShpGfxInfo);
+}
+void Line::paste(int xx, int yy)
+{
+	int dx = Corner1.x - Corner2.x;
+	int dy = Corner1.y - Corner2.y;
+	Corner1.x = xx; Corner1.y = yy;
+	Corner2.x = Corner1.x - dx;
+	Corner2.y = Corner1.y - dy;
 }

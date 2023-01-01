@@ -13,7 +13,7 @@ class Graph
 private:
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	//pointer to the currently selected shape
-	
+	shape* copied;
 public:										
 	Graph();
 	~Graph();
@@ -22,8 +22,10 @@ public:
 	shape* Getshape(int x, int y) const; //Search for a shape given a point inside the shape
 	void deSelect();
 	void Hide();
-	void StickI();
+	void StickI(GUI*G);
 	void Save(ofstream& outfile);	//Save all shapes to a file
 	void setColor(shape*);
 	void Clear();
+	void copy();
+	void paste(GUI* G);
 };

@@ -15,7 +15,9 @@ public:
 	virtual bool CheckSelect(int, int) const;
 	virtual void Save(ofstream& OutFile,int c);
 	virtual void PrintInfo(GUI*);
-
+	virtual void stickimages(GUI* u);
+	virtual shape* copy();
+	virtual void paste(int xx, int yy);
 };
 
 

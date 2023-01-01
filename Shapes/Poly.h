@@ -16,6 +16,9 @@ public:
 	virtual void Save(ofstream& OutFile, int);
 	double polygonArea(int X[], int Y[], int n) const;
 	virtual void PrintInfo(GUI*);
+	virtual void stickimages(GUI* u);
+	virtual shape* copy();
+	virtual void paste(int xx, int yy);
 };
 
 

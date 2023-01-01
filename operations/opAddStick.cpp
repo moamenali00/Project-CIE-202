@@ -9,8 +9,9 @@ opAddStick::~opAddStick()
 //Execute the operation
 void opAddStick::Execute()
 {
+	GUI* busy = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
-	pGr->StickI();
+	pGr->StickI(busy);
 
 }
 

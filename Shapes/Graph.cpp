@@ -4,6 +4,7 @@
 Graph::Graph()
 {
 	selectedShape = nullptr;
+	copied = nullptr;
 }
 
 Graph::~Graph()
@@ -26,7 +27,13 @@ void Graph::Draw(GUI* pUI) const
 	pUI->ClearDrawArea();
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsVisible())
+		{
 			shapePointer->Draw(pUI);
+			if (shapePointer->iswithimage())
+			{
+				shapePointer->stickimages(pUI);
+			}
+		}
 	}
 }
 void Graph::deSelect() {
@@ -49,13 +56,29 @@ void Graph::Hide() {
 		}
 	}
 }
-void Graph::StickI()
+void Graph::StickI(GUI*G)
 {
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsSelected()) {
-			shapePointer->stickimages();
+			shapePointer->stickimages(G);
 		}
 	}
+}
+void Graph::copy()
+{
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsSelected()) {
+			copied = shapePointer->copy();
+			return;
+		}
+	}
+}
+void Graph::paste(GUI* G)
+{
+	int x, y;
+	G->GetPointClicked(x, y);
+	copied->paste(x, y);
+	shapesList.push_back(copied);
 }
 void Graph::Clear() {
 	for (auto shapePointer : shapesList) {

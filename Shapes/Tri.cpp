@@ -39,6 +39,50 @@ void Tri::PrintInfo(GUI* out) {
 	msg += to_string(p3.y);msg += ")";
 	out->PrintMessage(msg);
 }
+
+void Tri::stickimages(GUI* u)
+{
+	ShpGfxInfo.withimage = true;
+	int minx, miny,maxx,maxy;
+	if (Corner1.x <= Corner2.x && Corner1.x <= Corner3.x) {
+		minx = Corner1.x;
+	}
+	else if (Corner3.x <= Corner2.x && Corner3.x <= Corner1.x) {
+		minx = Corner3.x;
+	}
+	else {
+		minx = Corner2.x;
+	}
+	if (Corner1.y <= Corner2.y && Corner1.y <= Corner3.y) {
+		miny = Corner1.y;
+	}
+	else if (Corner3.y <= Corner2.y && Corner3.y <= Corner1.y) {
+		miny = Corner3.y;
+	}
+	else {
+		miny = Corner2.y;
+	}
+	if (Corner1.x >= Corner2.x && Corner1.x >= Corner3.x) {
+		maxx = Corner1.x;
+	}
+	else if (Corner3.x >= Corner2.x && Corner3.x >= Corner1.x) {
+		maxx = Corner3.x;
+	}
+	else {
+		maxx = Corner2.x;
+	}
+	if (Corner1.y >= Corner2.y && Corner1.y >= Corner3.y) {
+		maxy = Corner1.y;
+	}
+	else if (Corner3.y >= Corner2.y && Corner3.y >= Corner1.y) {
+		maxy = Corner3.y;
+	}
+	else {
+		maxy = Corner2.y;
+	}
+	string image = "images\\MenuIcons\\Menu_Play.jpg";
+	u->draw_image(image, minx + 0.4 * (maxx - minx), miny + 0.4 * (maxy - miny), 0.5 * abs(Corner2.x - Corner1.x), 0.5 * abs(Corner2.y - Corner1.y));
+}
 void Tri::Save(ofstream& OutFile,int c) {
 	OutFile << "Tri ";
 	OutFile << " " << c<<" ";
@@ -51,4 +95,21 @@ void Tri::Save(ofstream& OutFile,int c) {
 		OutFile << "  No_fill  ";
 	OutFile << ShpGfxInfo.BorderWdth << " ";
 	
+}
+
+shape* Tri::copy()
+{
+	return new Tri(Corner1, Corner2, Corner3, ShpGfxInfo);
+}
+void Tri::paste(int xx, int yy)
+{
+	int dx = Corner1.x - Corner2.x;
+	int dy = Corner1.y - Corner2.y;
+	int dx1 = Corner1.x - Corner3.x;
+	int dy1 = Corner1.y - Corner3.y;
+	Corner1.x = xx; Corner1.y = yy;
+	Corner2.x = Corner1.x - dx;
+	Corner2.y = Corner1.y - dy;
+	Corner3.x = Corner1.x - dx1;
+	Corner3.y = Corner1.y - dy1;
 }
