@@ -19,6 +19,7 @@ Graph::~Graph()
 void Graph::Addshape(shape* pShp)
 {
 	pShp->setId(id++);
+	redo.push(pShp);
 	shapesList.push_back(pShp);	
 }
 ////////////////////////////////////////////////////////////////////////////////////

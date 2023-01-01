@@ -2,6 +2,7 @@
 #include "Shape.h"
 #include <fstream>
 #include <vector>
+#include<stack>
 using namespace std;
 
 //forward decl
@@ -15,6 +16,7 @@ private:
 	int id = 0;
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	//pointer to the currently selected shape
+	stack <shape*> redo;
 	
 public:			
 	Graph();
