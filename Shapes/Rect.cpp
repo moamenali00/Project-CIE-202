@@ -85,3 +85,31 @@ void Rect::Load(string line) {
 		ShpGfxInfo.FillClr = color(Red, Green, Blue);
 	}
 }
+Point Rect::rotate_point(double cx, double cy, double angle, Point p) {
+	float s = sin(angle);
+	float c = cos(angle);
+
+	// translate point back to origin:
+	p.x -= cx;
+	p.y -= cy;
+
+	// rotate point
+	float xnew = p.x * c - p.y * s;
+	float ynew = p.x * s + p.y * c;
+
+	// translate point back:
+	p.x = int(xnew + cx);
+	p.y = int(ynew + cy);
+	return p;
+}
+
+void Rect::RotateShape(){
+	Point center, p1, p2;
+	center.x = abs(Corner1.x + Corner2.x) / 2;
+	center.y = abs(Corner1.y + Corner2.y) / 2;
+	p1 = rotate_point(center.x, center.y, acos(0), Corner1);
+	p2 = rotate_point(center.x, center.y, acos(0), Corner2);
+	Corner1 = p1;
+	Corner2 = p2;
+
+}

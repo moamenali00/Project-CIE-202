@@ -60,6 +60,14 @@ void Graph::StickI()
 		}
 	}
 }
+void Graph::Rotate() {
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsSelected()) {
+			shapePointer->RotateShape();
+		}
+	}
+ }
+
 void Graph::Clear() {
 	for (auto shapePointer : shapesList) {
 		delete shapePointer;

@@ -114,3 +114,5 @@ void Poly::Load(string line) {
     words = nullptr;
 
 }
+
+void Poly::RotateShape(){}

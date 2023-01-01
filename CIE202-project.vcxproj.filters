@@ -183,6 +183,9 @@
     <ClCompile Include="operations\opAddStick.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opRot.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -325,6 +328,9 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opAddStick.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opRot.h">
       <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>

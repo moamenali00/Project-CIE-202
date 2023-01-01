@@ -18,6 +18,7 @@ public:
 	double polygonArea(int X[], int Y[], int n) const;
 	virtual void PrintInfo(GUI*);
 	virtual void Load(string);
+	void RotateShape();
 
 };
 

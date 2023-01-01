@@ -16,6 +16,7 @@ public:
 	virtual void Save(ofstream& OutFile,int c);
 	virtual void PrintInfo(GUI*);
 	virtual void Load(string);
-
+	void RotateShape();
+	Point rotate_point(double cx, double cy, double angle, Point p);
 };
 
