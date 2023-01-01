@@ -5,6 +5,7 @@
 Graph::Graph()
 {
 	selectedShape = nullptr;
+	copied = nullptr;
 }
 
 Graph::~Graph()
@@ -28,9 +29,19 @@ void Graph::Draw(GUI* pUI)
 	size = 0;
 	pUI->ClearDrawArea();
 	for (auto shapePointer : shapesList) {
+<<<<<<< HEAD
+		if (shapePointer->IsVisible())
+		{
+			shapePointer->Draw(pUI);
+			if (shapePointer->iswithimage())
+			{
+				shapePointer->stickimages(pUI);
+			}
+=======
 		if (shapePointer->IsVisible()) {
 			shapePointer->Draw(pUI);
 			size++;
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 		}
 	}
 }
@@ -55,14 +66,32 @@ void Graph::Hide() {
 		}
 	}
 }
-void Graph::StickI()
+void Graph::StickI(GUI*G)
 {
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsSelected()) {
-			shapePointer->stickimages();
+			shapePointer->stickimages(G);
 		}
 	}
 }
+<<<<<<< HEAD
+void Graph::copy()
+{
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsSelected()) {
+			copied = shapePointer->copy();
+			return;
+		}
+	}
+}
+void Graph::paste(GUI* G)
+{
+	int x, y;
+	G->GetPointClicked(x, y);
+	copied->paste(x, y);
+	shapesList.push_back(copied);
+}
+=======
 void Graph::Rotate() {
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsSelected()) {
@@ -71,6 +100,7 @@ void Graph::Rotate() {
 	}
  }
 
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 void Graph::Clear() {
 	for (auto shapePointer : shapesList) {
 		delete shapePointer;

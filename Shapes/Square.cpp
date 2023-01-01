@@ -41,6 +41,25 @@ void Square::PrintInfo(GUI* out) {
 	msg += to_string(p4.y);msg += ")";
 	out->PrintMessage(msg);
 }
+void Square::stickimages(GUI* u)
+{
+	ShpGfxInfo.withimage = true;
+	int minx, miny;
+	if (Corner1.x > Corner2.x) {
+		minx = Corner2.x;
+	}
+	else {
+		minx = Corner1.x;
+	}
+	if (Corner1.y > Corner2.y) {
+		miny = Corner2.y;
+	}
+	else {
+		miny = Corner1.y;
+	}
+	string image = "images\\MenuIcons\\Menu_Play.jpg";
+	u->draw_image(image, minx + 0.1 * abs(Corner2.x - Corner1.x), miny + 0.1 * abs(Corner2.y - Corner1.y), abs(Corner2.x - Corner1.x) * 0.7, abs(Corner2.y - Corner1.y) * 0.7);
+}
 void Square::Save(ofstream& OutFile, int c) {
 	OutFile <<"Square";
 	OutFile <<" " << c << " ";
@@ -50,6 +69,23 @@ void Square::Save(ofstream& OutFile, int c) {
 		OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue;
 	}
 	else
+<<<<<<< HEAD
+		OutFile << "  No_fill  ";
+	OutFile << ShpGfxInfo.BorderWdth << " ";
+}
+
+shape* Square::copy()
+{
+	return new Square(Corner1, Corner2, ShpGfxInfo);
+}
+void Square::paste(int xx, int yy)
+{
+	int dx = Corner1.x - Corner2.x;
+	int dy = Corner1.y - Corner2.y;
+	Corner1.x = xx; Corner1.y = yy;
+	Corner2.x = Corner1.x - dx;
+	Corner2.y = Corner1.y - dy;
+=======
 		OutFile << "No_fill";
 	OutFile << " " << ShpGfxInfo.BorderWdth;
 }
@@ -86,4 +122,5 @@ void Square::Load(string line) {
 
 void Square::RotateShape() {
 
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 }

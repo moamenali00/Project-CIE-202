@@ -24,10 +24,11 @@ public:
 	bool IsSelected() const;	//check whether fig is selected
 	bool IsVisible()const;
 	virtual void Draw(GUI* pUI) const  = 0 ;		//Draw the shape
-	void stickimages();
+	virtual void stickimages(GUI*u) = 0;
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color
 	void ChngFillClr(color Fclr);	//changes the shape's filling color
 	virtual bool CheckSelect(int, int)const = 0;
+	bool iswithimage();
 	///The following functions should be supported by the shape class
 	///It should be overridden by each inherited shape
 
@@ -42,5 +43,7 @@ public:
 	virtual void Load(string) = 0;	//Load the shape parameters to the file
 
 	virtual void PrintInfo(GUI*) = 0;	//print all shape info on the status bar
+	virtual shape* copy() = 0;
+	virtual void paste(int xx, int yy) = 0;
 };
 

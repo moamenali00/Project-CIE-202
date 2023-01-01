@@ -1,4 +1,8 @@
 #include "Poly.h"
+<<<<<<< HEAD
+#include <vector>
+=======
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 Poly::Poly(int* Ix, int* Iy, int Ivertices, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
 	x = Ix;
@@ -12,8 +16,13 @@ Poly::Poly(){
 
 Poly::~Poly()
 {
+<<<<<<< HEAD
+    delete[] x;
+    delete[] y;
+=======
     delete[] x;delete[] y;
     x = nullptr;y = nullptr;
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 }
 
 void Poly::Draw(GUI* pUI) const
@@ -48,6 +57,26 @@ void Poly::PrintInfo(GUI* out) {
     out->PrintMessage(msg);
 }
 
+void Poly::stickimages(GUI* u)
+{
+    ShpGfxInfo.withimage = true;
+    int maxx=x[0], minx=x[0], maxy=y[0], miny=y[0];
+    for (int i = 0; i < vertcies; i++)
+    {
+        if (x[i] > maxx)
+            maxx = x[i];
+        else if (x[i] < minx)
+            minx = x[i];
+        if (y[i] > maxy)
+            maxy = y[i];
+        else if (y[i] < miny)
+            miny = y[i];
+    }
+    string image = "images\\MenuIcons\\Menu_Play.jpg";
+    u->draw_image(image, minx + 0.5 * abs(maxx - maxx), miny + 0.5 * abs(maxy - miny), 0.25 * abs(maxx - minx), 0.25 * abs(maxy - miny));
+
+}
+
 bool Poly::CheckSelect(int x0, int y0) const {
     double area = 0;
     int j = vertcies - 1;
@@ -75,6 +104,40 @@ void Poly::Save(ofstream& OutFile, int c) {
 
     }
     else
+<<<<<<< HEAD
+        OutFile << "  No_fill  ";
+    OutFile << ShpGfxInfo.BorderWdth;
+}
+shape* Poly::copy()
+{
+    int* xx = new int[vertcies];
+    int* yy = new int[vertcies];
+    for (int i = 0; i < vertcies; i++)
+    {
+        xx[i] = x[i];
+        yy[i] = y[i];
+    }
+    return new Poly(xx, yy, vertcies, ShpGfxInfo);
+}
+void Poly::paste(int xx, int yy)
+{
+    vector <int> dx;
+    vector <int> dy;
+    for (int i = 1; i < vertcies; i++)
+    {
+        dx.push_back(x[0] - x[i]);
+        dy.push_back(y[0] - y[i]);
+    }
+    x[0] = xx; y[0] = yy;
+    for (int i = vertcies-1; i > 0; i--)
+    {
+        x[i] = x[0] - dx.back();
+        dx.pop_back();
+        y[i] = y[0] - dy.back();
+        dy.pop_back();
+    }
+}
+=======
         OutFile <<"No_fill";
     OutFile <<" "<< ShpGfxInfo.BorderWdth;
 }
@@ -116,3 +179,4 @@ void Poly::Load(string line) {
 }
 
 void Poly::RotateShape(){}
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8

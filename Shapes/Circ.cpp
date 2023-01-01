@@ -32,6 +32,14 @@ void Circ::PrintInfo(GUI* out) {
 	out->PrintMessage(msg);
 }
 
+void Circ::stickimages(GUI* u)
+{
+	ShpGfxInfo.withimage = true;
+	int rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
+	string image = "images\\MenuIcons\\Menu_Play.jpg";
+	u->draw_image(image, Corner1.x - 0.5 * rad, Corner1.y - 0.5 * rad, rad, rad);
+}
+
 void Circ::Save(ofstream& OutFile,int c) {
 	OutFile << "Circ";
 	OutFile << " " << c<<" ";
@@ -41,6 +49,25 @@ void Circ::Save(ofstream& OutFile,int c) {
 		OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue;
 	}
 	else
+<<<<<<< HEAD
+		OutFile << "  No_fill  ";
+	OutFile << ShpGfxInfo.BorderWdth << " ";
+}
+
+shape* Circ::copy()
+{
+	return new Circ(Corner1, Corner2, ShpGfxInfo);
+}
+
+void Circ::paste(int xx, int yy)
+{
+	int dx = Corner1.x - Corner2.x;
+	int dy = Corner1.y - Corner2.y;
+	Corner1.x = xx; Corner1.y = yy;
+	Corner2.x = Corner1.x - dx;
+	Corner2.y = Corner1.y - dy;
+}
+=======
 		OutFile << "No_fill";
 	OutFile <<" " << ShpGfxInfo.BorderWdth;
 }
@@ -74,3 +101,4 @@ void Circ::Load(string line) {
 }
 
 void Circ::RotateShape(){}
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8

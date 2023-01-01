@@ -14,7 +14,13 @@
 #include"operations\opAddRPoly.h"
 #include"operations\opExit.h"
 #include"operations\opAddStick.h"
+<<<<<<< HEAD
+#include"operations\opAddcopy.h"
+#include"operations\opAddpaste.h"
+
+=======
 #include"operations/opRot.h"
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 //Constructor
 controller::controller()
 {
@@ -32,7 +38,7 @@ operationType controller::GetUseroperation() const
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Creates an operation and executes it
-operation* controller::createOperation(operationType OpType)
+operation* controller::createOperation(operationType OpType) 
 {
 	operation* pOp = nullptr;
 	
@@ -45,7 +51,12 @@ operation* controller::createOperation(operationType OpType)
 		case STICKIMAGE:
 			pOp = new opAddStick(this);
 			break;
-
+		case TO_PASTE:
+			pOp = new opAddpaste(this);
+			break;
+		case TO_COPY:
+			pOp = new opAddcopy(this);
+			break;
 		case DRAW_SQUARE:
 			pOp = new opAddSquare(this);
 			break;
@@ -111,8 +122,9 @@ operation* controller::createOperation(operationType OpType)
 //==================================================================================//
 
 //Draw all shapes on the user interface
-void controller::UpdateInterface() const
+void controller::UpdateInterface() 
 {	
+
 	pGraph->Draw(pGUI);
 }
 ////////////////////////////////////////////////////////////////////////////////////

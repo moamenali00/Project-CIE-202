@@ -183,7 +183,14 @@
     <ClCompile Include="operations\opAddStick.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+<<<<<<< HEAD
+    <ClCompile Include="operations\opAddcopy.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opAddpaste.cpp">
+=======
     <ClCompile Include="operations\opRot.cpp">
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
       <Filter>Operations</Filter>
     </ClCompile>
   </ItemGroup>
@@ -330,7 +337,14 @@
     <ClInclude Include="operations\opAddStick.h">
       <Filter>Operations</Filter>
     </ClInclude>
+<<<<<<< HEAD
+    <ClInclude Include="operations\opAddpaste.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opAddcopy.h">
+=======
     <ClInclude Include="operations\opRot.h">
+>>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
       <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>
