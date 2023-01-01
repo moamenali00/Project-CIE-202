@@ -1,9 +1,6 @@
 #include "Rpoly.h"
-<<<<<<< HEAD
 #include <vector>
 
-=======
->>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 Rpoly::Rpoly(Point Icenter, Point Ivertex, int Ivertices, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
     center = Icenter;
@@ -13,13 +10,9 @@ Rpoly::Rpoly(Point Icenter, Point Ivertex, int Ivertices, GfxInfo shapeGfxInfo) 
     y = new int[vertcies];
     this->set_x_y();
 }
-Rpoly::Rpoly() {
-    
-}
+
 Rpoly::~Rpoly()
-{    delete[] x;delete[] y;
-    x = nullptr;y = nullptr;
-}
+{}
 
 Point Rpoly::rotate_point(double cx, double cy, double angle, Point p)
 {
@@ -101,15 +94,14 @@ void Rpoly::stickimages(GUI* u)
     
 
 void Rpoly::Save(ofstream& OutFile, int c) {
-    OutFile << "RPoly";
-    OutFile << " " << c << " ";
-    OutFile << vertcies << " "<<center.x<<" "<<center.y<<" "<<vertex.x<<" "<<vertex.y;
+    OutFile << "RPoly ";
+    OutFile << " " << c << "  ";
+    OutFile << vertcies << " "<<center.x<<" "<<center.y<<" "<<vertex.x<<" "<<vertex.y<<" ";
     OutFile << " " << (int)ShpGfxInfo.DrawClr.ucRed << " " << (int)ShpGfxInfo.DrawClr.ucGreen << " " << (int)ShpGfxInfo.DrawClr.ucBlue<<" ";
     if (ShpGfxInfo.isFilled) {
-        OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue;
+        OutFile << (int)ShpGfxInfo.FillClr.ucRed << " " << (int)ShpGfxInfo.FillClr.ucGreen << " " << (int)ShpGfxInfo.FillClr.ucBlue << " ";
     }
     else
-<<<<<<< HEAD
         OutFile << "  No_fill  ";
     OutFile << ShpGfxInfo.BorderWdth;
 }
@@ -135,47 +127,4 @@ void Rpoly::paste(int xx, int yy)
         y[i] = y[0] - dy.back();
         dy.pop_back();
     }
-=======
-        OutFile << "No_fill";
-    OutFile <<" "<< ShpGfxInfo.BorderWdth;
-}
-void Rpoly::Load(string line) {
-    stringstream ss(line);
-    string word;
-    int i = 0;
-    string words[14];
-    while (getline(ss, word, ' ') && i < 14) { words[i++] = word; }
-    i = 2;
-    vertcies = stoi(words[i++]);
-    center.x = stoi(words[i++]);
-    center.y = stoi(words[i++]);
-    vertex.x = stoi(words[i++]);
-    vertex.y = stoi(words[i++]);
-    unsigned Red = (unsigned char)atol(words[i++].c_str());
-    unsigned Green = (unsigned char)atol(words[i++].c_str());
-    unsigned Blue = (unsigned char)atol(words[i++].c_str());
-    ShpGfxInfo.DrawClr = color(Red, Green, Blue);
-    if (words[i] == "No_fill") {
-        ShpGfxInfo.isFilled = false;
-        ShpGfxInfo.BorderWdth = stoi(words[++i]);
-    }
-    else {
-        ShpGfxInfo.isFilled = true;
-        unsigned char Red = (unsigned char)atol(words[i++].c_str());
-        unsigned char Green = (unsigned char)atol(words[i++].c_str());
-        unsigned char Blue = (unsigned char)atol(words[i++].c_str());
-        ShpGfxInfo.BorderWdth = stoi(words[i]);
-        ShpGfxInfo.FillClr = color(Red, Green, Blue);
-    }
-        x = new int[vertcies];
-        y = new int[vertcies];
-        this->set_x_y();
-    }
-
-void Rpoly::RotateShape(){
-    Point p1;
-    p1 = rotate_point(center.x, center.y, acos(0), vertex);
-    vertex = p1;
-    set_x_y();
->>>>>>> abfe30e4dfbd771719b66cdc148e004e5e8eccb8
 }

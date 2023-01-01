@@ -1,5 +1,7 @@
 #include "GUI.h"
-
+Point GUI::ReturnP() {
+	return P;
+}
 GUI::GUI()
 {
 	//Initialize user interface parameters
@@ -44,9 +46,6 @@ GUI::GUI()
 void GUI::GetPointClicked(int& x, int& y) const
 {
 	pWind->WaitMouseClick(x, y);	//Wait for mouse click
-}
-Point GUI::ReturnPointClicked() {
-	return P;
 }
 
 string GUI::GetSrting() const
@@ -109,7 +108,6 @@ operationType GUI::GetUseroperation()
 			case ICON_LOAD: return LOAD;
 			case ICON_FILL: return CHNG_FILL_CLR;
 			case ICON_PEN: return CHNG_DRAW_CLR;
-			case ICON_ROT: return ROTATE;
 			case ICON_EXIT: return EXIT;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar
@@ -243,7 +241,6 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_LOAD] = "images\\MenuIcons\\Menu_Load.jpg";
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
 	MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
-	MenuIconImages[ICON_ROT] = "images\\MenuIcons\\Menu_Rot.jpg";
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
 
 	//TODO: Prepare images for each menu icon and add it to the list

@@ -3,19 +3,19 @@
 #include "DEFS.h"
 #include "Shapes\Graph.h"
 #include "GUI\GUI.h"
-#include<stack>
+
 class operation; //forward declaration
 
 //Main class that manages everything in the application.
 class controller
 {
+
 	Graph* pGraph;	//pointe to the grapg
 	GUI* pGUI;		//Pointer to UI class
 	
 
 public:
-	stack <operation*> undo;
-	stack <operation*> redo;
+	Point P;
 	controller(); 
 	~controller();
 	

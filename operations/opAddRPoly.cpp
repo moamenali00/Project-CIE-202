@@ -1,6 +1,7 @@
 #include "opAddRPoly.h"
 #include "..\shapes\Rpoly.h"
-
+#include "..\controller.h"
+#include "..\GUI\GUI.h"
 
 opAddRPoly::opAddRPoly(controller* pCont) :operation(pCont)
 {}
