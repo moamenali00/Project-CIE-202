@@ -8,7 +8,7 @@
 class shape
 {
 protected:
-	int ID;		//Each shape has an ID
+	int ID;//Each shape has an ID
 	GfxInfo ShpGfxInfo;	//shape graphis info
 	
 	/// Add more parameters if needed.
@@ -16,6 +16,8 @@ protected:
 public:
 	shape(GfxInfo shapeGfxInfo);
 	shape();
+	void setId(int);
+	int getId()const;
 	virtual ~shape() {}
 	void SetSelected(bool s);	//select/unselect the shape
 	void SetVisible(bool);
