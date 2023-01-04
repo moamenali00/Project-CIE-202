@@ -44,7 +44,9 @@ class GUI
 		ICON_PLAY,
 		ICON_PASTE,
 		ICON_COPY,
+		ICON_SCRAMBLE,
 		ICON_STICK,
+		ICON_RESIZE,
 		ICON_LINE,
 		ICON_RECT,		//Recangle icon in menu
 		ICON_CIRC,		//Circle icon in menu

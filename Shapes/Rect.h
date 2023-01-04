@@ -21,5 +21,7 @@ public:
 	virtual shape* copy();
 	virtual void paste(int xx, int yy);
 	Point rotate_point(double cx, double cy, double angle, Point p);
+	virtual void scramble();
+	virtual void resize(float a);
 };
 

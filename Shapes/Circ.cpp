@@ -94,3 +94,29 @@ void Circ::paste(int xx, int yy)
 	Corner2.x = Corner1.x - dx;
 	Corner2.y = Corner1.y - dy;
 }
+
+void Circ::scramble()
+{
+	int z = rand() % 1200;
+	int p = rand() % 500 + 100;
+	int rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
+	Corner1.x = z;
+	Corner1.y = p;
+	Corner2.x = Corner1.x - rad;
+	Corner2.y = Corner1.y;
+	if (Corner1.x-rad < 0 || Corner1.x+rad > 1200)
+	{
+		scramble();
+	}
+	if (Corner1.y-rad < 70 || Corner1.y+rad > 600)
+	{
+		scramble();
+	}
+}
+
+void Circ::resize(float a)
+{
+	int rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
+	Corner2.y = Corner1.y;
+	Corner2.x = Corner1.x - a * rad;
+}

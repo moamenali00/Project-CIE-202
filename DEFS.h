@@ -36,7 +36,8 @@ enum operationType //The operations supported (you can add more if needed)
 	STICKIMAGE,
 	TO_COPY,
 	TO_PASTE,
-	TO_DRAW,		//Switch interface to Draw mode
+	TO_DRAW,
+	TO_SCRAMBLE,//Switch interface to Draw mode
 	TO_PLAY			//Switch interface to Play mode
 
 	///TODO: Add more operation types (if needed)

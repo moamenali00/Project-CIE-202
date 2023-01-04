@@ -165,3 +165,69 @@ void Poly::paste(int xx, int yy)
         dy.pop_back();
     }
 }
+
+void Poly::scramble()
+{
+    int z = rand() % 1200;
+    int p = rand() % 500 + 100;
+    vector <int> dx;
+    vector <int> dy;
+    for (int i = 1; i < vertcies; i++)
+    {
+        dx.push_back(x[0] - x[i]);
+        dy.push_back(y[0] - y[i]);
+    }
+    x[0] = z; y[0] = p;
+    for (int i = vertcies - 1; i > 0; i--)
+    {
+        x[i] = x[0] - dx.back();
+        dx.pop_back();
+        y[i] = y[0] - dy.back();
+        dy.pop_back();
+    }
+    for (int i = vertcies - 1; i > 0; i--)
+    {
+        if (x[i] < 0 || x[i] > 1200)
+        {
+            scramble();
+        }
+        if (y[i] < 70 || y[i] > 600)
+        {
+            scramble();
+        }
+    }
+}
+
+void Poly::resize(float a)
+{
+    for (int i = 0; i < vertcies; i++)
+    {
+        int avgx, avgy;
+        avgx = (x[i] + x[(i + 1) % vertcies]) / 2;
+        avgy = (y[i] + y[(i + 1) % vertcies]) / 2;
+        int dx;
+        dx = abs(x[i] - x[(i + 1) % vertcies]) * a * 0.5;
+        int dy;
+        dy = abs(y[i] - y[(i + 1) % vertcies])* a * 0.5;
+        if (x[i] < x[(i + 1) % vertcies])
+        {
+            x[i] = avgx - dx;
+            x[(i + 1) % vertcies] = avgx + dx;
+        }
+        else
+        {
+            x[(i + 1) % vertcies] = avgx - dx;
+            x[i] = avgx + dx;
+        }
+        if (y[i] < y[(i + 1) % vertcies])
+        {
+            y[i] = avgy - dy;
+            y[(i + 1) % vertcies] = avgy + dy;
+        }
+        else
+        {
+            y[(i + 1) % vertcies] = avgy - dy;
+            y[i] = avgy + dy;
+        }
+    }
+}

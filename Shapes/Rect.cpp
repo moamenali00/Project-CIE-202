@@ -122,6 +122,42 @@ Point Rect::rotate_point(double cx, double cy, double angle, Point p) {
 	return p;
 }
 
+void Rect::scramble()
+{
+	
+	int z = rand() % 1100;
+	int p = rand() % 500 + 100;
+	int dx = Corner1.x - Corner2.x;
+	int dy = Corner1.y - Corner2.y;
+	Corner1.x = z;
+	Corner1.y = p;
+	Corner2.x = Corner1.x - dx;
+	Corner2.y = Corner1.y - dy;
+	if (Corner2.x < 0 || Corner2.x > 1200)
+	{
+		scramble();
+	}
+	if (Corner2.y < 70 || Corner2.y > 600)
+	{
+		scramble();
+	}
+}
+
+void Rect::resize(float a)
+{
+	int avgx, avgy;
+	avgx = (Corner1.x + Corner2.x) / 2;
+	avgy = (Corner1.y + Corner2.y) / 2; 
+	int dx;
+	dx = abs(Corner1.x - Corner2.x) * a * 0.5;
+	int dy;
+	dy = abs(Corner1.y - Corner2.y) * a * 0.5;
+	Corner2.x = avgx + dx;
+	Corner1.x = avgx - dx;
+	Corner2.y = avgy + dy;
+	Corner1.y = avgy - dy;
+}
+
 void Rect::RotateShape(){
 	Point center, p1, p2;
 	center.x = abs(Corner1.x + Corner2.x) / 2;

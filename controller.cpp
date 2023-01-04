@@ -16,7 +16,10 @@
 #include"operations\opAddStick.h"
 #include"operations\opAddcopy.h"
 #include"operations\opAddpaste.h"
+#include"operations\resize.h"
 #include"operations/opRot.h"
+#include"operations/opAddscramble_image.h"
+
 //Constructor
 controller::controller()
 {
@@ -46,6 +49,12 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case STICKIMAGE:
 			pOp = new opAddStick(this);
+			break;
+		case TO_SCRAMBLE:
+			pOp = new opAddscramble_image(this);
+			break;
+		case RESIZE:
+			pOp = new resize(this);
 			break;
 		case TO_PASTE:
 			pOp = new opAddpaste(this);

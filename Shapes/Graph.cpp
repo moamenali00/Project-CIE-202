@@ -2,6 +2,7 @@
 #include "../GUI/GUI.h"
 #include<fstream>
 #include<iostream>
+
 Graph::Graph()
 {
 	selectedShape = nullptr;
@@ -60,12 +61,33 @@ void Graph::copy()
 		}
 	}
 }
-void Graph::paste(GUI* G)
+void Graph::paste(int x ,int y)
 {
-	int x, y;
-	G->GetPointClicked(x, y);
+	
 	copied->paste(x, y);
 	shapesList.push_back(copied);
+}
+
+void Graph::scramble_image()
+{
+	
+	for (auto shapePointer : shapesList) {
+		shapePointer->scramble();
+	}
+	
+
+	
+	
+
+}
+
+void Graph::resize(float a)
+{
+	for (auto shapePointer : shapesList) 
+	{
+		if (shapePointer->IsSelected())
+			shapePointer->resize(a);
+	}
 }
 
 void Graph::setColor(shape* pShp) 

@@ -45,5 +45,8 @@ public:
 	virtual void PrintInfo(GUI*) = 0;	//print all shape info on the status bar
 	virtual shape* copy() = 0;
 	virtual void paste(int xx, int yy) = 0;
+	virtual void scramble() = 0;
+	virtual void resize(float a) = 0;
+	/*virtual void scrabmle_image(int xx, int yy) = 0;*/
 };
 

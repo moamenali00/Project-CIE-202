@@ -20,6 +20,8 @@ public:
 	virtual void stickimages(GUI* u);
 	virtual shape* copy();
 	virtual void paste(int xx, int yy);
+	virtual void scramble();
+	virtual void resize(float a);
 };
 
 

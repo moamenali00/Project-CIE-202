@@ -33,5 +33,7 @@ public:
 	void setColor(shape*);
 	void Clear();
 	void copy();
-	void paste(GUI* G);
+	void paste(int x, int y);
+	void scramble_image();
+	void resize(float a);
 };

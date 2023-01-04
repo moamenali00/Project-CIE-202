@@ -13,7 +13,7 @@ GUI::GUI()
 
 	StatusBarHeight = 50;
 	ToolBarHeight = 70;
-	MenuIconWidth = 70;
+	MenuIconWidth = 50;
 
 	FillStatus = false;
 	Default_Drawcolor = BLUE;
@@ -94,9 +94,11 @@ operationType GUI::GetUseroperation()
 			switch (ClickedIconOrder)
 			{
 			case ICON_PLAY: return TO_PLAY;
+			case ICON_SCRAMBLE: return TO_SCRAMBLE;
 			case ICON_PASTE: return TO_PASTE;
 			case ICON_COPY: return TO_COPY;
 			case ICON_STICK:return STICKIMAGE;
+			case ICON_RESIZE:return RESIZE;
 			case ICON_LINE: return DRAW_LINE;
 			case ICON_RECT: return DRAW_RECT;
 			case ICON_CIRC: return DRAW_CIRC;
@@ -229,6 +231,8 @@ void GUI::CreateDrawToolBar()
 	string MenuIconImages[DRAW_ICON_COUNT];
 	MenuIconImages[ICON_PLAY] = "images\\MenuIcons\\Menu_Play.jpg";
 	MenuIconImages[ICON_STICK] = "images\\MenuIcons\\menu_Stick.jpg";
+	MenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_resize.jpg";
+	MenuIconImages[ICON_SCRAMBLE] = "images\\MenuIcons\\Menu_scramble.jpg";
 	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_paste.jpg";
 	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_copy.jpg";
 	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
