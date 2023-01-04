@@ -8,7 +8,7 @@ using namespace std;
 class GUI;	
 
 struct Trace {
-	int id;
+	vector <int> Ids;
 };
 
 //A class that is responsible on everything related to shapes
@@ -19,8 +19,9 @@ private:
 	int id = 0;
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	//pointer to the currently selected shape
-	vector <int> undo;
 	shape* copied;
+	vector <Trace> undo;
+
 public:			
 	Graph();
 	~Graph();

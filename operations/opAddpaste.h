@@ -10,5 +10,6 @@ public:
 	opAddpaste(controller* pCont);
 	virtual ~opAddpaste();
 	virtual void Execute();
+	virtual void Undo() {};
 
 };

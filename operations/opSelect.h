@@ -9,6 +9,7 @@ public:
 	opSelect(controller* pCont);
 	virtual ~opSelect();
 	virtual void Execute();
+	virtual void Undo() {};
 
 };
 
