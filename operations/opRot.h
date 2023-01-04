@@ -9,4 +9,5 @@ public:
 	opRot(controller* pCont);
 	virtual ~opRot();
 	virtual void Execute();
+	virtual void Undo() {};
 };

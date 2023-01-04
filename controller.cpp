@@ -17,6 +17,7 @@
 #include"operations\opAddcopy.h"
 #include"operations\opAddpaste.h"
 #include"operations/opRot.h"
+#include"operations/opUndo.h"
 //Constructor
 controller::controller()
 {
@@ -74,7 +75,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddPoly(this);
 			break;
 		case SAVE:
-			pOp = new opSave(this);
+			pOp = new opUndo(this);
 			break;
 		case DEL:
 			pOp = new opDelete(this);
@@ -149,6 +150,10 @@ controller::~controller()
 //==================================================================================//
 //							Run function											//
 //==================================================================================//
+void controller::Undo() {
+	undo.pop();
+	undo.top()->Undo();
+}
 void controller::Run()
 {
 	operationType OpType;
@@ -162,9 +167,10 @@ void controller::Run()
 		//3. Execute the created operation
 		if (pOpr)
 		{
+			undo.push(pOpr);
 			pOpr->Execute();//Execute
-			delete pOpr;	//operation is not needed any more ==> delete it
-			pOpr = nullptr;
+			//delete pOpr;	//operation is not needed any more ==> delete it
+			//pOpr = nullptr;
 		}
 		//Update the interface
 		UpdateInterface();

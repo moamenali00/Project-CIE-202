@@ -1,9 +1,8 @@
 #pragma once
 #include "operation.h"
 
-class controller; //forward class declaration
+class controller; 
 
-//Add Rectangle operation class
 class opSelect : public operation
 {
 public:

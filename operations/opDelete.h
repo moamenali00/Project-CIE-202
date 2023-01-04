@@ -1,13 +1,13 @@
 #pragma once
 #include "operation.h"
 
-class controller; //forward class declaration
+class controller; 
 
-//Add Rectangle operation class
 class opDelete : public operation
 {
 public:
 	opDelete(controller* pCont);
 	virtual ~opDelete();
 	virtual void Execute();
+	virtual void Undo() ;
 };

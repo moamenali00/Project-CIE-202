@@ -20,7 +20,7 @@ public:
 	virtual void Execute() =0;
 
 	//To undo this operation (code depends on operation type)
-	//virtual void Undo()=0;
+	virtual void Undo()=0;
 
 	//To redo this operation (code depends on operation type)
 	//virtual void Redo()=0;

@@ -2,11 +2,14 @@
 #include "Shape.h"
 #include <fstream>
 #include <vector>
-#include<stack>
 using namespace std;
 
 //forward decl
 class GUI;	
+
+struct Trace {
+	int id;
+};
 
 //A class that is responsible on everything related to shapes
 class Graph
@@ -16,12 +19,12 @@ private:
 	int id = 0;
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	//pointer to the currently selected shape
-	stack <shape*> redo;
+	vector <int> undo;
 	shape* copied;
 public:			
 	Graph();
 	~Graph();
-	void Redo(char);
+	void Undo(char);
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
 	void Draw(GUI* pUI)const ;			//Draw the graph (draw all shapes)
 	shape* Getshape(int x, int y) const; //Search for a shape given a point inside the shape

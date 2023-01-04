@@ -16,6 +16,7 @@ class controller
 public:
 	stack <operation*> undo;
 	stack <operation*> redo;
+	void Undo();
 	controller(); 
 	~controller();
 	
