@@ -10,4 +10,5 @@ public:
 	virtual ~opFill();
 	virtual void Execute();
 	virtual void Undo() {};
+	virtual void Redo() {};
 };

@@ -10,6 +10,7 @@ public:
 	virtual ~opSave();
 	virtual void Execute();
 	virtual void Undo() {};
+	virtual void Redo() {};
 
 };
 

@@ -21,11 +21,13 @@ private:
 	shape* selectedShape;	//pointer to the currently selected shape
 	shape* copied;
 	vector <Trace> undo;
+	vector <Trace> redo;
 
 public:			
 	Graph();
 	~Graph();
 	void Undo(char);
+	void Redo(char);
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
 	void Draw(GUI* pUI)const ;			//Draw the graph (draw all shapes)
 	shape* Getshape(int x, int y) const; //Search for a shape given a point inside the shape

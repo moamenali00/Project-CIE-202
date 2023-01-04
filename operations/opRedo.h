@@ -2,11 +2,11 @@
 
 class controller;
 
-class opUndo : public operation
+class opRedo : public operation
 {
 public:
-	opUndo(controller* pCont);
-	virtual ~opUndo();
+	opRedo(controller* pCont);
+	virtual ~opRedo();
 	virtual void Execute();
 	virtual void Undo() {};
 	virtual void Redo() {};

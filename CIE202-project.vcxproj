@@ -181,6 +181,7 @@
     <ClCompile Include="operations\opFill.cpp" />
     <ClCompile Include="operations\opLoad.cpp" />
     <ClCompile Include="operations\opPen.cpp" />
+    <ClCompile Include="operations\opRedo.cpp" />
     <ClCompile Include="operations\opRot.cpp" />
     <ClCompile Include="operations\opSave.cpp" />
     <ClCompile Include="operations\opSelect.cpp" />
@@ -235,6 +236,7 @@
     <ClInclude Include="operations\opFill.h" />
     <ClInclude Include="operations\opLoad.h" />
     <ClInclude Include="operations\opPen.h" />
+    <ClInclude Include="operations\opRedo.h" />
     <ClInclude Include="operations\opRot.h" />
     <ClInclude Include="operations\opSave.h" />
     <ClInclude Include="operations\opSelect.h" />

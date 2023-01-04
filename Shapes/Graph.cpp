@@ -74,12 +74,22 @@ void Graph::setColor(shape* pShp)
 	color clr = pGUI->getCrntFillColor();
 	pShp->ChngFillClr(clr);
 }
+void Graph::Redo(char c) {
+	if (c=='d'){
+		for (auto ID : redo[redo.size() - 1].Ids) {
+			shapesList[ID]->SetVisible(false);
+		}
+		undo.push_back(redo[redo.size() - 1]);
+		redo.pop_back();
+	}
+}
 
 void Graph::Undo(char c) {
 	if (c == 'd') {
 		for (auto ID : undo[undo.size()-1].Ids) {
 			shapesList[ID]->SetVisible(true);
 			}
+		redo.push_back(undo[undo.size()-1]);
 		undo.pop_back();
 	}
 }

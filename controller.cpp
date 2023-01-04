@@ -18,6 +18,8 @@
 #include"operations\opAddpaste.h"
 #include"operations/opRot.h"
 #include"operations/opUndo.h"
+#include"operations\opRedo.h"
+#include<iostream>
 //Constructor
 controller::controller()
 {
@@ -63,7 +65,8 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddLine(this);
 			break;
 		case DRAW_TRI:
-			pOp = new opAddTri(this);
+			cout << "Hello";
+			pOp = new opSelect(this);
 			break;
 		case DRAW_CIRC:
 			pOp = new opAddCirc(this);
@@ -72,7 +75,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddRPoly(this);
 			break;
 		case DRAW_IPOLY:
-			pOp = new opAddPoly(this);
+			pOp = new opRedo(this);
 			break;
 		case SAVE:
 			pOp = new opUndo(this);
@@ -153,6 +156,13 @@ controller::~controller()
 void controller::Undo() {
 	undo.pop();
 	undo.top()->Undo();
+	redo.push(undo.top());
+	undo.pop();
+}
+void controller::Redo() {
+	redo.top()->Redo();
+	undo.push(redo.top());
+	redo.pop();
 }
 void controller::Run()
 {

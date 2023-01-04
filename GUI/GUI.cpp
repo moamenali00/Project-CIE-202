@@ -1,5 +1,5 @@
 #include "GUI.h"
-
+#include<iostream>
 GUI::GUI()
 {
 	//Initialize user interface parameters
@@ -77,86 +77,99 @@ string GUI::GetSrting() const
 operationType GUI::GetUseroperation() 
 {
 	int x, y;
-	pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
-	P.x = x;
-	P.y = y;
-	if (InterfaceMode == MODE_DRAW)	//GUI in the DRAW mode
-	{
-		//[1] If user clicks on the Toolbar
-		if (y >= 0 && y < ToolBarHeight)
-		{
-			//Check whick Menu icon was clicked
-			//==> This assumes that menu icons are lined up horizontally <==
-			int ClickedIconOrder = (x / MenuIconWidth);
-			//Divide x coord of the point clicked by the menu icon width (int division)
-			//if division result is 0 ==> first icon is clicked, if 1 ==> 2nd icon and so on
-
-			switch (ClickedIconOrder)
-			{
-			case ICON_PLAY: return TO_PLAY;
-			case ICON_PASTE: return TO_PASTE;
-			case ICON_COPY: return TO_COPY;
-			case ICON_STICK:return STICKIMAGE;
-			case ICON_LINE: return DRAW_LINE;
-			case ICON_RECT: return DRAW_RECT;
-			case ICON_CIRC: return DRAW_CIRC;
-			case ICON_TRIANGLE: return DRAW_TRI;
-			case ICON_SQUARE: return DRAW_SQUARE;
-			case ICON_POLY: return DRAW_POLY;
-			case ICON_IPOLY: return DRAW_IPOLY;
-			case ICON_SAVE: return SAVE;
-			case ICON_DELETE: return DEL;
-			case ICON_LOAD: return LOAD;
-			case ICON_FILL: return CHNG_FILL_CLR;
-			case ICON_PEN: return CHNG_DRAW_CLR;
-			case ICON_ROT: return ROTATE;
-			case ICON_EXIT: return EXIT;
-
-			default: return EMPTY;	//A click on empty place in desgin toolbar
-			}
+	Sleep(1000);
+	if (GetAsyncKeyState(VK_RBUTTON & 0x8000)) {
+		LPPOINT P;
+		GetCursorPos(P);
+		int y = P->y;
+		cout << "HELLO";
+		if (y >= ToolBarHeight && y < height - StatusBarHeight) {
+			return DRAW_LINE;
 		}
 
-		//[2] User clicks on the drawing area
-		if (y >= ToolBarHeight && y < height - StatusBarHeight)
-		{
-			return DRAWING_AREA;
-		}
-
-		//[3] User clicks on the status bar
-		return STATUS;
 	}
-	else	//GUI is in PLAY mode
-	{
-		if (y >= 0 && y < ToolBarHeight)
-		{
-			//Check whick Menu icon was clicked
-			//==> This assumes that menu icons are lined up horizontally <==
-			int ClickedIconOrder = (x / MenuIconWidth);
-			//Divide x coord of the point clicked by the menu icon width (int division)
-			//if division result is 0 ==> first icon is clicked, if 1 ==> 2nd icon and so on
+	else {
+		pWind->WaitMouseClick(x, y);	//Get the coordinates of the user click
+		P.x = x;
+		P.y = y;
 
-			switch (ClickedIconOrder)
+		if (InterfaceMode == MODE_DRAW)	//GUI in the DRAW mode
+		{
+			//[1] If user clicks on the Toolbar
+			if (y >= 0 && y < ToolBarHeight)
 			{
-			case ICON_DRAW: return TO_DRAW;
-			case ICON_START: return START;
-			case ICON_HIDE: return HIDE;
-			case ICON_UNHIDE: return UNHIDE;
-			case ICON_MATCH: return MATCH;
-			case ICON_RESTART: return RESTART;
-			case ICON_EXIT2: return EXIT;
+				//Check whick Menu icon was clicked
+				//==> This assumes that menu icons are lined up horizontally <==
+				int ClickedIconOrder = (x / MenuIconWidth);
+				//Divide x coord of the point clicked by the menu icon width (int division)
+				//if division result is 0 ==> first icon is clicked, if 1 ==> 2nd icon and so on
 
-			default: return EMPTY;	
+				switch (ClickedIconOrder)
+				{
+				case ICON_PLAY: return TO_PLAY;
+				case ICON_PASTE: return TO_PASTE;
+				case ICON_COPY: return TO_COPY;
+				case ICON_STICK:return STICKIMAGE;
+				case ICON_LINE: return DRAW_LINE;
+				case ICON_RECT: return DRAW_RECT;
+				case ICON_CIRC: return DRAW_CIRC;
+				case ICON_TRIANGLE: return DRAW_TRI;
+				case ICON_SQUARE: return DRAW_SQUARE;
+				case ICON_POLY: return DRAW_POLY;
+				case ICON_IPOLY: return DRAW_IPOLY;
+				case ICON_SAVE: return SAVE;
+				case ICON_DELETE: return DEL;
+				case ICON_LOAD: return LOAD;
+				case ICON_FILL: return CHNG_FILL_CLR;
+				case ICON_PEN: return CHNG_DRAW_CLR;
+				case ICON_ROT: return ROTATE;
+				case ICON_EXIT: return EXIT;
+
+				default: return EMPTY;	//A click on empty place in desgin toolbar
+				}
 			}
-		}
 
-		if (y >= ToolBarHeight && y < height - StatusBarHeight)
+			//[2] User clicks on the drawing area
+			if (y >= ToolBarHeight && y < height - StatusBarHeight)
+			{
+				return DRAWING_AREA;
+			}
+
+			//[3] User clicks on the status bar
+			return STATUS;
+		}
+		else	//GUI is in PLAY mode
 		{
-			return DRAWING_AREA;
+			if (y >= 0 && y < ToolBarHeight)
+			{
+				//Check whick Menu icon was clicked
+				//==> This assumes that menu icons are lined up horizontally <==
+				int ClickedIconOrder = (x / MenuIconWidth);
+				//Divide x coord of the point clicked by the menu icon width (int division)
+				//if division result is 0 ==> first icon is clicked, if 1 ==> 2nd icon and so on
+
+				switch (ClickedIconOrder)
+				{
+				case ICON_DRAW: return TO_DRAW;
+				case ICON_START: return START;
+				case ICON_HIDE: return HIDE;
+				case ICON_UNHIDE: return UNHIDE;
+				case ICON_MATCH: return MATCH;
+				case ICON_RESTART: return RESTART;
+				case ICON_EXIT2: return EXIT;
+
+				default: return EMPTY;
+				}
+			}
+
+			if (y >= ToolBarHeight && y < height - StatusBarHeight)
+			{
+				return DRAWING_AREA;
+			}
+
+			return STATUS;
 		}
-
-		return STATUS;
 	}
-
 }
 ////////////////////////////////////////////////////
 

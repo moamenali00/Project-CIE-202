@@ -10,6 +10,7 @@ public:
 	virtual ~opLoad();
 	virtual void Execute();
 	virtual void Undo() {};
+	virtual void Redo() {};
 
 };
 
