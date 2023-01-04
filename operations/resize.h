@@ -10,5 +10,9 @@ public:
 	resize(controller* pCont);
 	virtual ~resize();
 	virtual void Execute();
+	//To undo this operation (code depends on operation type)
+	virtual void Undo();
 
+	//To redo this operation (code depends on operation type)
+	virtual void Redo();
 };

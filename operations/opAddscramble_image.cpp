@@ -1,5 +1,4 @@
 #include "opAddscramble_image.h"
-#include"..\operations\opAddcopy.h"
 
 opAddscramble_image::opAddscramble_image(controller* pCont) :operation(pCont)
 {}
@@ -13,4 +12,12 @@ void opAddscramble_image::Execute()
 	Graph* pGr = pControl->getGraph();
 	pGr->scramble_image();
 
+}
+
+void opAddscramble_image::Undo()
+{
+}
+
+void opAddscramble_image::Redo()
+{
 }

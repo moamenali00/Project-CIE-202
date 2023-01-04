@@ -1,5 +1,5 @@
 #include "resize.h"
-#include"..\operations\resize.h"
+//#include"..\operations\resize.h"
 
 resize::resize(controller* pCont) :operation(pCont)
 {}
@@ -17,4 +17,12 @@ void resize::Execute()
 	a = stof(s);
 	pGr->resize(a);
 
+}
+
+void resize::Undo()
+{
+}
+
+void resize::Redo()
+{
 }

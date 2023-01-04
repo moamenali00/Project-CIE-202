@@ -16,6 +16,8 @@
 #include"operations\opAddStick.h"
 #include"operations\opAddcopy.h"
 #include"operations\opAddpaste.h"
+#include"operations\opRedo.h"
+#include"operations\opUndo.h"
 #include"operations\resize.h"
 #include"operations/opRot.h"
 #include"operations/opAddscramble_image.h"

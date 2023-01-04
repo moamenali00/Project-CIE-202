@@ -190,6 +190,8 @@
     <ClCompile Include="operations\opAddpaste.cpp" />
     <ClCompile Include="operations\opAddscramble_image.cpp" />
     <ClCompile Include="operations\resize.cpp" />
+    <ClCompile Include="operations\opUndo.cpp" />
+    <ClCompile Include="operations\opRedo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -341,6 +343,8 @@
     <ClInclude Include="operations\opAddpaste.h" />
     <ClInclude Include="operations\opAddscramble_image.h" />
     <ClInclude Include="operations\resize.h" />
+    <ClInclude Include="operations\opUndo.h" />
+    <ClInclude Include="operations\opRedo.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

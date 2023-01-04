@@ -5,5 +5,5 @@ opRedo::~opRedo()
 {}
 
 void opRedo::Execute() {
-	pControl->Redo();
+	//pControl->Redo();
 }
