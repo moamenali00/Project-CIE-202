@@ -112,6 +112,7 @@ shape* Square::copy()
 }
 void Square::paste(int xx, int yy)
 {
+	ShpGfxInfo.isSelected = false;
 	int dx = Corner1.x - Corner2.x;
 	int dy = Corner1.y - Corner2.y;
 	Corner1.x = xx; Corner1.y = yy;

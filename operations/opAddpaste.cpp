@@ -9,10 +9,13 @@ opAddpaste::~opAddpaste()
 //Execute the operation
 void opAddpaste::Execute()
 {
-	int x, y;
+	int x, y, n;
 	GUI* busy = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
-	busy->GetPointClicked(x, y);
-	pGr->paste(x, y);
-	
+	do 
+	{
+		busy->GetPointClicked(x, y);
+		pGr->paste(x, y, n);
+		pControl->UpdateInterface();
+	} while (n != 0);
 }

@@ -135,6 +135,7 @@ shape* Tri::copy()
 }
 void Tri::paste(int xx, int yy)
 {
+	ShpGfxInfo.isSelected = false;
 	int dx = Corner1.x - Corner2.x;
 	int dy = Corner1.y - Corner2.y;
 	int dx1 = Corner1.x - Corner3.x;

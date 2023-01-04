@@ -19,7 +19,7 @@ private:
 	int id = 0;
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	//pointer to the currently selected shape
-	shape* copied;
+	vector<shape*> copied;
 	vector <Trace> undo;
 	vector <Trace> redo;
 
@@ -39,7 +39,7 @@ public:
 	void setColor(shape*);
 	void Clear();
 	void copy();
-	void paste(int x, int y);
+	void paste(int x, int y, int& n);
 	void scramble_image();
 	void resize(float a);
 };

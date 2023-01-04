@@ -55,17 +55,22 @@ void Graph::StickI(GUI* G)
 void Graph::copy()
 {
 	for (auto shapePointer : shapesList) {
-		if (shapePointer->IsSelected()) {
-			copied = shapePointer->copy();
-				return;
+		if (shapePointer->IsSelected()) 
+		{
+			copied.push_back(shapePointer->copy());
 		}
 	}
 }
-void Graph::paste(int x ,int y)
+void Graph::paste(int x ,int y,int& n)
 {
-	
-	copied->paste(x, y);
-	shapesList.push_back(copied);
+	if (copied.size() == 0)
+	{
+		n = 0; return;
+	}
+	copied.back()->paste(x, y);
+	shapesList.push_back(copied.back());
+	copied.pop_back();
+	n = copied.size();
 }
 
 void Graph::scramble_image()

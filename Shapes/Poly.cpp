@@ -149,6 +149,7 @@ shape* Poly::copy()
 }
 void Poly::paste(int xx, int yy)
 {
+    ShpGfxInfo.isSelected = false;
     vector <int> dx;
     vector <int> dy;
     for (int i = 1; i < vertcies; i++)
