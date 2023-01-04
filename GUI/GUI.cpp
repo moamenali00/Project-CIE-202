@@ -94,6 +94,8 @@ operationType GUI::GetUseroperation()
 			switch (ClickedIconOrder)
 			{
 			case ICON_PLAY: return TO_PLAY;
+			case ICON_PASTE: return TO_PASTE;
+			case ICON_COPY: return TO_COPY;
 			case ICON_STICK:return STICKIMAGE;
 			case ICON_LINE: return DRAW_LINE;
 			case ICON_RECT: return DRAW_RECT;
@@ -179,6 +181,11 @@ void GUI::CreateStatusBar() const
 	pWind->SetBrush(StatusBarColor);
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
 }
+void GUI::draw_image(string h, int k, int e, int z, int w)
+
+{
+	pWind->DrawImage("images\\MenuIcons\\Menu_Play.jpg", k, e, z, w);
+}
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::ClearToolBar() const
 {
@@ -222,6 +229,8 @@ void GUI::CreateDrawToolBar()
 	string MenuIconImages[DRAW_ICON_COUNT];
 	MenuIconImages[ICON_PLAY] = "images\\MenuIcons\\Menu_Play.jpg";
 	MenuIconImages[ICON_STICK] = "images\\MenuIcons\\menu_Stick.jpg";
+	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_paste.jpg";
+	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_copy.jpg";
 	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
 	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\Menu_Rect.jpg";
 	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\Menu_Circ.jpg";
@@ -385,10 +394,7 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 		style = FRAME;
 
 	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
-	if (RectGfxInfo.isstick) {
-		string image = "images\\MenuIcons\\Menu_Exit.jpg";
-		pWind->DrawImage(image, P1.x , P1.y, abs(P2.x-P1.x), abs(P2.y - P1.y));
-	}
+	
 
 }
 
@@ -411,10 +417,7 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGFxInfo) const
 	else
 		style = FRAME;
 	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
-	if (TriGFxInfo.isstick) {
-		string image = "images\\MenuIcons\\Menu_Exit.jpg";
-		pWind->DrawImage(image, P1.x , P1.y, abs(P2.x-P1.x), abs(P2.y - P1.y));
-	}
+	
 }
 
 void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const 
@@ -443,10 +446,7 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const
 	P1.x = x;
 	P1.y = y;*/
 	pWind->DrawCircle(P1.x, P1.y, rad, style);
-	if (CircGfxInfo.isstick) {
-		string image = "images\\MenuIcons\\Menu_Exit.jpg";
-		pWind->DrawImage(image, P1.x - rad, P1.y, rad, rad);
-	}
+	
 }
 
 void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
@@ -469,10 +469,7 @@ void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
 		style = FRAME;
 
 	pWind->DrawPolygon(X, Y, iVertices, style);
-	if (PolyGfxInfo.isstick) {
-		string image = "images\\MenuIcons\\Menu_Exit.jpg";
-		pWind->DrawImage(image, X[0], Y[0], 10, 10);
-	}
+	
 }
 
 

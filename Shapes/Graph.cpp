@@ -24,14 +24,17 @@ void Graph::Addshape(shape* pShp)
 }
 ////////////////////////////////////////////////////////////////////////////////////
 //Draw all shapes on the user interface
-void Graph::Draw(GUI* pUI) 
+void Graph::Draw(GUI* pUI) const
 {
-	size = 0;
 	pUI->ClearDrawArea();
 	for (auto shapePointer : shapesList) {
-		if (shapePointer->IsVisible()) {
+		if (shapePointer->IsVisible())
+		{
 			shapePointer->Draw(pUI);
-			size++;
+			if (shapePointer->iswithimage())
+			{
+				shapePointer->stickimages(pUI);
+			}
 		}
 	}
 }
@@ -39,6 +42,30 @@ void Graph::deSelect() {
 	for (auto shapePointer : shapesList) {
 		shapePointer->SetSelected(false);
 	}
+}
+void Graph::StickI(GUI* G)
+{
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsSelected()) {
+			shapePointer->stickimages(G);
+		}
+	}
+}
+void Graph::copy()
+{
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsSelected()) {
+			copied = shapePointer->copy();
+				return;
+		}
+	}
+}
+void Graph::paste(GUI* G)
+{
+	int x, y;
+	G->GetPointClicked(x, y);
+	copied->paste(x, y);
+	shapesList.push_back(copied);
 }
 
 void Graph::setColor(shape* pShp) 
@@ -58,14 +85,7 @@ void Graph::Hide() {
 		}
 	}
 }
-void Graph::StickI()
-{
-	for (auto shapePointer : shapesList) {
-		if (shapePointer->IsSelected()) {
-			shapePointer->stickimages();
-		}
-	}
-}
+
 void Graph::Rotate() {
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsSelected()) {

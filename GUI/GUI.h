@@ -23,6 +23,7 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	int BorderWdth;	//Width of shape borders
 	bool isSelected;	//true if the shape is selected.
 	bool isVisible=true;
+	bool withimage = false;
 };
 
 
@@ -41,6 +42,8 @@ class GUI
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
 		ICON_PLAY,
+		ICON_PASTE,
+		ICON_COPY,
 		ICON_STICK,
 		ICON_LINE,
 		ICON_RECT,		//Recangle icon in menu
@@ -126,7 +129,7 @@ public:
 	void CreateDrawToolBar();	//creates Draw mode toolbar & menu
 	void CreatePlayToolBar();	//creates Play mode toolbar & menu
 	void CreateStatusBar() const;	//create the status bar
-
+	void draw_image(string h, int k, int e, int z, int w);
 	void ClearToolBar() const; 
 	void ClearStatusBar() const;	//Clears the status bar
 	void ClearDrawArea() const;	//Clears the drawing area

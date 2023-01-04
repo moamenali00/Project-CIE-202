@@ -1,4 +1,5 @@
 #include "Rpoly.h"
+#include <vector>
 Rpoly::Rpoly(Point Icenter, Point Ivertex, int Ivertices, GfxInfo shapeGfxInfo) :shape(shapeGfxInfo)
 {
     center = Icenter;
@@ -63,6 +64,12 @@ double Rpoly::RpolygonArea(int X[], int Y[], int n) const
 
     // Return absolute value
     return abs(area / 2.0);
+}
+void Rpoly::stickimages(GUI* u)
+{
+    ShpGfxInfo.withimage = true;
+    string image = "images\\MenuIcons\\Menu_Play.jpg";
+    u->draw_image(image, x[0] + 0.1 * abs(x[0] - x[2]), y[0] + 0.1 * abs(y[0] - y[1]), 0.5 * abs(x[0] - x[2]), 1.5 * abs(y[0] - y[1]));
 }
 
 bool Rpoly::CheckSelect(int x0, int y0) const {
@@ -138,4 +145,26 @@ void Rpoly::RotateShape(){
     p1 = rotate_point(center.x, center.y, acos(0), vertex);
     vertex = p1;
     set_x_y();
+}
+shape* Rpoly::copy()
+{
+    return new Rpoly(center, vertex, vertcies, ShpGfxInfo);
+}
+void Rpoly::paste(int xx, int yy)
+{
+    vector <int> dx;
+    vector <int> dy;
+    for (int i = 1; i < vertcies; i++)
+    {
+        dx.push_back(x[0] - x[i]);
+        dy.push_back(y[0] - y[i]);
+    }
+    x[0] = xx; y[0] = yy;
+    for (int i = vertcies - 1; i > 0; i--)
+    {
+        x[i] = x[0] - dx.back();
+        dx.pop_back();
+        y[i] = y[0] - dy.back();
+        dy.pop_back();
+    }
 }

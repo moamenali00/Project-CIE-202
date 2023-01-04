@@ -23,6 +23,25 @@ bool Rect::CheckSelect(int x, int y) const
 		return false;
 
 }
+void Rect::stickimages(GUI* u)
+{
+	ShpGfxInfo.withimage = true;
+	int minx, miny;
+	if (Corner1.x > Corner2.x) {
+		minx = Corner2.x;
+	}
+	else {
+		minx = Corner1.x;
+	}
+	if (Corner1.y > Corner2.y) {
+		miny = Corner2.y;
+	}
+	else {
+		miny = Corner1.y;
+	}
+	string image = "images\\MenuIcons\\Menu_Play.jpg";
+	u->draw_image(image, minx + 0.1 * abs(Corner2.x - Corner1.x), miny + 0.1 * abs(Corner2.y - Corner1.y), abs(Corner2.x - Corner1.x) * 0.7, abs(Corner2.y - Corner1.y) * 0.7);
+}
 void Rect::PrintInfo(GUI* out) {
 	out->ClearStatusBar();
 	string msg;
@@ -112,4 +131,16 @@ void Rect::RotateShape(){
 	Corner1 = p1;
 	Corner2 = p2;
 
+}
+shape* Rect::copy()
+{
+	return new Rect(Corner1, Corner2, ShpGfxInfo);
+}
+void Rect::paste(int xx, int yy)
+{
+	int dx = Corner1.x - Corner2.x;
+	int dy = Corner1.y - Corner2.y;
+	Corner1.x = xx; Corner1.y = yy;
+	Corner2.x = Corner1.x - dx;
+	Corner2.y = Corner1.y - dy;
 }

@@ -74,3 +74,23 @@ void Circ::Load(string line) {
 }
 
 void Circ::RotateShape(){}
+shape* Circ::copy()
+{
+	return new Circ(Corner1, Corner2, ShpGfxInfo);
+}
+void Circ::stickimages(GUI* u)
+{
+	ShpGfxInfo.withimage = true;
+	int rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
+	string image = "images\\MenuIcons\\Menu_Play.jpg";
+	u->draw_image(image, Corner1.x - 0.5 * rad, Corner1.y - 0.5 * rad, rad, rad);
+}
+
+void Circ::paste(int xx, int yy)
+{
+	int dx = Corner1.x - Corner2.x;
+	int dy = Corner1.y - Corner2.y;
+	Corner1.x = xx; Corner1.y = yy;
+	Corner2.x = Corner1.x - dx;
+	Corner2.y = Corner1.y - dy;
+}

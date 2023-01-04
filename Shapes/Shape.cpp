@@ -26,10 +26,9 @@ void shape::SetSelected(bool s)
 bool shape::IsSelected() const
 {	return ShpGfxInfo.isSelected; }
 
-void shape::stickimages()
+bool shape::iswithimage()
 {
-	ShpGfxInfo.isstick=true;
-
+	return ShpGfxInfo.withimage;
 }
 
 void shape::ChngDrawClr(color Dclr)

@@ -186,6 +186,8 @@
     <ClCompile Include="operations\opRot.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opAddcopy.cpp" />
+    <ClCompile Include="operations\opAddpaste.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -333,6 +335,8 @@
     <ClInclude Include="operations\opRot.h">
       <Filter>Operations</Filter>
     </ClInclude>
+    <ClInclude Include="operations\opAddcopy.h" />
+    <ClInclude Include="operations\opAddpaste.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

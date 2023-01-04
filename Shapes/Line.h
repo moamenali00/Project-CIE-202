@@ -18,6 +18,9 @@ public:
 	virtual void Load(string);
 	Point rotate_point(double cx, double cy, double angle, Point p);
 	void RotateShape();
+	virtual void stickimages(GUI* u);
+	virtual shape* copy();
+	virtual void paste(int xx, int yy);
 	//Point rotate_pointL(double cx, double cy, double angle, Point p);
 };
 

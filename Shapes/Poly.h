@@ -19,6 +19,9 @@ public:
 	virtual void PrintInfo(GUI*);
 	virtual void Load(string);
 	void RotateShape();
+	virtual void stickimages(GUI* u);
+	virtual shape* copy();
+	virtual void paste(int xx, int yy);
 };
 
 

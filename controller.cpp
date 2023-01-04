@@ -14,6 +14,8 @@
 #include"operations\opAddRPoly.h"
 #include"operations\opExit.h"
 #include"operations\opAddStick.h"
+#include"operations\opAddcopy.h"
+#include"operations\opAddpaste.h"
 #include"operations/opRot.h"
 //Constructor
 controller::controller()
@@ -44,6 +46,12 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case STICKIMAGE:
 			pOp = new opAddStick(this);
+			break;
+		case TO_PASTE:
+			pOp = new opAddpaste(this);
+			break;
+		case TO_COPY:
+			pOp = new opAddcopy(this);
 			break;
 
 		case DRAW_SQUARE:

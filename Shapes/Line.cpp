@@ -89,3 +89,18 @@ void Line::RotateShape() {
 	Corner1 = p1;
 	Corner2 = p2;
 }
+void Line::stickimages(GUI* u)
+{
+}
+shape* Line::copy()
+{
+	return new Line(Corner1, Corner2, ShpGfxInfo);
+}
+void Line::paste(int xx, int yy)
+{
+	int dx = Corner1.x - Corner2.x;
+	int dy = Corner1.y - Corner2.y;
+	Corner1.x = xx; Corner1.y = yy;
+	Corner2.x = Corner1.x - dx;
+	Corner2.y = Corner1.y - dy;
+}
