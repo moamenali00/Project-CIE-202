@@ -19,8 +19,8 @@ Graph::~Graph()
 //Add a shape to the list of shapes
 void Graph::Addshape(shape* pShp)
 {
-	pShp->setId(id++);
-	redo.push(pShp);
+	pShp->setId(shapesList.size()-1);
+	undo.push_back(Trace());
 	shapesList.push_back(pShp);	
 }
 ////////////////////////////////////////////////////////////////////////////////////
@@ -97,16 +97,34 @@ void Graph::setColor(shape* pShp)
 	pShp->ChngFillClr(clr);
 }
 void Graph::Redo(char c) {
-
-}
-void Graph::Hide() {
-	for (auto shapePointer : shapesList) {
-		if (shapePointer->IsSelected()) {
-			shapePointer->SetVisible(false);
-			redo.push(shapePointer);
+	if (c=='d'){
+		for (auto ID : redo[redo.size() - 1].Ids) {
+			shapesList[ID]->SetVisible(false);
 		}
+		undo.push_back(redo[redo.size() - 1]);
+		redo.pop_back();
 	}
 }
+
+void Graph::Undo(char c) {
+	if (c == 'd') {
+		for (auto ID : undo[undo.size()-1].Ids) {
+			shapesList[ID]->SetVisible(true);
+			}
+		redo.push_back(undo[undo.size()-1]);
+		undo.pop_back();
+	}
+}
+void Graph::Hide() {
+	undo.push_back(Trace());
+	for (int i = 0;i < shapesList.size();i++) {
+		if (shapesList[i]->IsSelected()) {
+			shapesList[i]->SetVisible(false);
+			undo[undo.size() - 1].Ids.push_back(i);
+		}
+	}
+	}
+
 
 void Graph::Rotate() {
 	for (auto shapePointer : shapesList) {

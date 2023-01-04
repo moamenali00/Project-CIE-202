@@ -1,15 +1,16 @@
 #pragma once
 #include "operation.h"
 
-class controller; //forward class declaration
+class controller; 
 
-//Add Rectangle operation class
 class opExit : public operation
 {
 public:
 	opExit(controller* pCont);
 	virtual ~opExit();
 	virtual void Execute();
+	virtual void Undo() {};
+	virtual void Redo() {};
 
 };
 

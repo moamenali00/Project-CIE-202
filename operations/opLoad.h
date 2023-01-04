@@ -1,15 +1,16 @@
 #pragma once
 #include "operation.h"
 
-class controller; //forward class declaration
+class controller; 
 
-//Add Rectangle operation class
 class opLoad : public operation
 {
 public:
 	opLoad(controller* pCont);
 	virtual ~opLoad();
 	virtual void Execute();
+	virtual void Undo() {};
+	virtual void Redo() {};
 
 };
 

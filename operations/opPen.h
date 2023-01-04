@@ -9,4 +9,6 @@ public:
 	opPen(controller* pCont);
 	virtual ~opPen();
 	virtual void Execute();
+	virtual void Undo() {};
+	virtual void Redo() {};
 };
