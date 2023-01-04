@@ -23,5 +23,5 @@ public:
 	Point rotate_point(double cx, double cy, double angle, Point p);
 	virtual void scramble();
 	virtual void resize(float a);
+	virtual void Move(int, int);
 };
-

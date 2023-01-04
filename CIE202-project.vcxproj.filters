@@ -186,12 +186,27 @@
     <ClCompile Include="operations\opRot.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
-    <ClCompile Include="operations\opAddcopy.cpp" />
-    <ClCompile Include="operations\opAddpaste.cpp" />
-    <ClCompile Include="operations\opAddscramble_image.cpp" />
-    <ClCompile Include="operations\resize.cpp" />
-    <ClCompile Include="operations\opUndo.cpp" />
-    <ClCompile Include="operations\opRedo.cpp" />
+    <ClCompile Include="operations\opAddcopy.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opAddpaste.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opAddscramble_image.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opRedo.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opUndo.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\opDrag.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
+    <ClCompile Include="operations\resize.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -339,12 +354,27 @@
     <ClInclude Include="operations\opRot.h">
       <Filter>Operations</Filter>
     </ClInclude>
-    <ClInclude Include="operations\opAddcopy.h" />
-    <ClInclude Include="operations\opAddpaste.h" />
-    <ClInclude Include="operations\opAddscramble_image.h" />
-    <ClInclude Include="operations\resize.h" />
-    <ClInclude Include="operations\opUndo.h" />
-    <ClInclude Include="operations\opRedo.h" />
+    <ClInclude Include="operations\opAddcopy.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opAddpaste.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opAddscramble_image.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opRedo.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opUndo.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opDrag.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\resize.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Operations">

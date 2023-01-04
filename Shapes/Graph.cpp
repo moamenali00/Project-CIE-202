@@ -94,7 +94,13 @@ void Graph::resize(float a)
 			shapePointer->resize(a);
 	}
 }
-
+void Graph::Move(Point D) {
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsSelected()) {
+			shapePointer->Move(D.x, D.y);
+		}
+	}
+}
 void Graph::setColor(shape* pShp) 
 {
 	GUI* pGUI;
@@ -110,7 +116,7 @@ void Graph::Redo(char c) {
 		redo.pop_back();
 	}
 }
-
+	
 void Graph::Undo(char c) {
 	if (c == 'd') {
 		for (auto ID : undo[undo.size()-1].Ids) {

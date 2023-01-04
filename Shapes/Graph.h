@@ -42,4 +42,5 @@ public:
 	void paste(int x, int y, int& n);
 	void scramble_image();
 	void resize(float a);
+	void Move(Point);
 };

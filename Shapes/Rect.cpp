@@ -23,6 +23,10 @@ bool Rect::CheckSelect(int x, int y) const
 		return false;
 
 }
+void Rect::Move(int x, int y) {
+	Corner1.x = Corner1.x + x;
+	Corner2.y = Corner2.y + y;
+}
 void Rect::stickimages(GUI* u)
 {
 	ShpGfxInfo.withimage = true;

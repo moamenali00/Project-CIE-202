@@ -121,6 +121,7 @@ public:
 	Point P;
 	GUI();
 	Point ReturnPointClicked();
+	void ReturnMouseCoordinates(Point&);
 	// Input Functions  ---------------------------
 	void GetPointClicked(int& x, int& y) const;//Get coordinate where user clicks
 	string GetSrting() const;	 //Returns a string entered by the user

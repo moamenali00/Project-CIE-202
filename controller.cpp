@@ -21,6 +21,7 @@
 #include"operations\resize.h"
 #include"operations/opRot.h"
 #include"operations/opAddscramble_image.h"
+#include"operations/opDrag.h"
 
 //Constructor
 controller::controller()
@@ -73,7 +74,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddLine(this);
 			break;
 		case DRAW_TRI:
-			pOp = new opAddTri(this);
+			pOp = new opDrag(this);
 			break;
 		case DRAW_CIRC:
 			pOp = new opAddCirc(this);

@@ -35,7 +35,9 @@ GUI::GUI()
 	CreateStatusBar();
 }
 
-
+void GUI::ReturnMouseCoordinates(Point&pf) {
+	pWind->GetMouseCoord(pf.x, pf.y);
+}
 
 
 //======================================================================================//
