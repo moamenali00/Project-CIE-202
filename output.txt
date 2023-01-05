@@ -1,3 +1,4 @@
 0 0 255 nofill 3
 0
-Circ 1 197 265 231 294 255 0 0 No_fill 3
+Line 1 126 4 174 131 0 0 255 No_fill 3
+Line 2 510 64 596 240 0 0 255 No_fill 3

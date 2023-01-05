@@ -153,6 +153,7 @@ public:
 	int getCrntPenWidth() const;		//get current pen width
 	bool getFilledStatus() const;
 	color getDefaultDrawColor() const;
+	bool getGUIMode() const;
 
 	void setCrntPenColor(color);
 	void setCrntFillColor(color clr);

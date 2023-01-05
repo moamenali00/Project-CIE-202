@@ -359,6 +359,12 @@ color GUI::getDefaultDrawColor() const
 	return Default_Drawcolor;
 }
 
+bool GUI::getGUIMode() const {
+	if (InterfaceMode == MODE_DRAW)	return true;
+	else return false;
+}
+
+
 //======================================================================================//
 //								shapes Drawing Functions								//
 //======================================================================================//
@@ -380,8 +386,16 @@ void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGFxInfo) const
 	}
 	else
 		style = FRAME;
-	pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style);
-
+	if (P1.y<70 || P2.y <70)
+	{
+		PrintMessage("The line is out of the drawing area");
+	}
+	else if (P1.y > 650 || P2.y > 650) {
+		PrintMessage("The line is out of the drawing area");
+	}
+	else {
+		pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style); 
+	}
 }
 
 

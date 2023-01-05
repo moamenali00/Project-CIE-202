@@ -39,12 +39,21 @@ void opAddLine::Execute()
 
 
 	//Create a rectangle with the above parameters
-	Line* R = new Line(P1, P2, LineGfxInfo);
+	if (P1.y < 70 || P2.y < 70)
+	{
+		pUI->PrintMessage("The line is out of the drawing area");
+	}
+	else if (P1.y > 650 || P2.y > 650) {
+		pUI->PrintMessage("The line is out of the drawing area");
+	}
+	else {
+		Line* R = new Line(P1, P2, LineGfxInfo);
 
-	//Get a pointer to the graph
-	Graph* pGr = pControl->getGraph();
+		Graph* pGr = pControl->getGraph();
 
-	//Add the rectangle to the list of shapes
-	pGr->Addshape(R);
+		pGr->Addshape(R);
+	}
+
+	
 
 }
