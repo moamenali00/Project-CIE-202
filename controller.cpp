@@ -103,7 +103,8 @@ operation* controller::createOperation(operationType OpType)
 			if (Ti - Tf < 300) {
 				pOp = new opDrag(this);
 			}
-			pOp = new opSelect(this);
+			else
+				pOp = new opSelect(this);
 			break;
 		case LOAD:
 			pOp = new opLoad(this);

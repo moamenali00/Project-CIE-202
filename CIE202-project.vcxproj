@@ -178,6 +178,7 @@
     <ClCompile Include="operations\opAddRect.cpp" />
     <ClCompile Include="operations\opAddSquare.cpp" />
     <ClCompile Include="operations\opDelete.cpp" />
+    <ClCompile Include="operations\opDrag.cpp" />
     <ClCompile Include="operations\opDuplicate.cpp" />
     <ClCompile Include="operations\opExit.cpp" />
     <ClCompile Include="operations\opFill.cpp" />
@@ -234,6 +235,7 @@
     <ClInclude Include="operations\opAddSquare.h" />
     <ClInclude Include="operations\opAddStick.h" />
     <ClInclude Include="operations\opDelete.h" />
+    <ClInclude Include="operations\opDrag.h" />
     <ClInclude Include="operations\opDuplicate.h" />
     <ClInclude Include="operations\operation.h" />
     <ClInclude Include="operations\opAddTri.h" />

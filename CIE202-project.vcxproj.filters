@@ -207,6 +207,9 @@
     <ClCompile Include="operations\opDuplicate.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opDrag.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -373,6 +376,9 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opDuplicate.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opDrag.h">
       <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>
