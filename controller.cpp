@@ -21,7 +21,7 @@
 #include"operations\resize.h"
 #include"operations/opRot.h"
 #include"operations/opAddscramble_image.h"
-#include"operations/opDrag.h"
+//#include"operations/opDrag.h"
 #include"operations/opDuplicate.h"
 
 //Constructor

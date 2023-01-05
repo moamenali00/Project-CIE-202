@@ -172,7 +172,6 @@ shape* Line::duplicate(GUI* pGUI) {
 	p2.x = Corner2.x + 25;
 	p2.y = Corner2.y;
 	GfxInfo info = ShpGfxInfo;
-	info.DrawClr = RED;
 	ShpGfxInfo.isDuplicate = true;
 	Line* L = new Line(p1, p2, info);
 	return L;

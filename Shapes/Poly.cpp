@@ -249,7 +249,6 @@ shape* Poly::duplicate(GUI* pGUI) {
         y1[i] = y[i] ;
     }
     GfxInfo info = ShpGfxInfo;
-    info.DrawClr = RED;
     ShpGfxInfo.isDuplicate = true;
     Poly* p = new Poly(x1, y1, vertcies, info);
     return p;

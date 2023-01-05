@@ -132,7 +132,6 @@ shape* Circ::duplicate(GUI* pGUI) {
 	corner4.y = Corner2.y;
 	GfxInfo info = ShpGfxInfo;
 	ShpGfxInfo.isDuplicate = true;
-	info.DrawClr = RED;
 	Circ* c = new Circ(corner3, corner4, info);
 	return c;
 }
