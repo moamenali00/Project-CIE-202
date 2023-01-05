@@ -23,6 +23,7 @@ public:
 	void SetVisible(bool);
 	bool IsSelected() const;	//check whether fig is selected
 	bool IsVisible()const;
+	bool IsDuplicated() const;
 	virtual void Draw(GUI* pUI) const  = 0 ;
 	virtual void stickimages(GUI* u) = 0;//Draw the shape
 	bool iswithimage();
@@ -47,6 +48,7 @@ public:
 	virtual void paste(int xx, int yy) = 0;
 	virtual void scramble() = 0;
 	virtual void resize(float a) = 0;
+	virtual shape* duplicate(GUI* pGUI) = 0;
 	/*virtual void scrabmle_image(int xx, int yy) = 0;*/
 };
 

@@ -14,6 +14,11 @@ void shape::SetVisible(bool s) {
 bool shape::IsVisible()const {
 	return ShpGfxInfo.isVisible;
 }
+bool shape:: IsDuplicated() const {
+	if (ShpGfxInfo.isDuplicate) { return true; }
+	else return false;
+}
+
 void shape::setId(int x) {
 	ID = x;
 }

@@ -25,6 +25,7 @@ public:
 	virtual void scramble();
 	virtual void resize(float a);
 	virtual void Move(int, int) ;
+	virtual shape* duplicate(GUI* pGUI);
 };
 
 

@@ -163,3 +163,16 @@ void Line::Move(int x, int y) {
 	Corner2.y = Corner2.y + y;
 }
 
+
+
+shape* Line::duplicate(GUI* pGUI) {
+	Point p1, p2;
+	p1.x = Corner1.x + 25;
+	p1.y = Corner1.y;
+	p2.x = Corner2.x + 25;
+	p2.y = Corner2.y;
+	GfxInfo info = ShpGfxInfo;
+	ShpGfxInfo.isDuplicate = true;
+	Line* L = new Line(p1, p2, info);
+	return L;
+}

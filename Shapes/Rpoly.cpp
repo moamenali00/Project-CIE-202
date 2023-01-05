@@ -238,3 +238,15 @@ void Rpoly::Move(int x1, int y2) {
     vertex.x = vertex.x + x1;vertex.y = vertex.y + y2;
     this->set_x_y();
 }
+
+shape* Rpoly::duplicate(GUI* pGUI) {
+    Point p1, p2;
+    p1.x = center.x + 25;
+    p1.y = center.y;
+    p2.x = vertex.x + 25;
+    p2.y = vertex.y;
+    GfxInfo info = ShpGfxInfo;
+    ShpGfxInfo.isDuplicate = true;
+    Rpoly* p = new Rpoly(p1,p2, vertcies, info);
+    return p;
+}
