@@ -41,16 +41,27 @@ void opAddRPoly::Execute()
 	PolyGfxInfo.isFilled = pUI->getFilledStatus();	//default is not filled
 	PolyGfxInfo.isSelected = false;	//defualt is not selected
 
+	int rad;
+	rad = sqrt(((center.x - vertex.x) * (center.x - vertex.x)) + ((center.y - vertex.y) * (center.y - vertex.y)));
 
-	//Create a rectangle with the above parameters
-	Rpoly* R = new Rpoly(center, vertex, vertices, PolyGfxInfo);
-	//R->set_x_y();
+	if (center.y < 70 || center.y - rad < 70)
+	{
+		pUI->PrintMessage("The Shape is out of the drawing area");
+	}
+	else if (center.y > 650 || center.y + rad > 650) {
+		pUI->PrintMessage("The Shape is out of the drawing area");
+	}
+	else {
+
+		//Create a rectangle with the above parameters
+		Rpoly* R = new Rpoly(center, vertex, vertices, PolyGfxInfo);
+		//R->set_x_y();
 
 
-	//Get a pointer to the graph
-	Graph* pGr = pControl->getGraph();
+		//Get a pointer to the graph
+		Graph* pGr = pControl->getGraph();
 
-	//Add the rectangle to the list of shapes
-	pGr->Addshape(R);
-
+		//Add the rectangle to the list of shapes
+		pGr->Addshape(R);
+	}
 }

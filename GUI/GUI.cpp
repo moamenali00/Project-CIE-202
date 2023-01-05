@@ -418,10 +418,16 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 	}
 	else
 		style = FRAME;
-
-	pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
-	
-
+	if (P1.y < 70 || P2.y < 70)
+	{
+		PrintMessage("The Shape is out of the drawing area");
+	}
+	else if (P1.y > 650 || P2.y > 650) {
+		PrintMessage("The Shape is out of the drawing area");
+	}
+	else {
+		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
+	}
 }
 
 void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGFxInfo) const
@@ -442,8 +448,16 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGFxInfo) const
 	}
 	else
 		style = FRAME;
-	pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
-	
+	if (P1.y < 70 || P2.y < 70 ||P3.y<70)
+	{
+		PrintMessage("The Shape is out of the drawing area");
+	}
+	else if (P1.y > 650 || P2.y > 650|| P3.y >650) {
+		PrintMessage("The Shape is out of the drawing area");
+	}
+	else {
+		pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
+	}
 }
 
 void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const 
@@ -471,8 +485,16 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const
 	y = (P1.y + P2.y) / 2;
 	P1.x = x;
 	P1.y = y;*/
-	pWind->DrawCircle(P1.x, P1.y, rad, style);
-	
+	if (P1.y < 70 || P1.y - rad < 70)
+	{
+		PrintMessage("The Shape is out of the drawing area");
+	}
+	else if (P1.y > 650 || P1.y + rad > 650) {
+		PrintMessage("The Shape is out of the drawing area");
+	}
+	else {
+		pWind->DrawCircle(P1.x, P1.y, rad, style);
+	}
 }
 
 void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
@@ -493,9 +515,16 @@ void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
 	}
 	else
 		style = FRAME;
-
-	pWind->DrawPolygon(X, Y, iVertices, style);
-	
+	int c = 0;
+	for (int i = 0; i < iVertices; i++)
+	{
+		if (Y[i] < 70 || Y[i]>650) c = c + 1;
+	}
+	if (c == 0)
+	{
+		pWind->DrawPolygon(X, Y, iVertices, style);
+	}
+	else PrintMessage("the Polygon is out of the range");
 }
 
 

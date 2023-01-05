@@ -48,14 +48,22 @@ void opAddPoly::Execute()
 	PolyGfxInfo.isFilled = pUI->getFilledStatus();	//default is not filled
 	PolyGfxInfo.isSelected = false;	//defualt is not selected
 
+	int c = 0;
+	for (int i = 0; i < vertices; i++)
+	{
+		if (y[i] < 70 || y[i]>650) c = c + 1;
+	}
+	if (c == 0)
+	{
+		//Create a rectangle with the above parameters
+		Poly* R = new Poly(x, y, vertices, PolyGfxInfo);
 
-	//Create a rectangle with the above parameters
-	Poly* R = new Poly(x, y, vertices, PolyGfxInfo);
+		//Get a pointer to the graph
+		Graph* pGr = pControl->getGraph();
 
-	//Get a pointer to the graph
-	Graph* pGr = pControl->getGraph();
-
-	//Add the rectangle to the list of shapes
-	pGr->Addshape(R);
-
+		//Add the rectangle to the list of shapes
+		pGr->Addshape(R);
+	}
+	else pUI->PrintMessage("the Polygon is out of the range");
+	
 }
