@@ -22,6 +22,7 @@
 #include"operations/opRot.h"
 #include"operations/opAddscramble_image.h"
 #include"operations/opDrag.h"
+#include"operations/opDuplicate.h"
 
 //Constructor
 controller::controller()
@@ -109,7 +110,10 @@ operation* controller::createOperation(operationType OpType)
 		case EXIT:
 			pOp = new opExit(this);
 			break;
-		
+		case DUPLICATE_GRAPH:
+			pOp = new opDuplicate(this);
+			break;
+
 		case STATUS:	//a click on the status bar ==> no operation
 			break;
 

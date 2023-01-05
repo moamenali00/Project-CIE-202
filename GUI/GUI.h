@@ -24,6 +24,7 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	bool isSelected;	//true if the shape is selected.
 	bool isVisible=true;
 	bool withimage = false;
+	bool isDuplicate = false;
 };
 
 
@@ -42,11 +43,6 @@ class GUI
 		//Note: Icons are ordered here as they appear in menu
 		//If you want to change the menu icons order, change the order here
 		ICON_PLAY,
-		ICON_PASTE,
-		ICON_COPY,
-		ICON_SCRAMBLE,
-		ICON_STICK,
-		ICON_RESIZE,
 		ICON_LINE,
 		ICON_RECT,		//Recangle icon in menu
 		ICON_CIRC,		//Circle icon in menu
@@ -62,8 +58,14 @@ class GUI
 		ICON_ROT,
 		/*ICON_COLOR,
 		ICON_LOAD,*/
-
-
+		ICON_COPY,
+		ICON_PASTE,
+		ICON_SCRAMBLE,
+		ICON_DUPLICATE,
+		ICON_STICK,
+		ICON_RESIZE,
+		ICON_UNDO,
+		ICON_REDO,
 		//TODO: Add more icons names here
 
 		ICON_EXIT,		//Exit icon

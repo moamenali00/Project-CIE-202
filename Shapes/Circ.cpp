@@ -121,3 +121,18 @@ void Circ::resize(float a)
 	Corner2.y = Corner1.y;
 	Corner2.x = Corner1.x - a * rad;
 }
+
+shape* Circ::duplicate(GUI* pGUI) {
+	int rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
+	Point corner3;
+	corner3.x = Corner1.x + 2* rad;
+	corner3.y = Corner1.y;
+	Point corner4;
+	corner4.x = Corner2.x + 2 * rad;
+	corner4.y = Corner2.y;
+	GfxInfo info = ShpGfxInfo;
+	ShpGfxInfo.isDuplicate = true;
+	info.DrawClr = RED;
+	Circ* c = new Circ(corner3, corner4, info);
+	return c;
+}

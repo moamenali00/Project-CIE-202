@@ -39,6 +39,7 @@ public:
 	void setColor(shape*);
 	void Clear();
 	void copy();
+	void duplicate_shape(GUI* pGUI);
 	void paste(int x, int y, int& n);
 	void scramble_image();
 	void resize(float a);

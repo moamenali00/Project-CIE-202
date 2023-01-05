@@ -113,6 +113,7 @@ operationType GUI::GetUseroperation()
 			case ICON_LOAD: return LOAD;
 			case ICON_FILL: return CHNG_FILL_CLR;
 			case ICON_PEN: return CHNG_DRAW_CLR;
+			case ICON_DUPLICATE: return DUPLICATE_GRAPH;
 			case ICON_ROT: return ROTATE;
 			case ICON_EXIT: return EXIT;
 
@@ -222,6 +223,7 @@ color GUI::CreateColorPallete()
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::CreateDrawToolBar() 
 {
+	ClearToolBar();
 	InterfaceMode = MODE_DRAW;
 
 	//You can draw the tool bar icons in any way you want.
@@ -232,11 +234,6 @@ void GUI::CreateDrawToolBar()
 	//reoder them in UI_Info.h ==> enum DrawMenuIcon
 	string MenuIconImages[DRAW_ICON_COUNT];
 	MenuIconImages[ICON_PLAY] = "images\\MenuIcons\\Menu_Play.jpg";
-	MenuIconImages[ICON_STICK] = "images\\MenuIcons\\menu_Stick.jpg";
-	MenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_resize.jpg";
-	MenuIconImages[ICON_SCRAMBLE] = "images\\MenuIcons\\Menu_scramble.jpg";
-	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_paste.jpg";
-	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_copy.jpg";
 	MenuIconImages[ICON_LINE] = "images\\MenuIcons\\Menu_Line.jpg";
 	MenuIconImages[ICON_RECT] = "images\\MenuIcons\\Menu_Rect.jpg";
 	MenuIconImages[ICON_CIRC] = "images\\MenuIcons\\Menu_Circ.jpg";
@@ -250,6 +247,14 @@ void GUI::CreateDrawToolBar()
 	MenuIconImages[ICON_FILL] = "images\\MenuIcons\\Menu_Fill.jpg";
 	MenuIconImages[ICON_PEN] = "images\\MenuIcons\\Menu_Pen.jpg";
 	MenuIconImages[ICON_ROT] = "images\\MenuIcons\\Menu_Rot.jpg";
+	MenuIconImages[ICON_STICK] = "images\\MenuIcons\\menu_Stick.jpg";
+	MenuIconImages[ICON_RESIZE] = "images\\MenuIcons\\Menu_resize.jpg";
+	MenuIconImages[ICON_SCRAMBLE] = "images\\MenuIcons\\Menu_scramble.jpg";
+	MenuIconImages[ICON_DUPLICATE] = "images\\MenuIcons\\Menu_Duplicate.jpg";
+	MenuIconImages[ICON_COPY] = "images\\MenuIcons\\Menu_copy.jpg";
+	MenuIconImages[ICON_PASTE] = "images\\MenuIcons\\Menu_paste.jpg";
+	MenuIconImages[ICON_UNDO]= "images\\MenuIcons\\Menu_Undo.jpg";
+	MenuIconImages[ICON_REDO] = "images\\MenuIcons\\Menu_Redo.jpg";
 	MenuIconImages[ICON_EXIT] = "images\\MenuIcons\\Menu_Exit.jpg";
 
 	//TODO: Prepare images for each menu icon and add it to the list
@@ -269,6 +274,7 @@ void GUI::CreateDrawToolBar()
 
 void GUI::CreatePlayToolBar() 
 {
+	ClearToolBar();
 	InterfaceMode = MODE_PLAY;
 	///TODO: write code to create Play mode menu
 	string MenuIconImages[PLAY_ICON_COUNT];

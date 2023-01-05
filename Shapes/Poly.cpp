@@ -232,3 +232,18 @@ void Poly::resize(float a)
         }
     }
 }
+
+shape* Poly::duplicate(GUI* pGUI) {
+    int* x1 = new int[vertcies];
+    int* y1 =new int[vertcies];
+    for (int i = 0; i < vertcies; i++)
+    {
+        x1[i] = x[i] +50;
+        y1[i] = y[i] ;
+    }
+    GfxInfo info = ShpGfxInfo;
+    info.DrawClr = RED;
+    ShpGfxInfo.isDuplicate = true;
+    Poly* p = new Poly(x1, y1, vertcies, info);
+    return p;
+}

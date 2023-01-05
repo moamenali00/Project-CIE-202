@@ -233,3 +233,7 @@ void Tri::resize(float a)
 		Corner1.y = avgy + dy;
 	}
 }
+
+shape* Tri::duplicate(GUI* pGUI) {
+	return nullptr;
+}

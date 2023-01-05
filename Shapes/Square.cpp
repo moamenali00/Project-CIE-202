@@ -156,3 +156,6 @@ void Square::resize(float a)
 }
 
 
+shape* Square::duplicate(GUI* pGUI) {
+	return nullptr;
+}

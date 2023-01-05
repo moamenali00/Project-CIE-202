@@ -185,3 +185,8 @@ void Rect::paste(int xx, int yy)
 	Corner2.x = Corner1.x - dx;
 	Corner2.y = Corner1.y - dy;
 }
+
+shape* Rect::duplicate(GUI* pGUI) {
+	return nullptr;
+
+}

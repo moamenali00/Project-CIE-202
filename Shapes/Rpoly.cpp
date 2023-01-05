@@ -229,3 +229,8 @@ void Rpoly::resize(float a)
     }
     this->set_x_y();
 }
+
+shape* Rpoly::duplicate(GUI* pGUI) {
+    return nullptr;
+
+}
