@@ -154,5 +154,10 @@ void Square::resize(float a)
 	Corner2.y = avgy + dy;
 	Corner1.y = avgy - dy;
 }
-
+void Square::Move(int x, int y) {
+	Corner1.x = Corner1.x + x;
+	Corner2.x = Corner2.x + x;
+	Corner1.y = Corner1.y + y;
+	Corner2.y = Corner2.y + y;
+}
 

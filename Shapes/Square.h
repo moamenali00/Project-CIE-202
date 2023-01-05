@@ -21,5 +21,5 @@ public:
 	virtual void paste(int xx, int yy);
 	virtual void scramble();
 	virtual void resize(float a);
-	virtual void Move(int, int) {};
+	virtual void Move(int, int) ;
 };

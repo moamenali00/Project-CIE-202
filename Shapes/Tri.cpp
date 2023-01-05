@@ -233,3 +233,11 @@ void Tri::resize(float a)
 		Corner1.y = avgy + dy;
 	}
 }
+void Tri::Move(int x, int y) {
+	Corner1.x = Corner1.x + x;
+	Corner2.x = Corner2.x + x;
+	Corner1.y = Corner1.y + y;
+	Corner2.y = Corner2.y + y;
+	Corner3.x = Corner3.x + x;
+	Corner3.y = Corner3.y + y;
+}

@@ -4,7 +4,6 @@
 
 #include "..\CMUgraphicsLib\CMUgraphics.h"
 #include "..\Defs.h"
-
 #include <string>
 using namespace std;
 
@@ -115,10 +114,10 @@ class GUI
 
 
 
-	window* pWind;
 
 public:
 	Point P;
+	window* pWind;
 	GUI();
 	Point ReturnPointClicked();
 	void ReturnMouseCoordinates(Point&);

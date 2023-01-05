@@ -229,3 +229,12 @@ void Rpoly::resize(float a)
     }
     this->set_x_y();
 }
+void Rpoly::Move(int x1, int y2) {
+    for (int i = 0;i < vertcies;i++) {
+        x[i] = x[i] + x1;
+        y[i] = y[i] + y2;
+    }
+    center.x = center.x + x1;center.y = center.y + y2;
+    vertex.x = vertex.x + x1;vertex.y = vertex.y + y2;
+    this->set_x_y();
+}

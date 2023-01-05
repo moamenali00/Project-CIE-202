@@ -74,7 +74,7 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opAddLine(this);
 			break;
 		case DRAW_TRI:
-			pOp = new opDrag(this);
+			pOp = new opAddTri(this);
 			break;
 		case DRAW_CIRC:
 			pOp = new opAddCirc(this);
