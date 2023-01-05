@@ -232,6 +232,13 @@ void Poly::resize(float a)
         }
     }
 }
+void Poly::Move(int x1, int y2) {
+    for (int i = 0;i < vertcies;i++) {
+        x[i] =x[i] + x1;
+        y[i] = y[i] + y2;
+    } 
+}
+
 
 shape* Poly::duplicate(GUI* pGUI) {
     int* x1 = new int[vertcies];

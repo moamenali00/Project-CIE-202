@@ -136,3 +136,9 @@ shape* Circ::duplicate(GUI* pGUI) {
 	Circ* c = new Circ(corner3, corner4, info);
 	return c;
 }
+void Circ::Move(int x, int y) {
+	Corner1.x = Corner1.x + x;
+	Corner2.x = Corner2.x + x;
+	Corner1.y = Corner1.y + y;
+	Corner2.y = Corner2.y + y;
+}

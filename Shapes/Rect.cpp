@@ -25,6 +25,8 @@ bool Rect::CheckSelect(int x, int y) const
 }
 void Rect::Move(int x, int y) {
 	Corner1.x = Corner1.x + x;
+	Corner2.x = Corner2.x + x;
+	Corner1.y = Corner1.y + y;
 	Corner2.y = Corner2.y + y;
 }
 void Rect::stickimages(GUI* u)

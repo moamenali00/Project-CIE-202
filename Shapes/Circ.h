@@ -23,7 +23,7 @@ public:
 	virtual void scramble();
 	virtual shape* duplicate(GUI* pGUI);
 	virtual void resize(float a);
-	virtual void Move(int, int) {};
+	virtual void Move(int, int) ;
 };
 
 
