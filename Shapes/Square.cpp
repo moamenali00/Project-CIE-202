@@ -174,5 +174,10 @@ shape* Square::duplicate(GUI* pGUI) {
 }
 
 void Square::Hide(GUI* pGUI) {
-
+	ShpGfxInfo.isHidden = true;
+	int rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
+	string hide = "images\\Hide.jpg";
+	int min_x = min(Corner1.x, Corner2.x);
+	int min_y = min(Corner1.y, Corner2.y);
+	pGUI->draw_image(hide, min_x, min_y, rad, rad);
 }
