@@ -2,6 +2,8 @@
 #include "../GUI/GUI.h"
 #include<fstream>
 #include<iostream>
+#include <chrono>
+#include <thread>
 
 Graph::Graph()
 {
@@ -37,7 +39,14 @@ void Graph::Draw(GUI* pUI) const
 				shapePointer->stickimages(pUI);
 			}
 			if (shapePointer->isHide()) {
+				
 				shapePointer->Hide(pUI);
+				if (shapePointer->IsSelected()) {
+					shapePointer->unHide(pUI);
+					std::chrono::seconds duration(2);
+					std::this_thread::sleep_for(duration);
+					//shapePointer->Hide(pUI);
+				}
 			}
 		}
 	}

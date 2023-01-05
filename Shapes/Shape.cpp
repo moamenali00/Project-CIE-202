@@ -1,5 +1,10 @@
 #include "shape.h"
+#include<ctime>
+#include <chrono>
+#include <thread>
 
+
+	
 
 shape::shape(GfxInfo shapeGfxInfo)
 { 
@@ -22,6 +27,12 @@ bool shape:: IsDuplicated() const {
 	if (ShpGfxInfo.isDuplicate) { return true; }
 	else return false;
 }
+void shape::unHide(GUI* pGUI) {
+	ShpGfxInfo.isHidden = false;
+	
+	//ShpGfxInfo.isHidden = true;
+}
+
 
 void shape::setId(int x) {
 	ID = x;

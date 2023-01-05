@@ -37,6 +37,7 @@ public:
 	///Decide the parameters that you should pass to each function	
 
 	virtual void Hide(GUI* pGUI) = 0;
+	void unHide(GUI* pGUI);
 	virtual void RotateShape() = 0;	//Rotate the shape
 	//virtual void Resize() = 0;	//Resize the shape
 	virtual void Move(int,int) = 0;		//Move the shape
