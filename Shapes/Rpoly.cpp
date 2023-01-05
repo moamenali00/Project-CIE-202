@@ -250,3 +250,7 @@ shape* Rpoly::duplicate(GUI* pGUI) {
     Rpoly* p = new Rpoly(p1,p2, vertcies, info);
     return p;
 }
+
+void Rpoly::Hide(GUI* pGUI) {
+
+}

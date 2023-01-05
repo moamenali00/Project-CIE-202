@@ -253,3 +253,6 @@ shape* Poly::duplicate(GUI* pGUI) {
     Poly* p = new Poly(x1, y1, vertcies, info);
     return p;
 }
+void Poly::Hide(GUI* pGUI) {
+
+}

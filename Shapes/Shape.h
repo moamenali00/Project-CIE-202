@@ -27,6 +27,7 @@ public:
 	virtual void Draw(GUI* pUI) const  = 0 ;
 	virtual void stickimages(GUI* u) = 0;//Draw the shape
 	bool iswithimage();
+	bool isHide();
 	void ChngDrawClr(color Dclr);	//changes the shape's drawing color
 	void ChngFillClr(color Fclr);	//changes the shape's filling color
 	virtual bool CheckSelect(int, int)const = 0;
@@ -35,7 +36,7 @@ public:
 
 	///Decide the parameters that you should pass to each function	
 
-
+	virtual void Hide(GUI* pGUI) = 0;
 	virtual void RotateShape() = 0;	//Rotate the shape
 	//virtual void Resize() = 0;	//Resize the shape
 	virtual void Move(int,int) = 0;		//Move the shape

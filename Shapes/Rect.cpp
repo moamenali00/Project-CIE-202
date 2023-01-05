@@ -199,3 +199,7 @@ shape* Rect::duplicate(GUI* pGUI) {
 	Rect* L = new Rect(p1, p2, info);
 	return L;
 }
+
+void Rect::Hide(GUI* pGUI) {
+
+}

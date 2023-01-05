@@ -176,3 +176,7 @@ shape* Line::duplicate(GUI* pGUI) {
 	Line* L = new Line(p1, p2, info);
 	return L;
 }
+
+void Line::Hide(GUI* pGUI) {
+
+}

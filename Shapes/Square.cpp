@@ -172,3 +172,7 @@ shape* Square::duplicate(GUI* pGUI) {
 	Square* L = new Square(p1, p2, info);
 	return L;
 }
+
+void Square::Hide(GUI* pGUI) {
+
+}

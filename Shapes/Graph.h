@@ -44,4 +44,5 @@ public:
 	void scramble_image();
 	void resize(float a);
 	void Move(Point);
+	void pHide(GUI* pGUI) const;
 };

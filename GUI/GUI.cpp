@@ -189,7 +189,7 @@ void GUI::CreateStatusBar() const
 void GUI::draw_image(string h, int k, int e, int z, int w)
 
 {
-	pWind->DrawImage("images\\MenuIcons\\Menu_Play.jpg", k, e, z, w);
+	pWind->DrawImage(h, k, e, z, w);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 void GUI::ClearToolBar() const

@@ -256,3 +256,7 @@ void Tri::Move(int x, int y) {
 	Corner3.x = Corner3.x + x;
 	Corner3.y = Corner3.y + y;
 }
+
+void Tri::Hide(GUI* pGUI) {
+
+}
