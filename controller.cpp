@@ -20,8 +20,8 @@
 #include"operations\opUndo.h"
 #include"operations\resize.h"
 #include"operations/opRot.h"
-#include"operations/opAddscramble_image.h"
 #include"operations/opDrag.h"
+#include"operations/opAddscramble_image.h"
 
 //Constructor
 controller::controller()
@@ -42,6 +42,7 @@ operationType controller::GetUseroperation() const
 //Creates an operation and executes it
 operation* controller::createOperation(operationType OpType)
 {
+	static int Tf = 0;int Ti=clock();
 	operation* pOp = nullptr;
 	
 	//According to operation Type, create the corresponding operation object
@@ -98,6 +99,9 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opPen(this);
 			break;
 		case DRAWING_AREA:
+			if (Ti - Tf < 300) {
+				pOp = new opDrag(this);
+			}
 			pOp = new opSelect(this);
 			break;
 		case LOAD:
@@ -122,7 +126,7 @@ operation* controller::createOperation(operationType OpType)
 			break;
 	
 	}
-
+	Tf = clock();
 	return pOp;
 	
 }
@@ -174,6 +178,7 @@ void controller::Run()
 		//3. Execute the created operation
 		if (pOpr)
 		{
+			if(pOpr)
 			pOpr->Execute();//Execute
 			delete pOpr;	//operation is not needed any more ==> delete it
 			pOpr = nullptr;

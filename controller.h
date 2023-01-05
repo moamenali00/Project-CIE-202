@@ -3,6 +3,7 @@
 #include "DEFS.h"
 #include "Shapes\Graph.h"
 #include "GUI\GUI.h"
+#include<ctime>
 #include<stack>
 class operation; //forward declaration
 
