@@ -42,11 +42,10 @@ void Graph::Draw(GUI* pUI) const
 			if (shapePointer->isHide()) {
 				
 				shapePointer->Hide(pUI);
-				//if (shapePointer->IsSelected()) {
-					//shapePointer->unHide(pUI);
-					
-					//shapePointer->Hide(pUI);
-				//}
+				if (shapePointer->IsSelected()) {
+					shapePointer->unHide(pUI);
+					shapePointer->Hide(pUI);
+				}
 			}
 		}
 	}
