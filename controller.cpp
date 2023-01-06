@@ -71,7 +71,7 @@ operation* controller::createOperation(operationType OpType)
 			break;
 
 		case DRAW_SQUARE:
-			pOp = new opUndo(this);
+			pOp = new opAddSquare(this);
 			break;
 		case DRAW_LINE:
 			pOp = new opAddLine(this);
@@ -226,6 +226,10 @@ void controller::Run()
 				pOpr->Execute();
 			}
 			else if (dynamic_cast<resize*> (pOpr)) {
+				undo.push(pOpr);
+				pOpr->Execute();
+			}
+			else if (dynamic_cast<opDrag*>(pOpr)) {
 				undo.push(pOpr);
 				pOpr->Execute();
 			}

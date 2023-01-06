@@ -12,11 +12,11 @@ void opDrag::Execute() {
 	C = pUI->ReturnPointClicked();
 	I = C;
 	int i = 0;
+	S = pGr->Getshape(C.x, C.y);
 	do {
-		Sleep(10);
-		S = pGr->Getshape(C.x, C.y);
+		Sleep(6);
 		i++;
-		if (S != nullptr) {
+		if (S != nullptr ) {
 			pUI->ReturnMouseCoordinates(F);
 			D.x = F.x - C.x;D.y = F.y - C.y;
 			S->Move(D.x, D.y);
@@ -28,6 +28,8 @@ void opDrag::Execute() {
 				return;
 			}
 		}
+		else
+			return;
 	} while (true);
 
 
