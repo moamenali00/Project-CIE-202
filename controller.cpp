@@ -186,10 +186,11 @@ controller::~controller()
 //							Run function											//
 //==================================================================================//
 void controller ::Undo() {
-	undo.top()->Undo();
-	cout << "HELLO";
-	redo.push(undo.top());
-	undo.pop();
+	if (!(undo.empty())) {
+		undo.top()->Undo();
+		redo.push(undo.top());
+		undo.pop();
+	}
 }
 void controller::Run()
 {
