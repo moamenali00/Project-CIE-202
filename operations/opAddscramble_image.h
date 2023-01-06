@@ -11,8 +11,8 @@ public:
 	virtual ~opAddscramble_image();
 	virtual void Execute();
 	//To undo this operation (code depends on operation type)
-	virtual void Undo();
+	virtual void Undo(){};
 
 	//To redo this operation (code depends on operation type)
-	virtual void Redo();
+	virtual void Redo(){};
 };

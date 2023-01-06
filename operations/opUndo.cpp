@@ -5,5 +5,5 @@ opUndo::~opUndo()
 {}
 
 void opUndo::Execute() {
-	//pControl->Undo();
+	pControl->Undo();
 }
