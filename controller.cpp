@@ -132,6 +132,15 @@ operation* controller::createOperation(operationType OpType)
 		case HIDE:
 			pOp = new opHide(this);
 			break;
+		case UNDO:
+
+			break;
+		case REDO:
+
+			break;
+	
+		case MATCH:
+			break;
 	
 	}
 	Tf = clock();
