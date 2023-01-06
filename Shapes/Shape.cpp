@@ -1,7 +1,4 @@
 #include "shape.h"
-#include<ctime>
-#include <chrono>
-#include <thread>
 
 
 	
