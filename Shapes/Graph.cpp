@@ -111,13 +111,14 @@ void Graph::scramble_image()
 void Graph::resize(float a)
 {
 	undo.push_back(Trace());
+	undo[undo.size() - 1].resize = a;
 	for(int i=0;i<shapesList.size();i++)
 	{
-		if (shapesList[i]->IsSelected())
+		if (shapesList[i]->IsSelected()) {
 			shapesList[i]->resize(a);
 			undo[undo.size() - 1].Ids.push_back(i);
-			undo[undo.size() - 1].resize = a;
-
+		}
+			
 	}
 }
 void Graph::Move(Point D) {
@@ -157,8 +158,8 @@ void Graph::Redo(char c) {
 	}
 	else if (c == 'f') {
 		for (auto ID : redo[redo.size() - 1].Ids) {
-			double diffx = redo[undo.size() - 1].F.x - redo[redo.size() - 1].I.x;
-			double diffy = redo[undo.size() - 1].F.y - redo[undo.size() - 1].I.y;
+			double diffx = redo[redo.size() - 1].F.x - redo[redo.size() - 1].I.x;
+			double diffy = redo[redo.size() - 1].F.y - redo[redo.size() - 1].I.y;
 			shapesList[ID]->Move(diffx, diffy);
 		}
 		undo.push_back(redo[redo.size() - 1]);
