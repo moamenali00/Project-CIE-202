@@ -146,7 +146,7 @@ void Circ::Hide(GUI* pGUI) {
 	ShpGfxInfo.isHidden = true;
 	int rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
 	string hide = "images\\Hide.jpg";
-	pGUI->draw_image(hide, Corner1.x-rad, Corner1.y-rad, 2*rad, 2*rad);
+	pGUI->draw_image(hide, Corner1.x-(175/2), Corner1.y-(175/2), 175, 175);
 }
 
 string Circ::get_type() {

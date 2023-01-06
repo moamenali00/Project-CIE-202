@@ -32,22 +32,24 @@ void Graph::Draw(GUI* pUI) const
 {
 	pUI->ClearDrawArea();
 	for (auto shapePointer : shapesList) {
-		if (shapePointer->IsVisible())
+		if (shapePointer->IsVisible() && !shapePointer->isHide())
 		{
 			shapePointer->Draw(pUI);
 			if (shapePointer->iswithimage())
 			{
 				shapePointer->stickimages(pUI);
 			}
-			if (shapePointer->isHide()) {
+		}
+		if (shapePointer->isHide()) {
 				
 				shapePointer->Hide(pUI);
-				if (shapePointer->IsSelected()) {
-					shapePointer->unHide(pUI);
-					shapePointer->Hide(pUI);
-				}
-			}
+				//if (shapePointer->IsSelected()) {
+					//shapePointer->unHide(pUI);
+					
+					//shapePointer->Hide(pUI);
+				//}
 		}
+		
 	}
 }
 vector <shape*> Graph::get_selected() {
