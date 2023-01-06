@@ -25,4 +25,9 @@ void opMatch::Execute() {
 		else pGUI->PrintMessage("the shapes don't match");
 	}
 	else pGUI->PrintMessage("Select only two shapes");
+	int n = selectedShapes.size();
+	for (int i = 0; i < n; i++)
+	{
+		delete selectedShapes[i];
+	}
 }
