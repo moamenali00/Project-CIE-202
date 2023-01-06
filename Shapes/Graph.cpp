@@ -40,16 +40,17 @@ void Graph::Draw(GUI* pUI) const
 				shapePointer->stickimages(pUI);
 			}
 		}
-		if (shapePointer->isHide()) {
-				
+		if (shapePointer->IsVisible()) {
+			if (shapePointer->isHide()) {
+
 				shapePointer->Hide(pUI);
 				//if (shapePointer->IsSelected()) {
 					//shapePointer->unHide(pUI);
-					
+
 					//shapePointer->Hide(pUI);
 				//}
+			}
 		}
-		
 	}
 }
 vector <shape*> Graph::get_selected() {
