@@ -48,4 +48,5 @@ public:
 	void Move(Point);
 	void Drag(shape*,Point, Point);
 	void pHide(GUI* pGUI) const;
+	vector <shape*> get_selected();
 };

@@ -277,3 +277,8 @@ void Tri::Hide(GUI* pGUI) {
 	int rad = sqrt(((min_x - max_x) * (min_x - max_x)) + ((min_y - max_y) * (min_y - max_y)));
 	pGUI->draw_image(hide, min_x, min_y, rad, rad);
 }
+
+string Tri::get_type() {
+	return "Tri";
+}
+

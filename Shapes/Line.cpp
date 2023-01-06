@@ -184,3 +184,7 @@ void Line::Hide(GUI* pGUI) {
 	if (Corner1.y<Corner2.y) pGUI->draw_image(hide, Corner1.x , Corner1.y ,  rad,  rad);
 	else if (Corner1.y > Corner2.y) pGUI->draw_image(hide, Corner2.x, Corner2.y, rad, rad);
 }
+
+string Line::get_type() {
+	return "Line";
+}

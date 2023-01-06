@@ -24,5 +24,6 @@ public:
 	virtual shape* duplicate(GUI* pGUI);
 	virtual void Move(int, int) ;
 	virtual void Hide(GUI* pGUI);
+	virtual string get_type();
 
 };
