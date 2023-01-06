@@ -40,16 +40,20 @@ void Graph::Draw(GUI* pUI) const
 				shapePointer->stickimages(pUI);
 			}
 		}
-		if (shapePointer->IsVisible()) {
-			if (shapePointer->isHide()) {
+		if (shapePointer->IsVisible() && shapePointer->isHide()) {
 
 				shapePointer->Hide(pUI);
-				//if (shapePointer->IsSelected()) {
-					//shapePointer->unHide(pUI);
-
-					//shapePointer->Hide(pUI);
-				//}
+				
 			}
+		}
+	}
+void Graph::unHide(GUI* pUI) {
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsSelected() && shapePointer->isHide()) {
+			shapePointer->unHide(pUI);
+			Draw(pUI);
+			Sleep(1000);
+			shapePointer->Hide(pUI);
 		}
 	}
 }
