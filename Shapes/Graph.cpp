@@ -21,7 +21,7 @@ Graph::~Graph()
 //Add a shape to the list of shapes
 void Graph::Addshape(shape* pShp)
 {
-	pShp->setId(shapesList.size()-1);
+	pShp->setId(id++);
 	undo.push_back(Trace());
 	shapesList.push_back(pShp);	
 }
@@ -99,10 +99,14 @@ void Graph::scramble_image()
 
 void Graph::resize(float a)
 {
-	for (auto shapePointer : shapesList) 
+	undo.push_back(Trace());
+	for(int i=0;i<shapesList.size();i++)
 	{
-		if (shapePointer->IsSelected())
-			shapePointer->resize(a);
+		if (shapesList[i]->IsSelected())
+			shapesList[i]->resize(a);
+			undo[undo.size() - 1].Ids.push_back(i);
+			undo[undo.size() - 1].resize = a;
+
 	}
 }
 void Graph::Move(Point D) {
@@ -112,6 +116,13 @@ void Graph::Move(Point D) {
 		}
 	}
 }
+void Graph::Drag(shape* S,Point I, Point F) {
+	undo.push_back(Trace());
+	undo[undo.size() - 1].Ids.push_back(S->getId());
+	undo[undo.size() - 1].I = I;undo[undo.size() - 1].F = F;
+
+	
+}
 void Graph::setColor(shape* pShp) 
 {
 	GUI* pGUI;
@@ -119,14 +130,31 @@ void Graph::setColor(shape* pShp)
 	pShp->ChngFillClr(clr);
 }
 void Graph::Redo(char c) {
-	if (c=='d'){
+	if (c == 'd') {
 		for (auto ID : redo[redo.size() - 1].Ids) {
 			shapesList[ID]->SetVisible(false);
 		}
 		undo.push_back(redo[redo.size() - 1]);
 		redo.pop_back();
 	}
+	else if (c == 's') {
+		for (auto ID : redo[redo.size() - 1].Ids) {
+			shapesList[ID]->resize(redo[redo.size() - 1].resize);
+		}
+		undo.push_back(redo[redo.size() - 1]);
+		redo.pop_back();
+	}
+	else if (c == 'f') {
+		for (auto ID : redo[redo.size() - 1].Ids) {
+			double diffx = redo[undo.size() - 1].F.x - redo[redo.size() - 1].I.x;
+			double diffy = redo[undo.size() - 1].F.y - redo[undo.size() - 1].I.y;
+			shapesList[ID]->Move(diffx, diffy);
+		}
+		undo.push_back(redo[redo.size() - 1]);
+		redo.pop_back();
+	}
 }
+
 	
 void Graph::Undo(char c) {
 	if (c == 'd') {
@@ -134,6 +162,22 @@ void Graph::Undo(char c) {
 			shapesList[ID]->SetVisible(true);
 			}
 		redo.push_back(undo[undo.size()-1]);
+		undo.pop_back();
+	}
+	else if (c == 's') {
+		for (auto ID : undo[undo.size() - 1].Ids) {
+			shapesList[ID]->resize(pow(undo[undo.size()-1].resize, -1));
+		}
+		redo.push_back(undo[undo.size() - 1]);
+		undo.pop_back();
+	}
+	else if (c == 'f') {
+		for (auto ID : undo[undo.size() - 1].Ids) {
+			double diffx = undo[undo.size() - 1].I.x - undo[undo.size() - 1].F.x;
+			double diffy = undo[undo.size() - 1].I.y - undo[undo.size() - 1].F.y;
+			shapesList[ID]->Move(diffx,diffy);
+		}
+		redo.push_back(undo[undo.size() - 1]);
 		undo.pop_back();
 	}
 }

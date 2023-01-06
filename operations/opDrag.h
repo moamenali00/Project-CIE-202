@@ -9,6 +9,6 @@ public:
 	opDrag(controller* pCont);
 	virtual ~opDrag();
 	virtual void Execute();
-	virtual void Undo(){};
-	virtual void Redo(){};
+	virtual void Undo();
+	virtual void Redo();
 };

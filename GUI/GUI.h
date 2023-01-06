@@ -25,6 +25,7 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	bool withimage = false;
 	bool isDuplicate = false;
 	bool isHidden = false;
+	Point IP, FP;
 };
 
 

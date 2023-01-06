@@ -24,7 +24,6 @@
 #include"operations/opAddscramble_image.h"
 #include"operations/opDuplicate.h"
 #include"operations/opHide.h"
-#include<iostream>
 //Constructor
 controller::controller()
 {
@@ -133,10 +132,10 @@ operation* controller::createOperation(operationType OpType)
 			pOp = new opHide(this);
 			break;
 		case UNDO:
-
+			pOp = new opUndo(this);
 			break;
 		case REDO:
-
+			pOp = new opRedo(this);
 			break;
 	
 		case MATCH:
@@ -189,6 +188,13 @@ void controller ::Undo() {
 		undo.pop();
 	}
 }
+void controller :: Redo() {
+	if (!(redo.empty())) {
+		redo.top()->Redo();
+		undo.push(redo.top());
+		redo.pop();
+	}
+}
 void controller::Run()
 {
 	operationType OpType;
@@ -204,6 +210,14 @@ void controller::Run()
 		{
 			if (dynamic_cast<opDelete*> (pOpr))
 			{
+				undo.push(pOpr);
+				pOpr->Execute();
+			}
+			else if (dynamic_cast<resize*> (pOpr)) {
+				undo.push(pOpr);
+				pOpr->Execute();
+			}
+			else if (dynamic_cast<opDrag*> (pOpr)) {
 				undo.push(pOpr);
 				pOpr->Execute();
 			}

@@ -9,6 +9,8 @@ class GUI;
 
 struct Trace {
 	vector <int> Ids;
+	double resize;
+	Point I, F;
 };
 
 //A class that is responsible on everything related to shapes
@@ -44,5 +46,6 @@ public:
 	void scramble_image();
 	void resize(float a);
 	void Move(Point);
+	void Drag(shape*,Point, Point);
 	void pHide(GUI* pGUI) const;
 };

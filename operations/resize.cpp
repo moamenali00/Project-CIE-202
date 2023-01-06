@@ -18,5 +18,12 @@ void resize::Execute()
 	pGr->resize(a);
 
 }
-
+void resize::Undo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Undo('s');
+};
+void resize::Redo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Redo('s');
+}
 
