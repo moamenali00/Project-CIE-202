@@ -14,10 +14,4 @@ void opAddscramble_image::Execute()
 
 }
 
-void opAddscramble_image::Undo()
-{
-}
 
-void opAddscramble_image::Redo()
-{
-}

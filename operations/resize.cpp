@@ -19,10 +19,4 @@ void resize::Execute()
 
 }
 
-void resize::Undo()
-{
-}
 
-void resize::Redo()
-{
-}

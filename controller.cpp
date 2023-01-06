@@ -24,6 +24,7 @@
 #include"operations/opAddscramble_image.h"
 #include"operations/opDuplicate.h"
 #include"operations/opHide.h"
+#include<iostream>
 //Constructor
 controller::controller()
 {
@@ -69,9 +70,8 @@ operation* controller::createOperation(operationType OpType)
 			break;
 
 		case DRAW_SQUARE:
-			pOp = new opAddSquare(this);
+			pOp = new opUndo(this);
 			break;
-
 		case DRAW_LINE:
 			pOp = new opAddLine(this);
 			break;
@@ -173,6 +173,12 @@ controller::~controller()
 //==================================================================================//
 //							Run function											//
 //==================================================================================//
+void controller ::Undo() {
+	undo.top()->Undo();
+	cout << "HELLO";
+	redo.push(undo.top());
+	undo.pop();
+}
 void controller::Run()
 {
 	operationType OpType;
@@ -186,10 +192,16 @@ void controller::Run()
 		//3. Execute the created operation
 		if (pOpr)
 		{
-			if (pOpr)
-			pOpr->Execute();//Execute
-			delete pOpr;	//operation is not needed any more ==> delete it
-			pOpr = nullptr;
+			if (dynamic_cast<opDelete*> (pOpr))
+			{
+				undo.push(pOpr);
+				pOpr->Execute();
+			}
+			else {
+				pOpr->Execute();
+				delete pOpr;
+				pOpr = nullptr;
+			}
 		}
 		//Update the interface
 		UpdateInterface();
