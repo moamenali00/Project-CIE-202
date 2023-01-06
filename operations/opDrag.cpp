@@ -19,6 +19,7 @@ void opDrag::Execute() {
 			pUI->ReturnMouseCoordinates(F);
 			D.x = F.x - C.x;D.y = F.y - C.y;
 			S->Move(D.x, D.y);
+			S->PrintInfo(pUI);
 			C = F;
 			pControl->UpdateInterface();
 			if (GetAsyncKeyState(VK_LBUTTON) & 0x8000 && i > 4)

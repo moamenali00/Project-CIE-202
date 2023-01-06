@@ -183,7 +183,7 @@ void controller::Run()
 		//3. Execute the created operation
 		if (pOpr)
 		{
-			if(pOpr)
+			if (pOpr)
 			pOpr->Execute();//Execute
 			delete pOpr;	//operation is not needed any more ==> delete it
 			pOpr = nullptr;
