@@ -26,6 +26,8 @@ public:
 	virtual shape* duplicate(GUI* pGUI);
 	//Point rotate_pointL(double cx, double cy, double angle, Point p);
 	virtual void Move(int, int) ;
+	virtual void Hide(GUI* pGUI);
+
 };
 
 

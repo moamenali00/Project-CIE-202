@@ -182,6 +182,7 @@
     <ClCompile Include="operations\opDuplicate.cpp" />
     <ClCompile Include="operations\opExit.cpp" />
     <ClCompile Include="operations\opFill.cpp" />
+    <ClCompile Include="operations\opHide.cpp" />
     <ClCompile Include="operations\opLoad.cpp" />
     <ClCompile Include="operations\opPen.cpp" />
     <ClCompile Include="operations\opRedo.cpp" />
@@ -241,6 +242,7 @@
     <ClInclude Include="operations\opAddTri.h" />
     <ClInclude Include="operations\opExit.h" />
     <ClInclude Include="operations\opFill.h" />
+    <ClInclude Include="operations\opHide.h" />
     <ClInclude Include="operations\opLoad.h" />
     <ClInclude Include="operations\opPen.h" />
     <ClInclude Include="operations\opRedo.h" />

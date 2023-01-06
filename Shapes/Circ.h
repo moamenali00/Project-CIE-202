@@ -24,6 +24,7 @@ public:
 	virtual shape* duplicate(GUI* pGUI);
 	virtual void resize(float a);
 	virtual void Move(int, int) ;
+	virtual void Hide(GUI* pGUI);
 };
 
 

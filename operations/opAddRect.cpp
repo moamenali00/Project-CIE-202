@@ -39,15 +39,22 @@ void opAddRect::Execute()
 	RectGfxInfo.isFilled = pUI->getFilledStatus();	//default is not filled
 	RectGfxInfo.isSelected = false;	//defualt is not selected
 
+	if (P1.y < 70 || P2.y < 70)
+	{
+		pUI->PrintMessage("The Rectangle is out of the drawing area");
+	}
+	else if (P1.y > 650 || P2.y > 650) {
+		pUI->PrintMessage("The Rectangle is out of the drawing area");
+	}
+	else {
+		//Create a rectangle with the above parameters
+		Rect* R = new Rect(P1, P2, RectGfxInfo);
 
-	//Create a rectangle with the above parameters
-	Rect *R=new Rect(P1, P2, RectGfxInfo);
+		//Get a pointer to the graph
+		Graph* pGr = pControl->getGraph();
 
-	//Get a pointer to the graph
-	Graph* pGr = pControl->getGraph();
-
-	//Add the rectangle to the list of shapes
-	pGr->Addshape(R);
-
+		//Add the rectangle to the list of shapes
+		pGr->Addshape(R);
+	}
 }
 	

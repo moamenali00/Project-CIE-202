@@ -43,14 +43,22 @@ void opAddSquare::Execute()
 	SquareGfxInfo.isFilled = pUI->getFilledStatus();	//default is not filled
 	SquareGfxInfo.isSelected = false;	//defualt is not selected
 
+	if (P1.y < 70 || P2.y < 70)
+	{
+		pUI->PrintMessage("The square is out of the drawing area");
+	}
+	else if (P1.y > 650 || P2.y > 650) {
+		pUI->PrintMessage("The square is out of the drawing area");
+	}
+	else {
 
-	//Create a rectangle with the above parameters
-	Square* R = new Square(P1, P2, SquareGfxInfo);
+		//Create a rectangle with the above parameters
+		Square* R = new Square(P1, P2, SquareGfxInfo);
 
-	//Get a pointer to the graph
-	Graph* pGr = pControl->getGraph();
+		//Get a pointer to the graph
+		Graph* pGr = pControl->getGraph();
 
-	//Add the rectangle to the list of shapes
-	pGr->Addshape(R);
-
+		//Add the rectangle to the list of shapes
+		pGr->Addshape(R);
+	}
 }

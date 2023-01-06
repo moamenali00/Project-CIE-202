@@ -1,8 +1,13 @@
 #include "shape.h"
+#include<ctime>
+#include <chrono>
+#include <thread>
+
+
+	
 
 shape::shape(GfxInfo shapeGfxInfo)
 { 
-
 	ShpGfxInfo = shapeGfxInfo;
 	ShpGfxInfo.isstick = false;
 	//Default status is non-filled.
@@ -14,10 +19,20 @@ void shape::SetVisible(bool s) {
 bool shape::IsVisible()const {
 	return ShpGfxInfo.isVisible;
 }
+bool shape::isHide() {
+	if (ShpGfxInfo.isHidden) return true;
+	else return false;
+}
 bool shape:: IsDuplicated() const {
 	if (ShpGfxInfo.isDuplicate) { return true; }
 	else return false;
 }
+void shape::unHide(GUI* pGUI) {
+	ShpGfxInfo.isHidden = false;
+	
+	//ShpGfxInfo.isHidden = true;
+}
+
 
 void shape::setId(int x) {
 	ID = x;

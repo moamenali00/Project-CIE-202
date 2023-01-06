@@ -24,6 +24,7 @@ struct GfxInfo	//Graphical info common for all shapes (you may add more members)
 	bool isVisible=true;
 	bool withimage = false;
 	bool isDuplicate = false;
+	bool isHidden = false;
 };
 
 
@@ -153,6 +154,7 @@ public:
 	int getCrntPenWidth() const;		//get current pen width
 	bool getFilledStatus() const;
 	color getDefaultDrawColor() const;
+	bool getGUIMode() const;
 
 	void setCrntPenColor(color);
 	void setCrntFillColor(color clr);

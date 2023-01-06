@@ -2,6 +2,8 @@
 #include "../GUI/GUI.h"
 #include<fstream>
 #include<iostream>
+#include <chrono>
+#include <thread>
 
 Graph::Graph()
 {
@@ -36,6 +38,16 @@ void Graph::Draw(GUI* pUI) const
 			{
 				shapePointer->stickimages(pUI);
 			}
+			if (shapePointer->isHide()) {
+				
+				shapePointer->Hide(pUI);
+				if (shapePointer->IsSelected()) {
+					shapePointer->unHide(pUI);
+					std::chrono::seconds duration(2);
+					std::this_thread::sleep_for(duration);
+					//shapePointer->Hide(pUI);
+				}
+			}
 		}
 	}
 }
@@ -52,6 +64,12 @@ void Graph::StickI(GUI* G)
 		}
 	}
 }
+void Graph::pHide(GUI* pGUI) const {
+	for (auto shapePointer : shapesList) {
+		shapePointer->Hide(pGUI);
+	}
+}
+
 void Graph::copy()
 {
 	for (auto shapePointer : shapesList) {
@@ -75,15 +93,9 @@ void Graph::paste(int x ,int y,int& n)
 
 void Graph::scramble_image()
 {
-	
 	for (auto shapePointer : shapesList) {
 		shapePointer->scramble();
 	}
-	
-
-	
-	
-
 }
 
 void Graph::resize(float a)
@@ -134,7 +146,7 @@ void Graph::Hide() {
 			undo[undo.size() - 1].Ids.push_back(i);
 		}
 	}
-	}
+}
 
 
 void Graph::Rotate() {

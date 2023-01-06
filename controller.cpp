@@ -23,7 +23,7 @@
 #include"operations/opDrag.h"
 #include"operations/opAddscramble_image.h"
 #include"operations/opDuplicate.h"
-
+#include"operations/opHide.h"
 //Constructor
 controller::controller()
 {
@@ -128,6 +128,9 @@ operation* controller::createOperation(operationType OpType)
 
 		case TO_DRAW:
 			pGUI->CreateDrawToolBar();
+			break;
+		case HIDE:
+			pOp = new opHide(this);
 			break;
 	
 	}
