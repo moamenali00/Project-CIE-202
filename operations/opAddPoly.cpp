@@ -67,3 +67,11 @@ void opAddPoly::Execute()
 	else pUI->PrintMessage("the Polygon is out of the range");
 	
 }
+void opAddPoly::Undo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Undo('c');
+};
+void opAddPoly::Redo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Redo('c');
+}

@@ -21,8 +21,9 @@ Graph::~Graph()
 //Add a shape to the list of shapes
 void Graph::Addshape(shape* pShp)
 {
-	pShp->setId(id++);
+	pShp->setId(id);
 	undo.push_back(Trace());
+	undo[undo.size() - 1].Ids.push_back(id++);
 	shapesList.push_back(pShp);	
 }
 ////////////////////////////////////////////////////////////////////////////////////
@@ -165,6 +166,11 @@ void Graph::Redo(char c) {
 		undo.push_back(redo[redo.size() - 1]);
 		redo.pop_back();
 	}
+	else if (c == 'c') {
+		shapesList[redo[redo.size() - 1].Ids[0]]->SetVisible(true);
+		undo.push_back(redo[redo.size() - 1]);
+		redo.pop_back();
+	}
 }
 
 	
@@ -189,6 +195,11 @@ void Graph::Undo(char c) {
 			double diffy = undo[undo.size() - 1].I.y - undo[undo.size() - 1].F.y;
 			shapesList[ID]->Move(diffx,diffy);
 		}
+		redo.push_back(undo[undo.size() - 1]);
+		undo.pop_back();
+	}
+	else if (c == 'c') {
+		shapesList[undo[undo.size() - 1].Ids[0]]->SetVisible(false);
 		redo.push_back(undo[undo.size() - 1]);
 		undo.pop_back();
 	}

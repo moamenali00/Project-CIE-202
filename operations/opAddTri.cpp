@@ -59,3 +59,11 @@ void opAddTri::Execute()
 		pGr->Addshape(R);
 	}
 }
+void opAddTri::Undo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Undo('c');
+};
+void opAddTri::Redo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Redo('c');
+}

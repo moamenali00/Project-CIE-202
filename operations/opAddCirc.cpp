@@ -57,3 +57,11 @@ void opAddCirc::Execute()
 		pGr->Addshape(R);
 	}
 }
+void opAddCirc::Undo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Undo('c');
+};
+void opAddCirc::Redo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Redo('c');
+}

@@ -65,3 +65,11 @@ void opAddRPoly::Execute()
 		pGr->Addshape(R);
 	}
 }
+void opAddRPoly::Undo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Undo('c');
+};
+void opAddRPoly::Redo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Redo('c');
+}

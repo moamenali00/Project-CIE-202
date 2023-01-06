@@ -170,13 +170,21 @@ Graph* controller::getGraph() const
 	return pGraph;
 }
 
-
-
 //Destructor
 controller::~controller()
 {
 	delete pGUI;
 	delete pGraph;
+	while (!undo.empty()) {
+		operation* p = undo.top();
+		undo.pop();
+		delete p;
+	}
+	while (!redo.empty()) {
+		operation* p = redo.top();
+		redo.pop();
+		delete p;
+	}
 	
 }
 
@@ -221,7 +229,31 @@ void controller::Run()
 				undo.push(pOpr);
 				pOpr->Execute();
 			}
-			else if (dynamic_cast<opDrag*> (pOpr)) {
+			else if (dynamic_cast<opAddRect*> (pOpr)) {
+				undo.push(pOpr);
+				pOpr->Execute();
+			}
+			else if (dynamic_cast<opAddCirc*> (pOpr)) {
+				undo.push(pOpr);
+				pOpr->Execute();
+			}
+			else if (dynamic_cast<opAddPoly*> (pOpr)) {
+				undo.push(pOpr);
+				pOpr->Execute();
+			}
+			else if (dynamic_cast<opAddRPoly*> (pOpr)) {
+				undo.push(pOpr);
+				pOpr->Execute();
+			}
+			else if (dynamic_cast<opAddTri*> (pOpr)) {
+				undo.push(pOpr);
+				pOpr->Execute();
+			}
+			else if (dynamic_cast<opAddLine*> (pOpr)) {
+				undo.push(pOpr);
+				pOpr->Execute();
+			}
+			else if (dynamic_cast<opAddSquare*> (pOpr)) {
 				undo.push(pOpr);
 				pOpr->Execute();
 			}

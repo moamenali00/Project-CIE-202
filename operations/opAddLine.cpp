@@ -57,3 +57,11 @@ void opAddLine::Execute()
 	
 
 }
+void opAddLine::Undo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Undo('c');
+};
+void opAddLine::Redo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Redo('c');
+}

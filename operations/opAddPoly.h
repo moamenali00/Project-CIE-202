@@ -9,8 +9,8 @@ public:
 	virtual ~opAddPoly();
 
 	virtual void Execute();
-	virtual void Undo() {};
-	virtual void Redo() {};
+	virtual void Undo() ;
+	virtual void Redo() ;
 
 };
 

@@ -62,3 +62,11 @@ void opAddSquare::Execute()
 		pGr->Addshape(R);
 	}
 }
+void opAddSquare::Undo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Undo('c');
+};
+void opAddSquare::Redo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Redo('c');
+}

@@ -58,3 +58,11 @@ void opAddRect::Execute()
 	}
 }
 	
+void opAddRect::Undo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Undo('c');
+};
+void opAddRect::Redo() {
+	Graph* pGr = pControl->getGraph();
+	pGr->Redo('c');
+}
