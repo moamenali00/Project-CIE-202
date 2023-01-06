@@ -277,3 +277,7 @@ void Rpoly::Hide(GUI* pGUI) {
     string hide = "images\\Hide.jpg";
     pGUI->draw_image(hide, min_x, min_y, rad, rad);
 }
+
+string Rpoly::get_type() {
+    return "Rpoly";
+}

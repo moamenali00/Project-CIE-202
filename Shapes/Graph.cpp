@@ -50,6 +50,17 @@ void Graph::Draw(GUI* pUI) const
 		}
 	}
 }
+vector <shape*> Graph::get_selected() {
+	vector <shape*> selectedShapes;
+	for (int i =0;i< shapesList.size();i++)
+	{
+		if (shapesList[i]->IsSelected()) {
+			selectedShapes.push_back(shapesList[i]);
+		}
+	}
+	return selectedShapes;
+}
+
 void Graph::deSelect() {
 	for (auto shapePointer : shapesList) {
 		shapePointer->SetSelected(false);

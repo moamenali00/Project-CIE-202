@@ -181,3 +181,7 @@ void Square::Hide(GUI* pGUI) {
 	int min_y = min(Corner1.y, Corner2.y);
 	pGUI->draw_image(hide, min_x, min_y, rad, rad);
 }
+
+string Square::get_type() {
+	return "Square";
+}

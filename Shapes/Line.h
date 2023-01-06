@@ -27,6 +27,7 @@ public:
 	//Point rotate_pointL(double cx, double cy, double angle, Point p);
 	virtual void Move(int, int) ;
 	virtual void Hide(GUI* pGUI);
+	virtual string get_type();
 
 };
 

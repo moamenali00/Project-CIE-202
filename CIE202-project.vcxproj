@@ -184,6 +184,7 @@
     <ClCompile Include="operations\opFill.cpp" />
     <ClCompile Include="operations\opHide.cpp" />
     <ClCompile Include="operations\opLoad.cpp" />
+    <ClCompile Include="operations\opMatch.cpp" />
     <ClCompile Include="operations\opPen.cpp" />
     <ClCompile Include="operations\opRedo.cpp" />
     <ClCompile Include="operations\opRot.cpp" />
@@ -244,6 +245,7 @@
     <ClInclude Include="operations\opFill.h" />
     <ClInclude Include="operations\opHide.h" />
     <ClInclude Include="operations\opLoad.h" />
+    <ClInclude Include="operations\opMatch.h" />
     <ClInclude Include="operations\opPen.h" />
     <ClInclude Include="operations\opRedo.h" />
     <ClInclude Include="operations\opRot.h" />

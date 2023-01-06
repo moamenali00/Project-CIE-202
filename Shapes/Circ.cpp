@@ -148,3 +148,7 @@ void Circ::Hide(GUI* pGUI) {
 	string hide = "images\\Hide.jpg";
 	pGUI->draw_image(hide, Corner1.x-rad, Corner1.y-rad, 2*rad, 2*rad);
 }
+
+string Circ::get_type() {
+	return "Circ";
+}

@@ -279,3 +279,7 @@ void Poly::Hide(GUI* pGUI) {
     string hide = "images\\Hide.jpg";
     pGUI->draw_image(hide, min_x,min_y,  rad, rad);
 }
+
+string Poly::get_type() {
+    return "Poly";
+}

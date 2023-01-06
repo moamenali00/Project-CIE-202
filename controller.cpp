@@ -24,6 +24,7 @@
 #include"operations/opAddscramble_image.h"
 #include"operations/opDuplicate.h"
 #include"operations/opHide.h"
+#include"operations/opMatch.h"
 #include<iostream>
 //Constructor
 controller::controller()
@@ -140,7 +141,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 	
 		case MATCH:
+			pOp = new opMatch(this);
 			break;
+
 	
 	}
 	Tf = clock();

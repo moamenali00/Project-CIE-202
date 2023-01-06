@@ -25,6 +25,7 @@ public:
 	virtual void resize(float a);
 	virtual void Move(int, int) ;
 	virtual void Hide(GUI* pGUI);
+	virtual string get_type();
 };
 
 
