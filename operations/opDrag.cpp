@@ -1,5 +1,4 @@
 #include "opDrag.h"
-#include<iostream>
 opDrag::opDrag(controller* pCont) : operation(pCont)
 {}
 opDrag::~opDrag()
@@ -13,6 +12,8 @@ void opDrag::Execute() {
 	I = C;
 	int i = 0;
 	S = pGr->Getshape(C.x, C.y);
+	if (!pUI->getGUIMode())
+		return;
 	do {
 		Sleep(6);
 		i++;

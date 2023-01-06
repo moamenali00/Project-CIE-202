@@ -12,22 +12,33 @@ void opSelect::Execute()
 	GUI* pUI = pControl->GetUI();
 	Graph* pGr = pControl->getGraph();
 	C = pUI->ReturnPointClicked();
-	if (GetAsyncKeyState(VK_CONTROL) & 0x8000) {
-		if (pGr->Getshape(C.x, C.y) != nullptr) {
-			pGr->Getshape(C.x, C.y)->SetSelected(true);
-			pGr->Getshape(C.x, C.y)->PrintInfo(pUI);
+	shape* S= pGr->Getshape(C.x, C.y);
+	if (pUI->getGUIMode()) {
+		if (GetAsyncKeyState(VK_CONTROL) & 0x8000) {
+			if (S != nullptr) {
+				S->SetSelected(true);
+				S->PrintInfo(pUI);
+			}
+			else { pUI->ClearStatusBar(); }
 		}
-		else { pUI->ClearStatusBar(); }
+		else {
+			pGr->deSelect();
+			if (S != nullptr) {
+				S->SetSelected(true);
+				S->PrintInfo(pUI);
+			}
+			else { pUI->ClearStatusBar(); }
+		}
 	}
 	else {
-		pGr->deSelect();
-		if (pGr->Getshape(C.x, C.y) != nullptr) {
-			pGr->Getshape(C.x, C.y)->SetSelected(true);
-			pGr->Getshape(C.x, C.y)->PrintInfo(pUI);
+		if (S != nullptr) {
+			S->SetSelected(true);
+			pUI->PrintMessage("Shape is selected");
 		}
-		else { pUI->ClearStatusBar(); }
+		else {
+			pGr->deSelect();
+			pUI->ClearStatusBar();
+		}
 	}
-
-
 
 }
