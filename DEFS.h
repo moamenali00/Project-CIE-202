@@ -30,6 +30,8 @@ enum operationType //The operations supported (you can add more if needed)
 	MATCH,
 	RESTART,
 	DUPLICATE_GRAPH,
+	UNDO,
+	REDO,
 
 	DRAWING_AREA,	//A click on the drawing area
 	STATUS,			//A click on the status bar

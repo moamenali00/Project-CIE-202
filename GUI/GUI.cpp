@@ -115,6 +115,8 @@ operationType GUI::GetUseroperation()
 			case ICON_PEN: return CHNG_DRAW_CLR;
 			case ICON_DUPLICATE: return DUPLICATE_GRAPH;
 			case ICON_ROT: return ROTATE;
+			case ICON_UNDO: return UNDO;
+			case ICON_REDO: return REDO;
 			case ICON_EXIT: return EXIT;
 
 			default: return EMPTY;	//A click on empty place in desgin toolbar

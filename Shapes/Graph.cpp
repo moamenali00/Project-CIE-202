@@ -41,12 +41,11 @@ void Graph::Draw(GUI* pUI) const
 			if (shapePointer->isHide()) {
 				
 				shapePointer->Hide(pUI);
-				if (shapePointer->IsSelected()) {
-					shapePointer->unHide(pUI);
-					std::chrono::seconds duration(2);
-					std::this_thread::sleep_for(duration);
+				//if (shapePointer->IsSelected()) {
+					//shapePointer->unHide(pUI);
+					
 					//shapePointer->Hide(pUI);
-				}
+				//}
 			}
 		}
 	}
