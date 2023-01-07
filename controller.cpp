@@ -26,6 +26,7 @@
 #include"operations/opHide.h"
 #include"operations/opMatch.h"
 #include"operations/opUnHide.h"
+#include"operations/opStart.h"
 //Constructor
 controller::controller()
 {
@@ -145,7 +146,9 @@ operation* controller::createOperation(operationType OpType)
 		case MATCH:
 			pOp = new opMatch(this);
 			break;
-
+		case START:
+			pOp = new opStart(this);
+			break;
 	
 	}
 	Tf = clock();

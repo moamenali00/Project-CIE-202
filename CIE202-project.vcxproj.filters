@@ -219,6 +219,9 @@
     <ClCompile Include="operations\opUnHide.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opStart.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -397,6 +400,9 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opUnHide.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opStart.h">
       <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>
