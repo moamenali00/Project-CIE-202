@@ -21,13 +21,18 @@ void opMatch::Execute() {
 			selectedShapes[0]->SetVisible(false);
 			selectedShapes[1]->SetVisible(false);
 			pGR->setMatch(pGR->getMatch() + 3);
-			pGUI->PrintMessage("CONGRATS!! the shapes matched. Your score is "+to_string(pGR->getMatch()));
+			pGUI->PrintMessage("CONGRATS!! the shapes matched. Your score is " + to_string(pGR->getMatch()));
 		}
-		else {
+		else if (selectedShapes[0]->get_type() != selectedShapes[1]->get_type()) {
+			pGR->unHide(pGUI);
+			selectedShapes[0]->SetSelected(false);
+			selectedShapes[1]->SetSelected(false);
 			pGR->setMatch(pGR->getMatch() + 1);
 			pGUI->PrintMessage("the shapes don't matched. Your score is " + to_string(pGR->getMatch()));
 		}
 	}
 	else pGUI->PrintMessage("Select only two shapes");
-	
+	if (pGR->getVisible() == 0) {
+		pGUI->PrintMessage("Congrats!! you have finished the game!! Your score is " + to_string(pGR->getMatch()));
+	}
 }

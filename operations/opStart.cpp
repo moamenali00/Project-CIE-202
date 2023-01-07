@@ -17,4 +17,5 @@ void opStart::Execute() {
 	pGR->scramble_image();
 	pGR->pHide(pGUI);
 	pGUI->PrintMessage("Start the game!! you current score is 0");
+	
 }
