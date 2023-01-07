@@ -260,24 +260,9 @@ void Tri::Move(int x, int y) {
 void Tri::Hide(GUI* pGUI) {
 	ShpGfxInfo.isHidden = true;
 	string hide = "images\\Hide.jpg";
-	int min_x = Corner1.x;
-	min_x = min(min_x, Corner2.x);
-	min_x = min(min_x, Corner3.x);
-	int min_y = Corner1.y;
-	min_y = min(min_y, Corner2.y);
-	min_y = min(min_y, Corner3.y);
-
-	int max_x = Corner1.x;
-	max_x = max(max_x, Corner2.x);
-	max_x = max(max_x, Corner3.x);
-	int max_y = Corner1.y;
-	max_y = min(max_y, Corner2.y);
-	max_y = min(max_y, Corner3.y);
-
-	int rad = sqrt(((min_x - max_x) * (min_x - max_x)) + ((min_y - max_y) * (min_y - max_y)));
 	Point center;
-	center.x = abs(min_x + max_x) / 2;
-	center.y = abs(min_y + max_y) / 2;
+	center.x = abs(Corner1.x + Corner2.x + Corner3.x) / 3;
+	center.y = abs(Corner1.y + Corner2.y + Corner3.y) / 3;
 	pGUI->draw_image(hide, center.x - (175 / 2), center.x - (175 / 2), 175, 175);
 }
 
