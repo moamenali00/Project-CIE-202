@@ -27,8 +27,9 @@ void opExit::Execute()
 		output.close();
 		pControl->~controller();
 	}
-
-
+	else {
+		pControl->~controller();
+	}
 
 
 }
