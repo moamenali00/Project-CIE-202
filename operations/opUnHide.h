@@ -1,5 +1,6 @@
 #pragma once
 #include "operation.h"
+
 class controller;
 
 class opUnHide : public operation

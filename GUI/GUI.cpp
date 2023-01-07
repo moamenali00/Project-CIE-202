@@ -188,8 +188,8 @@ void GUI::CreateStatusBar() const
 	pWind->SetBrush(StatusBarColor);
 	pWind->DrawRectangle(0, height - StatusBarHeight, width, height);
 }
-void GUI::draw_image(string h, int k, int e, int z, int w)
 
+void GUI::draw_image(string h, int k, int e, int z, int w)
 {
 	pWind->DrawImage(h, k, e, z, w);
 }
@@ -398,6 +398,7 @@ void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGFxInfo) const
 	else {
 		pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style); 
 	}
+	ClearStatusBar();
 }
 
 
@@ -430,6 +431,7 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 	else {
 		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 	}
+	ClearStatusBar();
 }
 
 void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGFxInfo) const
@@ -460,6 +462,7 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGFxInfo) const
 	else {
 		pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
 	}
+	ClearStatusBar();
 }
 
 void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const 
@@ -497,6 +500,7 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const
 	else {
 		pWind->DrawCircle(P1.x, P1.y, rad, style);
 	}
+	ClearStatusBar();
 }
 
 void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
@@ -517,16 +521,16 @@ void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
 	}
 	else
 		style = FRAME;
-	int c = 0;
+	
 	for (int i = 0; i < iVertices; i++)
 	{
-		if (Y[i] < 70 || Y[i]>650) c = c + 1;
+		if (Y[i] < 70 || Y[i]>650)
+		{
+			PrintMessage("the Polygon is out of the range");
+		}
+		else pWind->DrawPolygon(X, Y, iVertices, style);		
 	}
-	if (c == 0)
-	{
-		pWind->DrawPolygon(X, Y, iVertices, style);
-	}
-	else PrintMessage("the Polygon is out of the range");
+	ClearStatusBar();
 }
 
 

@@ -59,8 +59,8 @@ void Graph::Draw(GUI* pUI) const
 			else if (i > 1) { pUI->PrintMessage(to_string(i) + " shape are selected"); };
 
 		}
-		}
 	}
+}
 void Graph::unHide(GUI* pUI) {
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsSelected() && shapePointer->isHide()) {
