@@ -7,7 +7,8 @@ opMatch::opMatch(controller* pCont) : operation(pCont)
 {}
 
 opMatch:: ~opMatch()
-{}
+{
+}
 
 void opMatch::Execute() {
 	Graph* pGR = pControl->getGraph();
