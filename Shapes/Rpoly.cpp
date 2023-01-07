@@ -253,29 +253,31 @@ shape* Rpoly::duplicate(GUI* pGUI) {
 
 void Rpoly::Hide(GUI* pGUI) {
     ShpGfxInfo.isHidden = true;
-    int min_x = x[0];
-    int min_y = y[0];
-    int max_x = x[0];
-    int max_y = y[0];
-    for (int i = 1; i < vertcies; i++)
-    {
-        if (x[i] < min_x)
-            min_x = x[i];
+    //int min_x = x[0];
+    //int min_y = y[0];
+    //int max_x = x[0];
+    //int max_y = y[0];
+    //for (int i = 1; i < vertcies; i++)
+    //{
+    //    if (x[i] < min_x)
+    //        min_x = x[i];
 
-        if (x[i] > max_x)
-            max_x = x[i];
-    }
-    for (int i = 1; i < vertcies; i++)
-    {
-        if (y[i] < min_y)
-            min_y = y[i];
+    //    if (x[i] > max_x)
+    //        max_x = x[i];
+    //}
+    //for (int i = 1; i < vertcies; i++)
+    //{
+    //    if (y[i] < min_y)
+    //        min_y = y[i];
 
-        if (y[i] > max_y)
-            max_y = y[i];
-    }
-    int rad = sqrt(((min_x - max_x) * (min_x - max_x)) + ((min_y - max_y) * (min_y - max_y)));
+    //    if (y[i] > max_y)
+    //        max_y = y[i];
+    //}
+    ///*center.x = abs(min_x + max_x) / 2;
+    //center.y = abs(min_y + max_y) / 2;*/
+    //int rad = sqrt(((min_x - max_x) * (min_x - max_x)) + ((min_y - max_y) * (min_y - max_y)));
     string hide = "images\\Hide.jpg";
-    pGUI->draw_image(hide, min_x, min_y, rad, rad);
+    pGUI->draw_image(hide, center.x - (175 / 2), center.y - (175 / 2), 175, 175);
 }
 
 string Rpoly::get_type() {

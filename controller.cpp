@@ -133,15 +133,17 @@ operation* controller::createOperation(operationType OpType)
 		case HIDE:
 			pOp = new opHide(this);
 			break;
+		case UNHIDE:
+			pOp = new opUnHide(this);
+			break;
 		case UNDO:
 			pOp = new opUndo(this);
 			break;
 		case REDO:
 			pOp = new opRedo(this);
 			break;
-	
 		case MATCH:
-			pOp = new opUnHide(this);
+			pOp = new opMatch(this);
 			break;
 
 	

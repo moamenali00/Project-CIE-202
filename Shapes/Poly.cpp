@@ -275,9 +275,12 @@ void Poly::Hide(GUI* pGUI) {
         if (y[i] > max_y)
             max_y = y[i];
     }
+    Point center;
+    center.x = abs(min_x + max_x) / 2;
+    center.y = abs(min_y+ max_y) / 2;
     int rad = sqrt(((min_x - max_x) * (min_x - max_x)) + ((min_y -max_y) * (min_y - max_y)));
     string hide = "images\\Hide.jpg";
-    pGUI->draw_image(hide, min_x,min_y,  rad, rad);
+    pGUI->draw_image(hide, center.x - (175 / 2), center.y - (175 / 2), 175, 175);
 }
 
 string Poly::get_type() {

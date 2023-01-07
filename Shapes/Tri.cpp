@@ -275,7 +275,10 @@ void Tri::Hide(GUI* pGUI) {
 	max_y = min(max_y, Corner3.y);
 
 	int rad = sqrt(((min_x - max_x) * (min_x - max_x)) + ((min_y - max_y) * (min_y - max_y)));
-	pGUI->draw_image(hide, min_x, min_y, rad, rad);
+	Point center;
+	center.x = abs(min_x + max_x) / 2;
+	center.y = abs(min_y + max_y) / 2;
+	pGUI->draw_image(hide, center.x - (175 / 2), center.x - (175 / 2), 175, 175);
 }
 
 string Tri::get_type() {

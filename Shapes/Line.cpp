@@ -178,11 +178,13 @@ shape* Line::duplicate(GUI* pGUI) {
 }
 
 void Line::Hide(GUI* pGUI) {
+	Point center;
+	center.x = abs(Corner1.x + Corner2.x) / 2;
+	center.y = abs(Corner1.y + Corner2.y) / 2;
 	ShpGfxInfo.isHidden = true;
 	int rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
 	string hide = "images\\Hide.jpg";
-	if (Corner1.y<Corner2.y) pGUI->draw_image(hide, Corner1.x , Corner1.y ,  rad,  rad);
-	else if (Corner1.y > Corner2.y) pGUI->draw_image(hide, Corner2.x, Corner2.y, rad, rad);
+	pGUI->draw_image(hide, center.x-(175/2), center.x - (175 / 2), 175, 175);
 }
 
 string Line::get_type() {
