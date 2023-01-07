@@ -20,9 +20,13 @@ void opMatch::Execute() {
 		{
 			selectedShapes[0]->SetVisible(false);
 			selectedShapes[1]->SetVisible(false);
-			pGUI->PrintMessage("CONGRATS!! the shapes matched");
+			pGR->setMatch(pGR->getMatch() + 3);
+			pGUI->PrintMessage("CONGRATS!! the shapes matched. Your score is "+to_string(pGR->getMatch()));
 		}
-		else pGUI->PrintMessage("the shapes don't match");
+		else {
+			pGR->setMatch(pGR->getMatch() + 1);
+			pGUI->PrintMessage("the shapes don't matched. Your score is " + to_string(pGR->getMatch()));
+		}
 	}
 	else pGUI->PrintMessage("Select only two shapes");
 	

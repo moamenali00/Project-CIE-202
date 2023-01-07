@@ -19,6 +19,8 @@ class Graph
 private:
 	int size = 0;
 	int id = 0;
+	int match = 0;
+	int misMatch = 0;
 	vector <shape*> shapesList; //a container to hold all shapes							   
 	shape* selectedShape;	//pointer to the currently selected shape
 	vector<shape*> copied;
@@ -30,6 +32,10 @@ public:
 	~Graph();
 	void Undo(char);
 	void Redo(char);
+	int getMatch();
+	void setMatch(int);
+	int getMisMatch();
+	void setMisMatch(int);
 	void Addshape(shape* pFig); //Adds a new shape to the shapesList
 	void Draw(GUI* pUI)const ;			//Draw the graph (draw all shapes)
 	shape* Getshape(int x, int y) const; //Search for a shape given a point inside the shape
@@ -50,4 +56,5 @@ public:
 	void pHide(GUI* pGUI) const;
 	void unHide(GUI*);
 	vector <shape*> get_selected();
+	//int getHidden();
 };

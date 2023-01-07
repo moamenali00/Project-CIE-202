@@ -144,7 +144,36 @@ void Tri::Load(string line) {
 	}
 }
 
-void Tri::RotateShape(){}
+Point Tri::rotate_point(double cx, double cy, double angle, Point p) {
+	float s = sin(angle);
+	float c = cos(angle);
+
+	// translate point back to origin:
+	p.x -= cx;
+	p.y -= cy;
+
+	// rotate point
+	float xnew = p.x * c - p.y * s;
+	float ynew = p.x * s + p.y * c;
+
+	// translate point back:
+	p.x = double(xnew + cx);
+	p.y = double(ynew + cy);
+	return p;
+}
+
+void Tri::RotateShape(){
+	Point center;
+	center.x = abs(Corner1.x + Corner2.x + Corner3.x) / 3;
+	center.y = abs(Corner1.y + Corner2.y + Corner3.y) / 3;
+	Point c1 = rotate_point(center.x, center.y, acos(0), Corner1);
+	Point c2 = rotate_point(center.x, center.y, acos(0), Corner2);
+	Point c3 = rotate_point(center.x, center.y, acos(0), Corner3);
+	Corner1 = c1;
+	Corner2 = c2;
+	Corner3 = c3;
+}
+
 shape* Tri::copy()
 {
 	return new Tri(Corner1, Corner2, Corner3, ShpGfxInfo);

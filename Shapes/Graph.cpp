@@ -93,6 +93,31 @@ void Graph::pHide(GUI* pGUI) const {
 	}
 }
 
+int Graph::getMatch() {
+	return match;
+}
+
+void Graph::setMatch(int a) {
+	match = a;
+}
+
+int Graph::getMisMatch() {
+	return misMatch;
+}
+
+void Graph::setMisMatch(int a) {
+	misMatch = a;
+}
+
+//int Graph::getHidden() {
+//	int c = 0;
+//	for (auto shapePointer : shapesList)
+//	{
+//		if (shapePointer->isHide())
+//			c = c + 1;
+//	}
+//	return c;
+//}
 void Graph::copy()
 {
 	for (auto shapePointer : shapesList) {
