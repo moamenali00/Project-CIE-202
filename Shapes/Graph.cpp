@@ -30,6 +30,7 @@ void Graph::Addshape(shape* pShp)
 //Draw all shapes on the user interface
 void Graph::Draw(GUI* pUI) const
 {
+	int i = 0;
 	pUI->ClearDrawArea();
 	for (auto shapePointer : shapesList) {
 		if (shapePointer->IsVisible() && !shapePointer->isHide())
@@ -41,10 +42,15 @@ void Graph::Draw(GUI* pUI) const
 			}
 		}
 		if (shapePointer->IsVisible() && shapePointer->isHide()) {
-
-				shapePointer->Hide(pUI);
+			shapePointer->Hide(pUI);
+			if (shapePointer->IsSelected()&& !(pUI->getGUIMode())) {
+				i++;
 				
 			}
+			if (i == 1) { pUI->PrintMessage("1 shape is Selected"); }
+			else if (i > 1) { pUI->PrintMessage(to_string(i) + " shape are selected"); };
+
+		}
 		}
 	}
 void Graph::unHide(GUI* pUI) {
@@ -52,7 +58,7 @@ void Graph::unHide(GUI* pUI) {
 		if (shapePointer->IsSelected() && shapePointer->isHide()) {
 			shapePointer->unHide(pUI);
 			Draw(pUI);
-			Sleep(1000);
+			Sleep(500);
 			shapePointer->Hide(pUI);
 		}
 	}
