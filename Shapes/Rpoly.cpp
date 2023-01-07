@@ -73,16 +73,52 @@ void Rpoly::stickimages(GUI* u)
 }
 
 bool Rpoly::CheckSelect(int x0, int y0) const {
-    int j = vertcies - 1;
-    double area = 0.0;
-    for (int i = 0; i < vertcies; i++)
-    {
-        area = area + abs(0.5 * ((x0 * y[i]) - (x[i] * y0) + (x[i] * y[j]) - (x[j] * y[i]) + (x[j] * y0) - (x0 * y[j])));
-        j = i;
-    };
-    double area2 = RpolygonArea(x, y, vertcies);
-    if (area2 == area) return true;
-    else return false;
+    if (!ShpGfxInfo.isHidden) {
+        double area = 0;
+        int j = vertcies - 1;
+        for (int i = 0; i < vertcies; i++)
+        {
+            area = area + abs(0.5 * ((x0 * y[i]) - (x[i] * y0) + (x[i] * y[j]) - (x[j] * y[i]) + (x[j] * y0) - (x0 * y[j])));
+            j = i;
+        };
+        double area2 = RpolygonArea(x, y, vertcies);
+        if (area2 == area) return true;
+        else return false;
+    }
+    else if (ShpGfxInfo.isHidden) {
+        int min_x = x[0];
+        int min_y = y[0];
+        int max_x = x[0];
+        int max_y = y[0];
+        for (int i = 1; i < vertcies; i++)
+        {
+            if (x[i] < min_x)
+                min_x = x[i];
+
+            if (x[i] > max_x)
+                max_x = x[i];
+        }
+        for (int i = 1; i < vertcies; i++)
+        {
+            if (y[i] < min_y)
+                min_y = y[i];
+
+            if (y[i] > max_y)
+                max_y = y[i];
+        }
+        Point center;
+        center.x = abs(min_x + max_x) / 2;
+        center.y = abs(min_y + max_y) / 2;
+        Point ICorner1; Point ICorner2;
+        ICorner1.x = center.x - 175 / 2; ICorner1.y = center.y - 175 / 2;
+        ICorner2.x = center.x + 175 / 2; ICorner2.y = center.y + 175 / 2;
+        if (x0<ICorner1.x && x0>ICorner2.x && y0<ICorner1.y && y0>ICorner2.y || x0 > ICorner1.x && x0<ICorner2.x && y0<ICorner1.y && y0>ICorner2.y || x0<ICorner1.x && x0>ICorner2.x && y0>ICorner1.y && y0<ICorner2.y || x0>ICorner1.x && x0<ICorner2.x && y0>ICorner1.y && y0 < ICorner2.y) {
+            return true;
+        }
+        else
+            return false;
+
+    }
 }
 void Rpoly::PrintInfo(GUI* out) {
     out->ClearStatusBar();

@@ -16,12 +16,28 @@ void Tri::Draw(GUI* pUI) const
 }
 
 bool Tri::CheckSelect(int x, int y) const {
-	double area = 0.5 * abs((Corner1.x * (Corner2.y - Corner3.y)) + (Corner2.x * (Corner3.y - Corner1.y)) + (Corner3.x * (Corner1.y - Corner2.y)));
-	double area_2 = 0.5 * abs((x * (Corner2.y - Corner3.y)) + (Corner2.x * (Corner3.y - y)) + (Corner3.x * (y - Corner2.y)));
-	double area_3 = 0.5 * abs((Corner1.x * (y - Corner3.y)) + (x * (Corner3.y - Corner1.y)) + (Corner3.x * (Corner1.y -y)));
-	double area_4 = 0.5 * abs((Corner1.x * (Corner2.y - y)) + (Corner2.x * (y - Corner1.y)) + (x * (Corner1.y - Corner2.y)));
-	if (area == (area_2 + area_3 + area_4)) return true;
-	else return false;
+	if (!ShpGfxInfo.isHidden) {
+		double area = 0.5 * abs((Corner1.x * (Corner2.y - Corner3.y)) + (Corner2.x * (Corner3.y - Corner1.y)) + (Corner3.x * (Corner1.y - Corner2.y)));
+		double area_2 = 0.5 * abs((x * (Corner2.y - Corner3.y)) + (Corner2.x * (Corner3.y - y)) + (Corner3.x * (y - Corner2.y)));
+		double area_3 = 0.5 * abs((Corner1.x * (y - Corner3.y)) + (x * (Corner3.y - Corner1.y)) + (Corner3.x * (Corner1.y - y)));
+		double area_4 = 0.5 * abs((Corner1.x * (Corner2.y - y)) + (Corner2.x * (y - Corner1.y)) + (x * (Corner1.y - Corner2.y)));
+		if (area == (area_2 + area_3 + area_4)) return true;
+		else return false;
+	}
+	else if (ShpGfxInfo.isHidden) {
+	Point ICorner1; Point ICorner2;
+	Point center;
+	center.x = abs(Corner1.x + Corner2.x + Corner3.x) / 3;
+	center.y = abs(Corner1.y + Corner2.y + Corner3.y) / 3;
+	ICorner1.x = center.x - 175 / 2; ICorner1.y = center.y - 175 / 2;
+	ICorner2.x = center.x + 175 / 2; ICorner2.y = center.y + 175 / 2;
+	if (x<ICorner1.x && x>ICorner2.x && y<ICorner1.y && y>ICorner2.y || x > ICorner1.x && x<ICorner2.x && y<ICorner1.y && y>ICorner2.y || x<ICorner1.x && x>ICorner2.x && y>ICorner1.y && y<ICorner2.y || x>ICorner1.x && x<ICorner2.x && y>ICorner1.y && y < ICorner2.y) {
+		return true;
+	}
+	else
+		return false;
+
+	}
 }
 void Tri::stickimages(GUI* u)
 {
@@ -263,7 +279,7 @@ void Tri::Hide(GUI* pGUI) {
 	Point center;
 	center.x = abs(Corner1.x + Corner2.x + Corner3.x) / 3;
 	center.y = abs(Corner1.y + Corner2.y + Corner3.y) / 3;
-	pGUI->draw_image(hide, center.x - (175 / 2), center.x - (175 / 2), 175, 175);
+	pGUI->draw_image(hide, center.x - (175 / 2), center.y - (175 / 2), 175, 175);
 }
 
 string Tri::get_type() {
