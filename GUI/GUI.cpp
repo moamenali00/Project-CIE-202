@@ -534,5 +534,6 @@ void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
 GUI::~GUI()
 {
 	delete pWind;
+	pWind = nullptr;
 }
 

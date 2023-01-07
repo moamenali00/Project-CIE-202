@@ -10,8 +10,16 @@ Graph::Graph()
 	selectedShape = nullptr;
 }
 
-Graph::~Graph()
-{
+Graph::~Graph() {
+	for (auto shapePointer : shapesList) {
+		delete shapePointer;
+		shapePointer = nullptr;
+	}
+	for (auto shapePointer : copied) {
+		delete shapePointer;
+		shapePointer = nullptr;
+	}
+	cout << "Heelo";
 }
 
 //==================================================================================//
@@ -260,12 +268,7 @@ void Graph::Rotate() {
 	}
  }
 
-void Graph::Clear() {
-	for (auto shapePointer : shapesList) {
-		delete shapePointer;
-		shapePointer=nullptr;
-	}
-}
+
 void Graph::Save(ofstream& outfile){
 	int id = 0;
 	outfile << size<<endl;

@@ -25,12 +25,9 @@ void opExit::Execute()
 		output << " " << UI->getCrntPenWidth() << endl;
 		pGr->Save(output);
 		output.close();
-		pGr->Clear();
+		pControl->~controller();
 	}
 
-	else {
-		pGr->Clear();;
-	}
 
 
 
