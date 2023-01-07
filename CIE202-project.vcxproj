@@ -194,6 +194,7 @@
     <ClCompile Include="operations\opUndo.cpp" />
     <ClCompile Include="operations\opUnHide.cpp" />
     <ClCompile Include="operations\resize.cpp" />
+    <ClCompile Include="operations\opRestart.cpp" />
     <ClCompile Include="Shapes\Graph.cpp" />
     <ClCompile Include="Shapes\Line.cpp" />
     <ClCompile Include="Shapes\Poly.cpp" />
@@ -250,6 +251,7 @@
     <ClInclude Include="operations\opMatch.h" />
     <ClInclude Include="operations\opPen.h" />
     <ClInclude Include="operations\opRedo.h" />
+    <ClInclude Include="operations\opRestart.h" />
     <ClInclude Include="operations\opRot.h" />
     <ClInclude Include="operations\opSave.h" />
     <ClInclude Include="operations\opSelect.h" />

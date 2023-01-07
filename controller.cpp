@@ -27,6 +27,7 @@
 #include"operations/opMatch.h"
 #include"operations/opUnHide.h"
 #include"operations/opStart.h"
+#include"operations/opRestart.h"
 //Constructor
 controller::controller()
 {
@@ -148,6 +149,9 @@ operation* controller::createOperation(operationType OpType)
 			break;
 		case START:
 			pOp = new opStart(this);
+			break;
+		case RESTART:
+			pOp = new opRestart(this);
 			break;
 	
 	}

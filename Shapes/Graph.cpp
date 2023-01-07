@@ -304,11 +304,8 @@ shape* Graph::Getshape(int x, int y) const
 					return shapesList[i];
 				}
 		}
-		
-
-
-		}
-		return nullptr;
+	}
+	return nullptr;
 }
 
 void Graph::duplicate_shape()
@@ -319,4 +316,12 @@ void Graph::duplicate_shape()
 			
 		shapesList.push_back(shapesList[i]->duplicate());
 	}
+}
+
+void Graph::Restart() {
+	for (auto shapePointer : shapesList)
+	{
+		shapePointer->SetVisible(true);
+	}
+	match = 0;
 }

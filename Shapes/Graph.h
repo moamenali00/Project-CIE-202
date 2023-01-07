@@ -56,6 +56,7 @@ public:
 	void Drag(shape*,Point, Point);
 	void pHide(GUI* pGUI) const;
 	void unHide(GUI*);
+	void Restart();
 	vector <shape*> get_selected();
 	//int getHidden();
 };

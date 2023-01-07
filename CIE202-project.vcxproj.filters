@@ -222,6 +222,9 @@
     <ClCompile Include="operations\opStart.cpp">
       <Filter>Operations</Filter>
     </ClCompile>
+    <ClCompile Include="operations\opRestart.cpp">
+      <Filter>Operations</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h" />
@@ -403,6 +406,9 @@
       <Filter>Operations</Filter>
     </ClInclude>
     <ClInclude Include="operations\opStart.h">
+      <Filter>Operations</Filter>
+    </ClInclude>
+    <ClInclude Include="operations\opRestart.h">
       <Filter>Operations</Filter>
     </ClInclude>
   </ItemGroup>

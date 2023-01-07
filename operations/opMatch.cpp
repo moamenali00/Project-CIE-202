@@ -17,6 +17,8 @@ void opMatch::Execute() {
 		{
 			selectedShapes[0]->SetVisible(false);
 			selectedShapes[1]->SetVisible(false);
+			selectedShapes[0]->SetSelected(false);
+			selectedShapes[1]->SetSelected(false);
 			pGR->setMatch(pGR->getMatch() + 3);
 			pGUI->PrintMessage("CONGRATS!! the shapes matched. Your score is " + to_string(pGR->getMatch()));
 		}
