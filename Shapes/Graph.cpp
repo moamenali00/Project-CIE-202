@@ -1,7 +1,6 @@
 #include "Graph.h"
 #include "../GUI/GUI.h"
 #include<fstream>
-#include<iostream>
 #include <chrono>
 #include <thread>
 
@@ -19,7 +18,6 @@ Graph::~Graph() {
 		delete shapePointer;
 		shapePointer = nullptr;
 	}
-	cout << "Heelo";
 }
 
 //==================================================================================//
