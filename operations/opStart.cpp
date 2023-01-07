@@ -13,7 +13,7 @@ opStart:: ~opStart()
 void opStart::Execute() {
 	Graph* pGR = pControl->getGraph();
 	GUI* pGUI = pControl->GetUI();
-	pGR->duplicate_shape(pGUI);
+	pGR->duplicate_shape();
 	pGR->scramble_image();
 	pGR->pHide(pGUI);
 	pGUI->PrintMessage("Start the game!! you current score is 0");

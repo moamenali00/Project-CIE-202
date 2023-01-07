@@ -9,6 +9,6 @@ opDuplicate:: ~opDuplicate()
 
 void opDuplicate::Execute() {
 	Graph* pGr = pControl->getGraph();
-	GUI* pGUI = pControl->GetUI();
-	pGr->duplicate_shape(pGUI);
+	//GUI* pGUI = pControl->GetUI();
+	pGr->duplicate_shape();
 }

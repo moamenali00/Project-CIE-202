@@ -275,7 +275,7 @@ void Rpoly::Move(int x1, int y2) {
     this->set_x_y();
 }
 
-shape* Rpoly::duplicate(GUI* pGUI) {
+shape* Rpoly::duplicate() {
     Point p1, p2;
     p1.x = center.x + 25;
     p1.y = center.y;

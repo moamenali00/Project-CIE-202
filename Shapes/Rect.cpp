@@ -205,7 +205,7 @@ void Rect::paste(int xx, int yy)
 	Corner2.y = Corner1.y - dy;
 }
 
-shape* Rect::duplicate(GUI* pGUI) {
+shape* Rect::duplicate() {
 	Point p1, p2;
 	p1.x = Corner1.x + 25;
 	p1.y = Corner1.y;

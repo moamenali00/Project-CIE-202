@@ -136,7 +136,7 @@ void Circ::resize(float a)
 	Corner2.x = Corner1.x - a * rad;
 }
 
-shape* Circ::duplicate(GUI* pGUI) {
+shape* Circ::duplicate() {
 	int rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
 	Point corner3;
 	corner3.x = Corner1.x + 2* rad;

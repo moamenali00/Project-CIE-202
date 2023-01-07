@@ -50,7 +50,7 @@ public:
 	virtual void paste(int xx, int yy) = 0;
 	virtual void scramble() = 0;
 	virtual void resize(float a) = 0;
-	virtual shape* duplicate(GUI* pGUI) = 0;
+	virtual shape* duplicate() = 0;
 	virtual string get_type() = 0;
 	/*virtual void scrabmle_image(int xx, int yy) = 0;*/
 };

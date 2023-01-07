@@ -182,7 +182,7 @@ void Line::Move(int x, int y) {
 
 
 
-shape* Line::duplicate(GUI* pGUI) {
+shape* Line::duplicate() {
 	Point p1, p2;
 	p1.x = Corner1.x + 25;
 	p1.y = Corner1.y;

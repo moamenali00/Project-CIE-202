@@ -178,7 +178,7 @@ void Square::Move(int x, int y) {
 	Corner2.y = Corner2.y + y;
 }
 
-shape* Square::duplicate(GUI* pGUI) {
+shape* Square::duplicate() {
 	Point p1, p2;
 	p1.x = Corner1.x + 25;
 	p1.y = Corner1.y;

@@ -23,7 +23,7 @@ public:
 	virtual void paste(int xx, int yy);
 	virtual void scramble();
 	virtual void resize(float a);
-	virtual shape* duplicate(GUI* pGUI);
+	virtual shape* duplicate();
 	//Point rotate_pointL(double cx, double cy, double angle, Point p);
 	virtual void Move(int, int) ;
 	virtual void Hide(GUI* pGUI);

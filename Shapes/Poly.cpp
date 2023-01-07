@@ -276,7 +276,7 @@ void Poly::Move(int x1, int y2) {
 }
 
 
-shape* Poly::duplicate(GUI* pGUI) {
+shape* Poly::duplicate() {
     int* x1 = new int[vertcies];
     int* y1 =new int[vertcies];
     for (int i = 0; i < vertcies; i++)

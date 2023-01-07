@@ -311,12 +311,12 @@ shape* Graph::Getshape(int x, int y) const
 		return nullptr;
 }
 
-void Graph::duplicate_shape(GUI* pGUI)
+void Graph::duplicate_shape()
 {	
 	size = shapesList.size();
 
 	for (int i = 0; i < size;i++) {
 			
-		shapesList.push_back(shapesList[i]->duplicate(pGUI));
+		shapesList.push_back(shapesList[i]->duplicate());
 	}
 }

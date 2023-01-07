@@ -279,7 +279,7 @@ void Tri::resize(float a)
 	}
 }
 
-shape* Tri::duplicate(GUI* pGUI) {
+shape* Tri::duplicate() {
 	Point p1, p2,p3;
 	p1.x = Corner1.x + 25;
 	p1.y = Corner1.y;
