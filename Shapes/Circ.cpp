@@ -16,10 +16,23 @@ void Circ::Draw(GUI* pUI) const
 }
 
 bool Circ::CheckSelect(int x, int y) const {
-	double rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
-	double rad_2 = sqrt(((Corner1.x - x) * (Corner1.x - x)) + ((Corner1.y - y) * (Corner1.y - y)));
-	if (rad_2 < rad) return true;
-	else return false;
+	if (!ShpGfxInfo.isHidden) {
+		double rad = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
+		double rad_2 = sqrt(((Corner1.x - x) * (Corner1.x - x)) + ((Corner1.y - y) * (Corner1.y - y)));
+		if (rad_2 < rad) return true;
+		else return false;
+	}
+	else if(ShpGfxInfo.isHidden) {
+		Point ICorner1;Point ICorner2;
+		ICorner1.x = Corner1.x - 175 / 2;ICorner1.y = Corner1.y - 175 / 2;
+		ICorner2.x = Corner1.x + 175 / 2;ICorner2.y = Corner1.y + 175 / 2;
+		if (x<ICorner1.x && x>ICorner2.x && y<ICorner1.y && y>ICorner2.y || x > ICorner1.x && x<ICorner2.x && y<ICorner1.y && y>ICorner2.y || x<ICorner1.x && x>ICorner2.x && y>ICorner1.y && y<ICorner2.y || x>ICorner1.x && x<ICorner2.x && y>ICorner1.y && y < ICorner2.y) {
+			return true;
+		}
+		else
+			return false;
+
+	}
 }
 void Circ::PrintInfo(GUI* out) {
 	out->ClearStatusBar();

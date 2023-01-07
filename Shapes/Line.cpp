@@ -16,13 +16,30 @@ void Line::Draw(GUI* pUI) const
 }
 
 bool Line::CheckSelect(int x, int y) const {
-	double dis = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
-	double dis_2 = sqrt(((Corner1.x - x) * (Corner1.x - x)) + ((Corner1.y - y) * (Corner1.y - y)));
-	double slope = (Corner1.x - Corner2.x) / (Corner1.y - Corner2.y);
-	double slope_2 = (Corner1.x - x) / (Corner1.y - y);
-	if (dis > dis_2 && slope == slope_2) return true;
-	else return false;
+	if (!ShpGfxInfo.isHidden) {
+		double dis = sqrt(((Corner1.x - Corner2.x) * (Corner1.x - Corner2.x)) + ((Corner1.y - Corner2.y) * (Corner1.y - Corner2.y)));
+		double dis_2 = sqrt(((Corner1.x - x) * (Corner1.x - x)) + ((Corner1.y - y) * (Corner1.y - y)));
+		double slope = (Corner1.x - Corner2.x) / (Corner1.y - Corner2.y);
+		double slope_2 = (Corner1.x - x) / (Corner1.y - y);
+		if (dis > dis_2 && slope == slope_2) return true;
+		else return false;
+	}
+	else if (ShpGfxInfo.isHidden) {
+	Point ICorner1;Point ICorner2;
+	Point center;
+	center.x = abs(Corner1.x + Corner2.x) / 2;
+	center.y = abs(Corner1.y + Corner2.y) / 2;
+	ICorner1.x = center.x - 175 / 2;ICorner1.y = center.y - 175 / 2;
+	ICorner2.x = center.x + 175 / 2;ICorner2.y = center.y + 175 / 2;
+	if (x<ICorner1.x && x>ICorner2.x && y<ICorner1.y && y>ICorner2.y || x > ICorner1.x && x<ICorner2.x && y<ICorner1.y && y>ICorner2.y || x<ICorner1.x && x>ICorner2.x && y>ICorner1.y && y<ICorner2.y || x>ICorner1.x && x<ICorner2.x && y>ICorner1.y && y < ICorner2.y) {
+		return true;
+	}
+	else
+		return false;
+
+	}
 }
+
 void Line::PrintInfo(GUI* out) {
 	out->ClearStatusBar();
 	string msg;
