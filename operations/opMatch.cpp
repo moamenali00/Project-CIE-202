@@ -34,4 +34,11 @@ void opMatch::Execute() {
 	if (pGR->getVisible() == 0) {
 		pGUI->PrintMessage("Congrats!! you have finished the game!! Your score is " + to_string(pGR->getMatch()));
 	}
+	for (int i = 0; i < selectedShapes.size(); i++)
+	{
+		selectedShapes[i] = nullptr;
+	}
+
+	pGR = nullptr;
+	pGUI = nullptr;
 }
