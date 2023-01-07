@@ -101,12 +101,13 @@ void Graph::setMatch(int a) {
 	match = a;
 }
 
-int Graph::getMisMatch() {
-	return misMatch;
-}
-
-void Graph::setMisMatch(int a) {
-	misMatch = a;
+int Graph::getVisible() {
+	int i = 0;
+	for (auto shapePointer : shapesList) {
+		if (shapePointer->IsVisible())
+			i = i + 1;
+	}
+	return i;
 }
 
 //int Graph::getHidden() {
@@ -145,6 +146,15 @@ void Graph::scramble_image()
 		shapePointer->scramble();
 	}
 }
+
+void Graph::set_isMatch(bool a) {
+	isMatch = a;
+}
+
+bool Graph::get_isMatch() {
+	return isMatch;
+}
+
 
 void Graph::resize(float a)
 {
