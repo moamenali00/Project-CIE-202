@@ -144,6 +144,7 @@ public:
 	void DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const;  //Draw a rectangle
 	void DrawLine(Point P1, Point P2, GfxInfo LineGFxInfo) const;
 	void DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGFxInfo) const;
+	//void DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo);
 	void DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const;
 	void DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const;
 	///Make similar functions for drawing all other shapes.

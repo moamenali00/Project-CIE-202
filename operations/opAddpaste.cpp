@@ -18,4 +18,5 @@ void opAddpaste::Execute()
 		pGr->paste(x, y, n);
 		pControl->UpdateInterface();
 	} while (n != 0);
+
 }

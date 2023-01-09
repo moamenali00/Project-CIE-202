@@ -398,7 +398,6 @@ void GUI::DrawLine(Point P1, Point P2, GfxInfo LineGFxInfo) const
 	else {
 		pWind->DrawLine(P1.x, P1.y, P2.x, P2.y, style); 
 	}
-	ClearStatusBar();
 }
 
 
@@ -431,7 +430,6 @@ void GUI::DrawRect(Point P1, Point P2, GfxInfo RectGfxInfo) const
 	else {
 		pWind->DrawRectangle(P1.x, P1.y, P2.x, P2.y, style);
 	}
-	ClearStatusBar();
 }
 
 void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGFxInfo) const
@@ -462,7 +460,6 @@ void GUI::DrawTriangle(Point P1, Point P2, Point P3, GfxInfo TriGFxInfo) const
 	else {
 		pWind->DrawTriangle(P1.x, P1.y, P2.x, P2.y, P3.x, P3.y, style);
 	}
-	ClearStatusBar();
 }
 
 void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const 
@@ -493,15 +490,18 @@ void GUI::DrawCircle(Point P1, Point P2, GfxInfo CircGfxInfo) const
 	if (P1.y < 70 || P1.y - rad < 70)
 	{
 		PrintMessage("The Shape is out of the drawing area");
+		
 	}
 	else if (P1.y > 650 || P1.y + rad > 650) {
 		PrintMessage("The Shape is out of the drawing area");
+
 	}
 	else {
 		pWind->DrawCircle(P1.x, P1.y, rad, style);
 	}
-	ClearStatusBar();
 }
+
+
 
 void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
 {
@@ -521,16 +521,21 @@ void GUI::DrawPolygon(int* X, int* Y, int iVertices, GfxInfo PolyGfxInfo) const
 	}
 	else
 		style = FRAME;
+	/*Point center;
+	center.x = 
 	
+	rad = sqrt(((center.x - X[0]) * (center.x - X[0])) + ((center.y - Y[0]) * (center.y - Y[0])));*/
+	
+	int c = 0;
 	for (int i = 0; i < iVertices; i++)
 	{
 		if (Y[i] < 70 || Y[i]>650)
 		{
 			PrintMessage("the Polygon is out of the range");
+			c = c + 1;
 		}
-		else pWind->DrawPolygon(X, Y, iVertices, style);		
 	}
-	ClearStatusBar();
+	if(c==0) pWind->DrawPolygon(X, Y, iVertices, style);
 }
 
 

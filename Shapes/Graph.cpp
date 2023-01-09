@@ -21,7 +21,7 @@ Graph::~Graph() {
 }
 
 //==================================================================================//
-//						shapes Management Functions								//
+//						shapes Management Functions						 		    //
 //==================================================================================//
 
 //Add a shape to the list of shapes
@@ -45,6 +45,9 @@ void Graph::Draw(GUI* pUI) const
 			if (shapePointer->iswithimage())
 			{
 				shapePointer->stickimages(pUI);
+			}
+			if (shapePointer->IsSelected()) {
+				shapePointer->PrintInfo(pUI);
 			}
 		}
 		if (shapePointer->IsVisible() && shapePointer->isHide()) {

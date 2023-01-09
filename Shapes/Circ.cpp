@@ -165,3 +165,4 @@ void Circ::Hide(GUI* pGUI) {
 string Circ::get_type() {
 	return "Circ";
 }
+
